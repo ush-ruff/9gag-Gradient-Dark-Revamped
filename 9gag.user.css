@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.0.0
+@version        1.0.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -487,6 +487,7 @@
   input[type="url"], section#settings form select, section#settings form textarea {
     background-color: var(--bg-500);
     border-color: var(--bg-700);
+    color: var(--cl-400);
     transition: border-color 180ms ease;
   }
   input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus, 
