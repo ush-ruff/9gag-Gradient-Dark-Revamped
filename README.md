@@ -19,8 +19,8 @@
 
 ## Screenshots
 ![screenshot-1](https://i.imgur.com/xRIIoPr.png)
-![screenshot-2](https://i.imgur.com/HfTSGOol.png)
-![screenshot-3](https://i.imgur.com/7WtYmkYl.png)
+![screenshot-2](https://i.imgur.com/HfTSGOo.png)
+![screenshot-3](https://i.imgur.com/7WtYmkY.png)
 
 ## License
 [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
