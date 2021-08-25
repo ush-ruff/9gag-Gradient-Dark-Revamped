@@ -1,3 +1,12 @@
+/* ==UserStyle==
+@name           9gag Gradient Dark - Revamped
+@namespace      github.com/ush-ruff
+@version        1.0.0
+@description    A better looking dark theme for 9gag.
+@author         ushruff
+@license        GNU GPLv3
+==/UserStyle== */
+
 @-moz-document domain("9gag.com") {
   @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
   @font-face {
