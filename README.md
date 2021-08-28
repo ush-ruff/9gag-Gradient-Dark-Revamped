@@ -1,5 +1,5 @@
 # 9gag Gradient Dark - Revamped
- This is an improved dark theme created for 9gag. It changes the color theme and redesigns the layout and posts.
+ This is an improved dark theme created for 9gag. It changes the color theme to dark and redesigns the layout and posts.
 
  It is inspired by [9gag Gradient Black Mode](https://userstyles.org/styles/164082/9gag-gradient-black-mode).
 
@@ -23,4 +23,4 @@
 ![screenshot-3](https://i.imgur.com/7WtYmkY.png)
 
 ## License
-[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
+[GNU GPLv3](LICENSE)

@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.0.1
+@version        1.0.2
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1049,7 +1049,7 @@
     border: 1px solid var(--bg-100);
   }
   .post-comment .context-menu__actions-list {
-    width: min-content;
+    width: max-content;
     right: -10px;
     background-color: var(--bg-700);
     border-radius: var(--br);
