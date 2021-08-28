@@ -18,9 +18,9 @@
   >This is only available using Stylus (see the [documentation](https://github.com/openstyles/stylus/wiki/Usercss)).
 
 ## Screenshots
-![screenshot-1](https://i.imgur.com/xRIIoPr.png)
-![screenshot-2](https://i.imgur.com/HfTSGOo.png)
-![screenshot-3](https://i.imgur.com/7WtYmkY.png)
+![screenshot-1](images/Screenshot-1.png)
+
+![screenshot-2](images/Screenshot-2.png)
 
 ## License
 [GNU GPLv3](LICENSE)
