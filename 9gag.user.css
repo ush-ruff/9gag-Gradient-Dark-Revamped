@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.2.0
+@version        1.2.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -238,6 +238,14 @@
   }
   .noti-item a, .noti-item.unread a {
     color: var(--blue-light);
+  }
+  .notification .badge-new {
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--red-dark); 
+    border-radius: 50%;
   }
   
   /* Search */
@@ -1278,18 +1286,24 @@
   .comment-list-item_highlighted .comment-footer::after {
     border-radius: 0;
   }
-  @keyframes comment-highlight-47d713b4 {
-    0% {
-      background-color:transparent;
+  .post-comment .comment-list-item_highlighted {
+    -webkit-animation-name: new-comment-highlight;
+    animation-name: new-comment-highlight;
+  }
+  @-webkit-keyframes new-comment-highlight {
+    0%, 100% {
+      background-color: transparent;
     }
-    10% {
+    10%, 90% {
       background-color: var(--blue-light);
     }
-    90% {
-      background-color: var(--blue-light);
+  }
+  @keyframes new-comment-highlight {
+    0%, 100% {
+      background-color: transparent;
     }
-    100% {
-      background-color:transparent;
+    10%, 90% {
+      background-color: var(--blue-light);
     }
   }
   
