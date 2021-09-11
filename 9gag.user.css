@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.2.2
+@version        1.3.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -127,6 +127,9 @@
   }
   .visitor-function .btn-mute:hover {
     color: var(--cl-200);
+  }
+  .general-function {
+    padding-right: 8px;
   }
   .general-function .darkmode-toggle:is(:hover, :focus) {
     background-position-y: -32px; 
