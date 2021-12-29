@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.5.0
+@version        1.5.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -899,23 +899,27 @@
   
   /* Posts */
   section#list-view-2 article {
-    padding: 20px 0 10px 70px !important;
+    max-width: 50em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0 0 1em !important;
     background: var(--bg-200);
-    border-bottom: 10px solid var(--bg-200) !important;
-    border-top: none;
     border-radius: var(--br);
+    overflow: hidden;
   }
+    
+  /* -- Post Header -- */
   section#list-view-2 header {
-    margin: -20px 0 8px -70px;
-    padding: 10px 50px 7px;
+    margin: 0;
+    padding: 10px 50px;
     background: var(--bg-300);
-    border-radius: var(--br) var(--br) 0 0;
   }
   section#list-view-2 h1 {
     line-height: 1.4em;
     color: var(--cl-400);
   }
-  section#list-view-2 header a:hover h1 {
+  section#list-view-2 header a h1:hover {
     color: var(--cl-100);
   }
   section:is(#individual-post, #list-view-2) .post-section .icon {
@@ -935,31 +939,13 @@
   section:is(#individual-post, #list-view-2) .post-section__action .save path[fill="#FF3B30"] {
     fill: var(--blue-light);
   }
-  section#list-view-2 p.post-meta a:hover, 
   section:is(#individual-post, #list-view-2) .post-section .message a:hover {
     color: var(--cl-500);
   }
-  section#list-view-2 .post-container {
-    margin-left: -70px;
-  }
-  section#list-view-2 .post-container > div {
-    display: flex;
-    justify-content: center;
-  }
-  section#list-view-2 .post-container .post-view {
-    padding-inline: 0 !important;
-    background-color: var(--bg-200);
-    border-radius: 0;
-  }
-  section#list-view-2 .post-container .post-view img {
-    padding: 0 !important;
-    border-radius: 0;
-  }
+  /* Post Menu Button */
   section#list-view-2 .post-section .button {
+    background-color: transparent !important;
     transform: scale(1.45) translate(10px, 8px);
-  }
-  section#list-view-2 .post-section .button:is(:hover, :focus, .active) {
-    background-color: transparent;
   }
   section#list-view-2 .post-section .button .more {
     filter: var(--invert);
@@ -969,7 +955,7 @@
   section#list-view-2 [id^="jsid-post"]:is(:hover, :focus) .post-section .more {
     opacity: 0.4;
   }
-  section#list-view-2 [id^="jsid-post"] .post-section .button:is(:hover, :focus, .active) .more {
+  section#list-view-2 .post-section .button:is(:hover, :focus, .active) .more {
     opacity: 0.8;
   }
   section#individual-post .post-section .button {
@@ -987,8 +973,54 @@
   section#individual-post .post-section .button:is(:hover, :focus, .active) .more {
     opacity: 1;
   }
-  .post-afterbar-a {
-    width: calc(100% - 70px);
+    
+  /* -- Post Inner -- */
+  section#list-view-2 .post-container {
+    width: 100%;
+    align-self: center;
+    margin: 0;
+  }
+  section#list-view-2 .post-container .post-view {
+    margin: 0 auto;
+    padding: 0 !important;
+    background-color: var(--bg-200);
+    border-radius: 0;
+  }
+  section#list-view-2 .post-container .post-view img {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .gif-post span.play, 
+  :is(.video-post, .youtube-post) span.play, 
+  :is(.video-post, .youtube-post) .sound-toggle, 
+  :is(.video-post, .youtube-post) p.length {
+    background-color: var(--bg-300);
+    opacity: 0.8;
+  }
+  :is(.video-post, .youtube-post) span.play {
+    transition: transform 180ms ease-out;
+  }
+  :is(.video-post, .youtube-post) span.play::after {
+    background-size: 85px;
+  }
+  :is(.video-post, .youtube-post) span.play:hover {
+    transform: scale(1.1);
+  }
+  :is(.video-post, .youtube-post) p.length {
+    bottom: 22px;
+  }
+  .post-text-container blockquote {
+    padding: 10px 10px 5px 20px;
+    background: var(--bg-300);
+    border-color: var(--bg-600);
+  } 
+  
+  
+  /* -- Post Footer -- */
+  section#list-view-2 .post-afterbar-a {
+    box-sizing: border-box;
+    width: 100%;
+    padding-inline: 2em;
   }
   .post-afterbar-a .btn-vote:nth-child(2) li {
     width: min-content;
@@ -1020,6 +1052,7 @@
   .btn-vote[data-v-5026a6e9] a::after {
     inset: 2px 0 0 10px;
     margin: 0;
+    background: red !important;
   }
   .btn-vote .up:after,.btn-vote .up.active::after {
     content: "\f062";
@@ -1033,21 +1066,20 @@
     background-color: transparent;
     border: 1px solid var(--green-light);
   }
-  .btn-vote .up.active::after, 
-  .btn-vote .up:hover::after {
+  .btn-vote .up:is(.active, :hover)::after {
     color: var(--green-light);
   }
   .btn-vote li .down.active {
     background-color: transparent;
     border: 1px solid var(--red-light);
   }
-  .btn-vote .down.active::after, 
-  .btn-vote .down:hover::after {
+  .btn-vote .down:is(.active, :hover)::after {
     color: var(--red-light);
   }
   .btn-vote .comment::after {
     transform: scale(1.2);
   }
+  /* Social Media Buttons */
   .share .btn-share {
     width: 36px;
     padding: 0;
@@ -1080,6 +1112,7 @@
   .share .button.share:hover::after {
     filter: invert(1);
   }
+  /* Read More */
   .post-read-more {
     height: 44px;
     font-size: 16px;
@@ -1104,30 +1137,6 @@
     background-image: none;
     background-color: var(--bg-500);
     color: var(--cl-400);
-  }
-  .gif-post span.play, 
-  .video-post span.play, .youtube-post span.play, 
-  .video-post .sound-toggle, .youtube-post .sound-toggle, 
-  .video-post p.length, .youtube-post p.length {
-    background-color: var(--bg-300);
-    opacity: 0.8;
-  }
-  .video-post span.play, .youtube-post span.play {
-    transition: transform 180ms ease-out;
-  }
-  .video-post span.play::after, .youtube-post span.play::after {
-    background-size: 85px;
-  }
-  .video-post span.play:hover, .youtube-post span.play:hover {
-    transform: scale(1.1);
-  }
-  .video-post p.length, .youtube-post p.length {
-    bottom: 22px;
-  }
-  .post-text-container blockquote {
-    padding: 10px 10px 5px 20px;
-    background: var(--bg-300);
-    border-color: var(--bg-600);
   }
   
   /* Post Page */
