@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.4.0
+@version        1.5.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -51,7 +51,9 @@
     --ff: Rubik, Open Sans, sans-serif;
     --br: 0.25rem;
     --invert: brightness(10%) grayscale(1) invert(0.9);
-    
+
+  }
+  * {
     scrollbar-width: thin;
     scrollbar-color: var(--bg-700) var(--bg-300);
   }
@@ -315,6 +317,36 @@
     border-bottom: 0.4375rem solid var(--bg-500);
     z-index: 2;
   }
+  section#list-view-2 .menu {
+    top: calc(100% + 19px);
+    right: -40px;
+  }
+  .menu::before {
+    content: "";
+    position: absolute;
+    top: -19px;
+    border: 10px solid transparent;
+    border-bottom-color: var(--bg-500);
+  }
+  section#list-view-2 .menu::before {
+    right: 27px;
+  }
+  section#individual-post .menu {
+    top: calc(100% - 2px);
+    right: -12px;
+    z-index: 13;
+  }
+  section#individual-post .menu::before {
+    right: 24px;
+  }
+  .drawer-container .menu {
+    right: 0;
+    left: revert;
+    margin: revert;
+  }
+  .drawer-container .menu::before {
+    right: 20px;
+  }
   section#signup .social-signup {
     border-bottom-color: var(--bg-600);
   }
@@ -498,7 +530,6 @@
   #signup .signup-overlay path[d="M7.38635 12L0.386353 5H5.38635V0H9.38635V5H14.3864L7.38635 12Z"] {
     fill: var(--red-light);
   }
-  
   #signup .signup-overlay path[d="M24 0H4C1.8 0 0.0200005 1.8 0.0200005 4L0 36L14 30L28 36V4C28 1.8 26.2 0 24 0Z"] {
     fill: #0077FF;
   }
@@ -955,9 +986,6 @@
   }
   section#individual-post .post-section .button:is(:hover, :focus, .active) .more {
     opacity: 1;
-  }
-  section#individual-post .post-section .uikit-popup-menu .menu {
-    z-index: 13;
   }
   .post-afterbar-a {
     width: calc(100% - 70px);
