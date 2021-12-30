@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.5.2
+@version        1.5.3
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -989,6 +989,7 @@
   section#list-view-2 .post-container .post-view img {
     box-sizing: border-box;
     width: 100%;
+    border-radius: 0;
   }
   .gif-post span.play, 
   :is(.video-post, .youtube-post) span.play, 
@@ -1014,7 +1015,13 @@
     background: var(--bg-300);
     border-color: var(--bg-600);
   } 
-  
+  .post-text-container a {
+    color: var(--cl-500);
+  }
+  .post-text-container a:hover {
+    text-decoration: none;
+    color: var(--cl-200);
+  }
   
   /* -- Post Footer -- */
   section#list-view-2 .post-afterbar-a {
@@ -1120,6 +1127,7 @@
     background-color: var(--bg-300);
     border: 1px solid var(--bg-400);
     border-top: none;
+    border-radius: 0;
     color: var(--cl-400);
   }
   .post-read-more::after {
