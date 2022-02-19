@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.5.4
+@version        1.5.5
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1220,15 +1220,20 @@
   .post-comment .comment-composer {
     margin-bottom: 20px;
   }
-  .post-comment .comment-input-area-content, 
-  .post-comment .comment-composer__input-area__footer {
+  .post-action-comment .comment-composer {
+    box-sizing: border-box;
+    margin: 0;
+    padding-inline: 1em;
+  }
+  .comment-composer .comment-input-area-content, 
+  .comment-composer .comment-composer__input-area__footer {
     border-color: var(--bg-200);
   }
-  .post-comment .comment-input-area-content__input-area_textarea {
+  .comment-composer .comment-input-area-content__input-area_textarea {
     background-color: var(--bg-500);
     color: var(--cl-400);
   }
-  .post-comment .comment-composer__input-area__footer {
+  .comment-composer .comment-composer__input-area__footer {
     background-color: var(--bg-300);
   }
   .post-comment .comment-notice-message {
