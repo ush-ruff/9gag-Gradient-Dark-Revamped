@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.5.5
+@version        1.6.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -390,25 +390,344 @@
     background-color: var(--bg-500);
   }
   
-  /* Upload */
-  .modal.upload .source {
-    background-color: var(--bg-600);
-    border-color: var(--bg-700);
+  /* -- Upload -- */
+  #upload-component .header .page-title {
     color: var(--cl-300);
   }
-  .modal.upload .source:hover {
-    background-color: var(--bg-500);
+  #upload-component .white-card {
+    background-color: var(--bg-200);
+    border-color: transparent;
+    border-radius: var(--br);
+    color: var(--cl-300);
   }
-  .modal.upload .source.file::after, .modal.upload .source.pic-url::after, 
-  .modal.upload .source.vid-url::after{
+  #upload-component :is(.input-container, .upload-card, .tag-bar) {
+    background-color: var(--bg-300);
+    border-color: var(--bg-300);
+    border-radius: var(--br);
+    color: var(--cl-300);
+  }
+  #upload-component .upload-content-wrapper .icon {
     filter: var(--invert);
   }
-  .modal.upload .wrapper .tooltip {
+  /* Upload sidebar - rules */
+  #upload-component .rule-container {
+    background-color: var(--bg-300);
+    border-color: var(--bg-400b);
+    border-radius: var(--br);
+    overflow: hidden;
+  }
+  #upload-component .rule-container .collapse-header {
+    background-color: var(--bg-400b);
+  }
+  #upload-component .rule-container .separator {
+    border-color: var(--bg-500);
+  }
+  #upload-component .rule-container .text {
+    color: var(--cl-100);
+  }
+  #upload-component .rule-container .rule-item {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--cl-500);
+  }
+  #upload-component .header-container .title .name {
+    color: var(--cl-300);
+  }
+  #upload-component .header-container .description {
+    color: var(--cl-500);
+  }
+  #upload-component .header-container .separator {
+    display: none;
+  }
+  #upload-component .avatar .badge {
+    border: 1px solid var(--bg-100);
+  }
+  #upload-component .avatar .badge.online {
+    background-color: var(--green-light);
+  }
+  /* Upload - Main Container */
+  #upload-component .search-wrapper .search-bar {
+    background: var(--bg-400b);
+    border-color: var(--bg-400b);
+    border-radius: var(--br);
+  }
+  #upload-component .search-wrapper .section-input__text {
+    color: var(--cl-400);
+    caret-color: inherit;
+  }
+  #upload-component .search-wrapper .title {
+    color: var(--cl-400);
+  }
+  #upload-component .drop-down-container {
+    margin-top: .25em;
+    background-color: var(--bg-500);
+    border-color: var(--bg-500);
+    border-radius: var(--br);
+  }
+  #upload-component .drop-down-container .title {
+    color: var(--cl-400);
+  }
+  #upload-component .drop-down-container .subtitle {
+    color: var(--cl-600);
+  }
+  #upload-component .drop-down-container .item-container:is(:hover, :focus) {
+    background-color: var(--bg-400);
+  }
+  #upload-component .textarea {
+    color: var(--cl-300);
+    caret-color: inherit;
+  }
+  #upload-component .word-count.red {
+    color: var(--red-light);
+  }
+  #upload-component .container .url-bar {
+    background-color: var(--bg-500);
+    border-color: var(--bg-600);
+    border-radius: var(--br);
+    color: var(--cl-500);
+  }
+  #upload-component .container .url-bar .text-input {
+    font-family: var(--ff);
+    color: inherit;
+    caret-color: inherit;
+  }
+  #upload-component .upload-card .remove-btn {
+    background-color: transparent;
+  }
+  #upload-component .upload-card .remove-btn img {
+    display: none;
+  }
+  #upload-component .upload-card .remove-btn::before {
+    content: "\f00d";
+    position: absolute;
+    font-family: "Font-Awesome Pro";
+    font-size: 1.3rem;
+    padding: 0.2em 0.4em;
+    background-color: var(--bg-500);
+    border-radius: 50%;
+    color: var(--cl-500);
+  }
+  #upload-component .upload-card .remove-btn:hover::before {
+    background-color: var(--bg-700);
+    color: var(--cl-100);
+  }
+  #upload-component .paste-btn {
+    position: relative;
+    padding-inline-start: 2em;
+    background-color: var(--bg-500);
+    border-radius: var(--br);
+    color: var(--cl-500);
+  }
+  #upload-component .paste-btn:is(:hover, :focus) {
+    background-color: var(--bg-700);
+    color: var(--cl-100);
+  }
+  #upload-component .paste-btn::before {
+    content: "\f328";
+    position: absolute;
+    inset: 8px auto auto 1.3em;
+    font-family: "Font-Awesome Pro";
+    font-weight: 100;
+    color: inherit;
+  }
+  #upload-component .paste-btn .text {
+    color: inherit;
+  }
+  #upload-component .paste-btn img {
+    display: none;
+  }
+  #upload-component .upload-progress-bar:is(.uploading, .uploaded) {
+    background-color: var(--blue-light);
+  }
+  /* Upload Tags */
+  #upload-component .input-wrapper {
+    border-radius: var(--br);
+  }
+  #upload-component .input-wrapper .tag-input__text:focus {
+    caret-color: var(--cl-300);
+  }
+  #upload-component .input-wrapper .tag-input__text.highlight {
     background-color: var(--bg-500);
     color: var(--cl-300);
   }
-  .modal.upload .wrapper .tooltip::before {
-    border-bottom-color: var(--bg-500);
+  #upload-component .tag-input__tag {
+    position: relative;
+    font-weight: 400;
+    background-color: var(--bg-600);
+    color: var(--cl-200);
+  }
+  #upload-component .tag-input__tag .cross img {
+    display: none;
+  }
+  #upload-component .tag-input__tag .cross::before {
+    content: "\f00d";
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: "Font-Awesome Pro", var(--ff);
+    font-weight: 100;
+    font-size: 0.75rem;
+    color: var(--cl-800);
+  }
+  #upload-component .tag-input__tag .cross:hover::before {
+    color: var(--cl-100);
+  }
+  #upload-component .tag-bar .suggestion-wrapper {
+    bottom: 2.75em;
+    left: -2em;
+  }
+  #upload-component .tag-bar .suggestion-wrapper::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -0.5em;
+    left: 2.3em;
+    width: 0;
+    height: 0;
+    border-inline: 0.5rem solid transparent;
+    border-top: 0.5rem solid var(--bg-500);
+    z-index: 2;
+  }
+  #upload-component .tag-bar .suggestion-wrapper .suggestions-container {
+    background-color: var(--bg-500);
+    border-color: var(--bg-500);
+    border-radius: var(--br);
+  }
+  #upload-component .suggestions-container .tag-item:is(:focus, :hover) {
+    background-color: var(--bg-400);
+  }
+  #upload-component .suggestions-container .tag-item .count {
+    color: var(--cl-600);
+  }
+  /* Toggle btn */
+  #upload-component .toggle-button {
+    position: relative;
+    color: var(--cl-900);
+  }
+  #upload-component .toggle-button::before {
+    content: "\f013";
+    position: absolute;
+    inset: 0;
+    font-family: "Font-Awesome Pro", var(--ff);
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.6;
+    color: inherit;
+  }
+  #upload-component .toggle-button img {
+    display: none;
+  }
+  #upload-component :is(.toggle-button:hover, .toggle-button.hv-bg) {
+    background-color: rgba(255 255 255 / 0.1);
+    color: var(--cl-200);
+  }
+  #upload-component .dialog-position {
+    bottom: 45px;
+    left: -10px;
+  }
+  #upload-component .dialog-container {
+    position: relative;
+    background-color: var(--bg-500);
+    border-radius: var(--br);
+    color: var(--cl-400);
+  }
+  #upload-component .dialog-container::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -0.6em;
+    left: 1.8rem;
+    width: 0;
+    height: 0;
+    border-inline: 0.5rem solid transparent;
+    border-top: 0.5rem solid var(--bg-500);
+    z-index: 2;
+  }
+  #upload-component .dialog-container .checkbox img {
+    display: none;
+  }
+  #upload-component .dialog-container .checkbox label {
+    position: relative;
+    width: 1.4em;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border: 2px solid var(--cl-900);
+    border-radius: 0.25em;
+  }
+  #upload-component .dialog-container .checkbox input[type="checkbox"]:checked + label {
+    border-color: var(--blue-light);
+  }
+  #upload-component .dialog-container .checkbox input[type="checkbox"] + label:hover::before,
+  #upload-component .dialog-container .checkbox input[type="checkbox"]:checked + label::before {
+    content: "\f00c";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0;
+    font-family: "Font-Awesome Pro", var(--ff);
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.2;
+    pointer-events: none;
+  }
+  #upload-component .dialog-container .checkbox input[type="checkbox"]:checked + label::before {
+    background: var(--blue-light);
+    color: var(--cl-100);
+  }
+  #upload-component .dialog-container .dialog-item input.source {
+    color: var(--cl-800);
+  }
+  /* Security check & Upload success */
+  :is(.security-check, .upload-success-modal).overlay.overlay-default .modal {
+    background-color: var(--bg-300);
+    border-radius: var(--br);
+  }
+  :is(.security-check, .upload-success-modal).overlay .modal-header__title {
+    color: var(--cl-300);
+  }
+  .security-check.overlay .subtitle {
+    color: var(--cl-500);
+  }
+  :is(.security-check, .upload-success-modal).overlay .modal-header__close {
+    background-color: transparent;
+  }
+  :is(.security-check, .upload-success-modal).overlay .modal-header__close .icon-color {
+    fill: var(--cl-500);
+  }
+  :is(.security-check, .upload-success-modal).overlay .modal-header__close:hover .icon-color {
+    fill: var(--cl-100);
+  }
+  .security-check.overlay .modal .modal__content {
+    display: flex;
+    flex-direction: column;
+  }
+  .security-check.overlay .ui-btn {
+    margin-inline: auto;
+    border-radius: var(--br);
+  }
+  .upload-success-modal.overlay .modal.with-header.with-header-border .modal__header {
+    height: auto;
+    padding-block: 0.3em 0.25em; 
+    background-color: var(--bg-400b);
+    border-bottom-color: var(--bg-400b)
+  }
+  .upload-success-modal.overlay .modal.with-footer.with-footer-border .modal__footer {
+    background-color: var(--bg-300);
+    border: none;
+  }
+  .upload-success-modal.overlay .modal.no-content-padding .modal__content {
+    padding-block-start: 0.5em; 
+  }
+  .upload-success-modal.overlay .upload-success-modal__body a {
+    color: var(--cl-400);
+  }
+  .upload-success-modal.overlay .upload-success-modal__body a:is(:hover, :focus, :active) {
+    background-color: var(--bg-200);
+  }
+  .upload-success-modal.overlay .upload-success-modal__footer-link input {
+    background-color: var(--bg-500);
+    border-color: var(--bg-500);
+    border-radius: var(--br);
+    color: var(--cl-500);
   }
 
   /* Sign Up */
