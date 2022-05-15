@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.6.0
+@version        1.7.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -46,6 +46,7 @@
     --red-dark: #702321;
     --green-light: #13b66b;
     --blue-light: #0b8be1;
+    --blue-lighter: #109ffd;
     --yellow: #dfb200;
   
     --ff: Rubik, Open Sans, sans-serif;
@@ -86,6 +87,29 @@
   .img-container, .sidebar {
     background-color: var(--bg-100);
   }
+
+  /* ---- Buttons ---- */
+  .ui-btn.btn-color-primary {
+    background-color: var(--blue-lighter) !important;
+    border-radius: var(--br);
+  }
+  .ui-btn.btn-color-primary:hover {
+    background-color: var(--blue-light) !important;
+  }
+  
+  /* ---- Toast Notifications ---- */
+  .ui-toast-view .ui-toast__info {
+    background-color: var(--blue-light);
+    color: var(--cl-100);
+  }
+  .ui-toast-view .ui-toast__notice {
+    background-color: var(--yellow);
+    color: var(--bg-100);
+  }
+  .ui-toast-view .ui-toast__error {
+    background-color: var(--red-dark);
+    color: var(--cl-100);
+  }
   
   /* Loading */
   .loading a.btn {
@@ -97,6 +121,17 @@
   }
   .simple-spinner:not(:required)::before {
     border-top-color: var(--cl-500);
+  }
+
+  /* Post not found - Error 404 */
+  .btn-download {
+    background-image: none;
+  }
+  .btn-download::before {
+    content: "\f063";
+    font-family: "Font-Awesome", var(--ff);
+    font-weight: 500;
+    margin-inline: -2rem 0.5rem;
   }
   
   /* Back to Top */
@@ -110,7 +145,7 @@
   }
   
   /* Header */
-  header#top-nav {
+  header#top-nav, header.top-nav {
     background: linear-gradient(90deg, var(--bg-100), var(--bg-800));
     border-color: transparent;
   }
@@ -286,14 +321,14 @@
     border-radius: var(--br);
   }
   :is(.popup-menu, .menu, section#list-view-2 .menu) ul a {
-    color: var(--cl-400);
+    color: var(--cl-400) !important;
   }
   :is(.popup-menu, .menu, .uikit-popup-menu .menu) ul strong {
     color: var(--cl-200);
   }
   :is(.popup-menu, .menu, section#list-view-2 .menu) ul a:is(:hover, :focus) {
     background-color: var(--bg-400);
-    color: var(--cl-300);
+    color: var(--cl-300) !important;
   }
   :is(.popup-menu, .menu, .uikit-popup-menu .menu) ul strong:is(:hover, :focus) {
     color: var(--cl-100);
@@ -1108,7 +1143,7 @@
     color: var(--cl-400);
   }
   .board-message-text__mention-user {
-    color: #109ffd;
+    color: var(--blue-lighter);
   }
   .board-system .user-avatar__online {
     background-color: var(--green-light);
@@ -1544,16 +1579,30 @@
     margin: 0;
     padding-inline: 1em;
   }
+  .comment-composer .comment-input-area-content {
+    background: transparent;
+    border-radius: 0;
+  }
   .comment-composer .comment-input-area-content, 
   .comment-composer .comment-composer__input-area__footer {
     border-color: var(--bg-200);
   }
   .comment-composer .comment-input-area-content__input-area_textarea {
     background-color: var(--bg-500);
+    border-radius: var(--br) var(--br) 0 0;
     color: var(--cl-400);
   }
   .comment-composer .comment-composer__input-area__footer {
     background-color: var(--bg-300);
+  }
+  .comment-composer .comment-composer__input-area button.post {
+    background-color: var(--blue-lighter);
+  }
+  .comment-composer .comment-composer__input-area button.post:hover {
+    background-color: var(--blue-light);
+  }
+  .post-comment .load-next__replies {
+    color: var(--blue-light);
   }
   .post-comment .comment-notice-message {
     font-size: 14px;
