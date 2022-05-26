@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.8.0
+@version        1.8.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -142,6 +142,16 @@
   a.back-to-top:hover {
     background-color: var(--bg-600);
     border-color: var(--bg-800);
+  }
+
+  /* ---- Basic Modals ---- */
+  .overlay.overlay-default .modal.with-footer {
+    background-color: var(--bg-200);
+    border-radius: var(--br);
+    box-shadow: 0 0 15px 2px rgba(0 0 0 / 0.5);
+  }
+  .overlay.overlay-default .modal__footer {
+    background-color: transparent;
   }
   
   /* ---- Header ---- */
@@ -539,6 +549,7 @@
     transform: rotate(45deg);
   }
   .topbar-menu :is(.single-item, .toggle-item) .text{
+    font-family: inherit;
     color: var(--cl-400);
   }
   .topbar-menu :is(.single-item, .toggle-item):hover {
@@ -1273,6 +1284,15 @@
   section#settings li.selected .label {
     background-color: var(--bg-400);
   }
+  #settings .field label {
+    color: var(--cl-500);
+  }
+  #settings .field p.tips {
+    color: var(--cl-600);
+  }
+  #settings .connection p.label {
+    color: var(--cl-400);
+  }
   input[type="submit"] {
     color: var(--cl-100);
     background-color: var(--bg-900);
@@ -1675,10 +1695,14 @@
     background-color: var(--bg-400b);
   }
   .share .button.share::after {
-    filter: invert(0.8);
+    background-image: url(https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/share.svg);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0.8);
   }
   .share .button.share:hover::after {
-    filter: invert(1);
+    filter: brightness(1);
   }
   /* Read More */
   .post-read-more {
@@ -1706,6 +1730,15 @@
     background-image: none;
     background-color: var(--bg-500);
     color: var(--cl-400);
+  }
+  /* Text */
+  section#list-view-2 .post-text-container {
+    box-sizing: border-box;
+    margin-block-start: 1em;
+    padding-inline: 2em;
+  }
+  section#list-view-2 .post-text-container p {
+    margin: 0;
   }
   
   /* ---- Post Page ---- */
@@ -1818,6 +1851,10 @@
   .post-comment .single-thread__toggle-to-list-button {
     width: 95%;
     align-self: end;
+  }
+  .post-comment .load-previous, 
+  .post-comment .single-thread__toggle-to-list-button, 
+  .post-comment .comment-list__load-more {
     font-family: Lato, var(--ff);
     text-transform: capitalize;
     margin-inline: 0;
@@ -1827,7 +1864,8 @@
     color: var(--cl-100);
   }
   .post-comment .load-previous:hover,
-  .post-comment .single-thread__toggle-to-list-button:hover {
+  .post-comment .single-thread__toggle-to-list-button:hover, 
+  .post-comment .comment-list__load-more:hover {
     background-color: var(--blue-light);
     color: var(--cl-300);
   }
