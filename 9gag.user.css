@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.8.2
+@version        1.8.3
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -592,6 +592,9 @@
     background-color: var(--bg-500);
     transform: rotate(45deg);
   }
+  #top-nav .user-function .btn-icon.active + .topbar-menu-container .topbar-menu::before {
+    right: 1.5rem;
+  }
   .topbar-menu :is(.single-item, .toggle-item) .text{
     font-family: inherit;
     color: var(--cl-400);
@@ -1034,7 +1037,7 @@
     border-radius: var(--br);
     box-shadow: 0 0 15px 2px rgba(0 0 0 / 0.5);
   }
-  .overlay.overlay-default .modal.with-header.with-header-border .modal__header {
+  .overlay.overlay-default .modal.with-header.with-header-border .modal-header {
     background-color: var(--bg-300);
     border-color: var(--bg-300);
   }
@@ -1042,7 +1045,6 @@
     box-sizing: border-box;
     flex-direction: row-reverse;
     padding: 0.25em 1em;
-    background-color: var(--bg-300);
   }
   .overlay.overlay-default .modal-header__close {
     box-sizing: border-box;
@@ -1090,7 +1092,7 @@
     background-color: #1460c4;
     border-color: #1460c4; 
   }
-  .overlay.overlay-default .signup-social-button__list .list-item[href*="facebook"]:hover {
+  .overlay.overlay-default .signup-social-button__list .list-item[href*="facebook"]:is(:hover, :focus) {
     background-color: #1778f2;
     border-color: #1778f2;
   }
@@ -1098,7 +1100,7 @@
     background-color: #BF3131;
     border-color: #BF3131;
   } 
-  .overlay.overlay-default .signup-social-button__list .list-item[href*="google"]:hover {
+  .overlay.overlay-default .signup-social-button__list .list-item[href*="google"]:is(:hover, :focus) {
     background-color:  #e63a37;
     border-color:  #e63a37;
   }
@@ -1108,7 +1110,7 @@
     border-color: var(--cl-400);
     color: var(--bg-100);
   }
-  .overlay.overlay-default .signup-social-button__list .list-item[href*="apple"]:hover {
+  .overlay.overlay-default .signup-social-button__list .list-item[href*="apple"]:is(:hover, :focus) {
     background-color: var(--cl-100);
     border-color: var(--cl-100);
   }
@@ -1117,9 +1119,13 @@
     background-color: var(--bg-500);
     border-color: var(--bg-500);
   }
-  .overlay.overlay-default .signup-social-button__list button.list-item:hover {
+  .overlay.overlay-default .signup-social-button__list button.list-item:is(:hover, :focus) {
     background-color: var(--bg-700);
     border-color: var(--bg-700);
+  }
+  .overlay.overlay-default .signup-social-button__list .list-item:focus {
+    outline: 2px solid var(--blue-lighter);
+    outline-offset: 0.125em;
   }
   .overlay.overlay-default .signup-social-button__list button.list-item::before {
     content: "\f0e0";
@@ -1150,6 +1156,17 @@
   }
   .overlay.overlay-default .ui-input input:focus {
     border-color: var(--blue-light);
+  }
+  .overlay.overlay-default :is(.login-view__forgot, .signup-view__login) {
+    font-family: Lato, var(--ff);
+    font-size: 1.1em;
+  }
+  .overlay.overlay-default .signup-view__login {
+    margin-top: 0.5em;
+    border-radius: 100vw;
+  }
+  .overlay.overlay-default :is(.login-view__forgot, .signup-view__login):focus-visible {
+    outline: 2px solid var(--blue-lighter);
   }
   .overlay.overlay-default  .signup-overlay path[d="M7.19312 0L0.193115 7H5.19312V12H9.19312V7H14.1931L7.19312 0Z"] {
     fill: var(--green-light);
