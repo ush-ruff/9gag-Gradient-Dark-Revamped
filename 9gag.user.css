@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.8.1
+@version        1.8.2
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -193,11 +193,26 @@
   .general-function {
     padding-right: 8px;
   }
-  .general-function .darkmode-toggle:is(:hover, :focus) {
-    background-position-y: -32px; 
-    background-color: rgba(255, 255, 255, 0.1);
+  .general-function .search {
+    position: relative;
+    background: none;
   }
-  .general-function .search:is(:hover, :focus, .selected), 
+  .general-function .search::before {
+    content: "\f002";
+    position: absolute;
+    inset: 0;
+    text-indent: initial;
+    font-family: "Font-Awesome Pro";
+    font-size: 1.25em;
+    font-weight: 500;
+    padding: 0.5em;
+    border-radius: 50%;
+    color: var(--cl-900);
+  }
+  .general-function .search:is(:hover, :focus, .selected)::before {
+    background-color: rgb(255 255 255 / 0.2);
+    color: var(--cl-100);
+  }
   .user-function .btn-icon:is(.active, :hover, :focus) {
     filter: brightness(0) invert(1);
   }
@@ -340,25 +355,33 @@
   }
   
   /* ---- Search ---- */
+  .general-function .search.selected {
+    position: relative;
+    background: none;
+    color: transparent;
+    overflow: visible;
+    background: none;
+    filter: initial;
+  }
+  .general-function .search.selected::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 1em;
+    height: 1em;
+    left: 50%;
+    bottom: -50%;
+    transform: rotate(45deg) translatex(-50%);
+    background-image: linear-gradient(135deg, var(--bg-300), 55%, transparent 55%);
+    box-shadow: inset 1px 1px 0 var(--bg-200);
+    z-index: 15;
+  }
   .popup-menu.search-menu {
     margin-block-start: 0.2em;
     background-color: var(--bg-300);
     border-color: var(--bg-200);
     border-radius: var(--br);
     box-shadow: 0 0 8px 2px rgba(0 0 0 / 0.15);
-  }
-  .popup-menu.search-menu::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 1em;
-    aspect-ratio: 1 / 1;
-    top: -0.5em;
-    left: 25%;
-    background-color: var(--bg-300);
-    border-top: 1px solid var(--bg-200);
-    border-left: 1px solid var(--bg-200);
-    transform: rotate(45deg);
   }
   .popup-menu.search-menu .ui-search-input {
     background-color: var(--bg-500);
@@ -454,6 +477,27 @@
   }
   .popup-menu.search-menu .ui-search-item .ui-search-item__count {
     color: var(--cl-600);
+  }
+  #container #listview-search #search-hero {
+    font-family: var(--ff);
+    padding-inline-start: 2.75rem;
+    background: var(--bg-400);
+    border-color: var(--bg-500);
+    border-radius: var(--br);
+    color: var(--cl-500);
+  }
+  #container #listview-search #search-hero:is(:hover, :focus) {
+    color: var(--cl-200);
+  }
+  #container #listview-search #search-hero:focus {
+    border-color: var(--blue-light);
+  }
+  #container #listview-search .field::before {
+    content: "\f002";
+    position: absolute;
+    font-family: "Font-Awesome Pro";
+    font-size: 1.25rem;
+    padding: 0.5em 0.75em;
   }
   
   /* Popup Menus */
