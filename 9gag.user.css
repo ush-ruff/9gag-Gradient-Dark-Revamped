@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.8.3
+@version        1.8.4
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1550,7 +1550,7 @@
   /* -- Post Header -- */
   section#list-view-2 header {
     margin: 0;
-    padding: 10px 50px;
+    padding: 1em 3.5em;
     background: var(--bg-300);
   }
   section#list-view-2 h1 {
@@ -1583,17 +1583,16 @@
   /* Post Menu Button */
   section#list-view-2 .post-section .button {
     background-color: transparent !important;
-    transform: scale(1.45) translate(10px, 8px);
+    transform: scale(1.5) translate(10px, 8px) rotate(90deg);
   }
-  section#list-view-2 .post-section .button .more {
-    filter: var(--invert);
-    transform: rotate(0);
+  section#list-view-2 .post-section .uikit-popup-menu .button svg {
     opacity: 0;
+    filter: var(--invert);
   }
-  section#list-view-2 [id^="jsid-post"]:is(:hover, :focus) .post-section .more {
+  section#list-view-2 [id^="jsid-post"]:is(:hover, :focus) .post-section .uikit-popup-menu svg {
     opacity: 0.4;
   }
-  section#list-view-2 .post-section .button:is(:hover, :focus, .active) .more {
+  section#list-view-2 .post-section .uikit-popup-menu .button:is(:hover, :focus, .active) svg {
     opacity: 0.8;
   }
   section#individual-post .post-section .button {
@@ -1603,12 +1602,12 @@
     place-items: center;
     border-radius: 2px;
   }
-  section#individual-post .post-section .popup-icon.more {
-    transform: scale(1.45);
+  section#individual-post .post-section .uikit-popup-menu svg {
+    transform: scale(1.5) rotate(90deg);
     opacity: 0.6;
     filter: var(--invert);
   }
-  section#individual-post .post-section .button:is(:hover, :focus, .active) .more {
+  section#individual-post .post-section .uikit-popup-menu .button:is(:hover, :focus, .active) svg {
     opacity: 1;
   }
     
@@ -1663,6 +1662,13 @@
   .post-text-container a:hover {
     text-decoration: none;
     color: var(--cl-200);
+  }
+  section#list-view-2 .post-tag {
+    gap: 1em;
+    padding-inline: 2em;
+  }
+  section#list-view-2 .post-tag a {
+    margin: 0;
   }
   
   /* -- Post Footer -- */
