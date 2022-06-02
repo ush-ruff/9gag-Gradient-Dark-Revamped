@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.8.4
+@version        1.8.5
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -162,12 +162,15 @@
   .nav-wrap a.logo, .nav-wrap a.menu {
     filter: invert(0);
   }
+  .nav-wrap a.menu:hover {
+    background-color: rgba(255 255 255 / 0.1);
+  }
   .nav-menu .secondary a {
     color: var(--cl-200)
   }
   .nav-menu .secondary a:hover {
     background-color: var(--bg-100);
-    color: var(--cl-500);
+    color: var(--cl-100);
   }
   .nav-menu a.new:after {
     background-color: var(--green-light);
@@ -518,30 +521,11 @@
   :is(.popup-menu, .menu, .uikit-popup-menu .menu) ul strong:is(:hover, :focus) {
     color: var(--cl-100);
   }
-  .popup-menu.user {
-    background-color: var(--bg-500);
-  }
-  .popup-menu.user .small-phone i {
-    filter: var(--invert);
-  }
-  .popup-menu.user::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -7px;
-    left: 1.8rem;
-    width: 0;
-    height: 0;
-    border-right: 0.4375rem solid transparent;
-    border-left: 0.4375rem solid transparent;
-    border-bottom: 0.4375rem solid var(--bg-500);
-    z-index: 2;
-  }
   section#list-view-2 .menu {
     top: calc(100% + 19px);
     right: -40px;
   }
-  :is(section#list-view-2, section#individual-post, .drawer-container) .menu::before {
+  :is(section#list-view-2, section#individual-post, .drawer-container, .profile-more) .menu::before {
     content: "";
     position: absolute;
     top: -19px;
@@ -566,6 +550,12 @@
   }
   .drawer-container .menu::before {
     right: 20px;
+  }
+  .profile .profile-more .menu {
+    right: -0.5em;
+  }
+  .profile-more .menu::before {
+    right: 1em;
   }
   section#signup .social-signup {
     border-bottom-color: var(--bg-600);
@@ -701,11 +691,20 @@
   #upload-component .search-wrapper .title {
     color: var(--cl-400);
   }
+  #upload-component .search-wrapper .triangle img {
+    display: none;
+  }
+  #upload-component .search-wrapper .triangle::before {
+    content: "\f0d7";
+    font-family: "Font-Awesome";
+    font-size: 1.2rem;
+  }
   #upload-component .drop-down-container {
     margin-top: .25em;
     background-color: var(--bg-500);
     border-color: var(--bg-500);
     border-radius: var(--br);
+    scrollbar-width: thin;
   }
   #upload-component .drop-down-container .title {
     color: var(--cl-400);
@@ -1309,9 +1308,12 @@
   .profile .tab-bar ul.menu a:hover {
     color: var(--cl-400);
   }
-  .profile .tab-bar .profile-more:hover .button::after, 
-  .profile .tab-bar .profile-more .button.active::after {
-    filter: invert(0.85);
+  .profile .tab-bar .profile-more .button {
+    transform: rotate(90deg);
+    opacity: 0.6;
+  }
+  .profile .tab-bar .profile-more .button:is(:hover, :focus, .active) {
+    opacity: 1;
   }
   .featured-tag a, div.post-tag a {
     background-color: var(--bg-400) !important;
