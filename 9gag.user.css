@@ -3,10 +3,12 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        1.8.5
+@version        2.0.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
+@preprocessor   stylus
+@var            checkbox newLayout "New 9gag Layout Fix" 1
 ==/UserStyle== */
 
 @-moz-document domain("9gag.com") {
@@ -19,14 +21,19 @@
   @font-face {
     font-family: 'Font-Awesome Pro';
     src: local("Font Awesome 5 Pro Light"),
-      url(https://dl.dropboxusercontent.com/s/47z0fpgd1sx32t8/Font%20Awesome%205%20Pro-Light-300.otf?dl=0);
+      url(https://dl.dropboxusercontent.com/s/47z0fpgd1sx32t8/Font%20Awesome%205%20Pro-Light-300.otf);
+  }
+  @font-face {
+    font-family: 'Font-Awesome Pro Solid';
+    src: local("Font Awesome 5 Pro Solid"),
+      url(https://dl.dropboxusercontent.com/s/e2y91lv99tje3rj/Font%20Awesome%205%20Pro-Solid-900.otf);
   }
   :root {
     --bg-100: #161616;
     --bg-200: #1c1c1c;
     --bg-300: #282828;
     --bg-400: #2b2b2b;
-    --bg-400b: #2e2e2e;
+    --bg-450: #2e2e2e;
     --bg-500: #393939;
     --bg-600: #474747;
     --bg-700: #545454;
@@ -148,7 +155,7 @@
   .overlay.overlay-default .modal.with-footer {
     background-color: var(--bg-200);
     border-radius: var(--br);
-    box-shadow: 0 0 15px 2px rgba(0 0 0 / 0.5);
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
   }
   .overlay.overlay-default .modal__footer {
     background-color: transparent;
@@ -163,7 +170,7 @@
     filter: invert(0);
   }
   .nav-wrap a.menu:hover {
-    background-color: rgba(255 255 255 / 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
   }
   .nav-menu .secondary a {
     color: var(--cl-200)
@@ -273,7 +280,7 @@
     background-color: var(--bg-500);
     border-color: var(--bg-200);
     border-radius: var(--br);
-    box-shadow: 0 0 8px 2px rgba(0 0 0 / 0.15);
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.15);
   }
   .notification-menu::before {
     content: "";
@@ -363,7 +370,6 @@
     background: none;
     color: transparent;
     overflow: visible;
-    background: none;
     filter: initial;
   }
   .general-function .search.selected::after {
@@ -384,7 +390,7 @@
     background-color: var(--bg-300);
     border-color: var(--bg-200);
     border-radius: var(--br);
-    box-shadow: 0 0 8px 2px rgba(0 0 0 / 0.15);
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.15);
   }
   .popup-menu.search-menu .ui-search-input {
     background-color: var(--bg-500);
@@ -570,7 +576,7 @@
     border: 1px solid var(--bg-500);
     border-radius: var(--br);
     color: var(--cl-300);
-    box-shadow: 0 0 8px 2px rgba(0 0 0 / 0.15);
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.15);
   }
   #top-nav .topbar-menu::before {
     content: "";
@@ -639,12 +645,12 @@
   /* Upload sidebar - rules */
   #upload-component .rule-container {
     background-color: var(--bg-300);
-    border-color: var(--bg-400b);
+    border-color: var(--bg-450);
     border-radius: var(--br);
     overflow: hidden;
   }
   #upload-component .rule-container .collapse-header {
-    background-color: var(--bg-400b);
+    background-color: var(--bg-450);
   }
   #upload-component .rule-container .separator {
     border-color: var(--bg-500);
@@ -680,8 +686,8 @@
   }
   /* Upload - Main Container */
   #upload-component .search-wrapper .search-bar {
-    background: var(--bg-400b);
-    border-color: var(--bg-400b);
+    background: var(--bg-450);
+    border-color: var(--bg-450);
     border-radius: var(--br);
   }
   #upload-component .search-wrapper .section-input__text {
@@ -860,7 +866,7 @@
     display: none;
   }
   #upload-component :is(.toggle-button:hover, .toggle-button.hv-bg) {
-    background-color: rgba(255 255 255 / 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     color: var(--cl-200);
   }
   #upload-component .dialog-position {
@@ -949,8 +955,8 @@
   .upload-success-modal.overlay .modal.with-header.with-header-border .modal__header {
     height: auto;
     padding-block: 0.3em 0.25em; 
-    background-color: var(--bg-400b);
-    border-bottom-color: var(--bg-400b)
+    background-color: var(--bg-450);
+    border-bottom-color: var(--bg-450)
   }
   .upload-success-modal.overlay .modal.with-footer.with-footer-border .modal__footer {
     background-color: var(--bg-300);
@@ -1034,7 +1040,7 @@
   .overlay.overlay-default .modal.modal.with-header {
     background-color: var(--bg-200);
     border-radius: var(--br);
-    box-shadow: 0 0 15px 2px rgba(0 0 0 / 0.5);
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
   }
   .overlay.overlay-default .modal.with-header.with-header-border .modal-header {
     background-color: var(--bg-300);
@@ -1537,278 +1543,562 @@
     background: var(--bg-900);
   }
   
-  /* ---- Posts ---- */
-  section#list-view-2 article {
-    max-width: 50em;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    padding: 0 0 1em !important;
-    background: var(--bg-200);
-    border-radius: var(--br);
-    overflow: hidden;
-  }
+  if (newLayout == 1) {
+    /* ---- Posts ---- */
+    section#list-view-2 article {
+      max-width: 50em;
+      display: flex;
+      flex-direction: column;
+      margin-top: 24px;
+      padding: 0 0 1.5em !important;
+      background: var(--bg-200);
+      border: none;
+      border-radius: var(--br);
+      overflow: hidden;
+    }  
     
-  /* -- Post Header -- */
-  section#list-view-2 header {
-    margin: 0;
-    padding: 1em 3.5em;
-    background: var(--bg-300);
-  }
-  section#list-view-2 h1 {
-    line-height: 1.4em;
-    color: var(--cl-400);
-  }
-  section#list-view-2 header a h1:hover {
-    color: var(--cl-100);
-  }
-  section:is(#individual-post, #list-view-2) .post-section .icon {
-    min-width: max-content;
-    margin-right: 8px;
-  }
-  section:is(#individual-post, #list-view-2) .post-section .message {
-    width: auto;
-    min-width: max-content;
-  }
-  section:is(#individual-post, #list-view-2) .post-section__action {
-    width: 100%;
-  }
-  section:is(#individual-post, #list-view-2) .post-section__action .action-icon.star {
-    margin-right: -4px;
-  }
-  section:is(#individual-post, #list-view-2) .post-section__action .save path[fill="#FF3B30"] {
-    fill: var(--blue-light);
-  }
-  section:is(#individual-post, #list-view-2) .post-section .message a:hover {
-    color: var(--cl-500);
-  }
-  /* Post Menu Button */
-  section#list-view-2 .post-section .button {
-    background-color: transparent !important;
-    transform: scale(1.5) translate(10px, 8px) rotate(90deg);
-  }
-  section#list-view-2 .post-section .uikit-popup-menu .button svg {
-    opacity: 0;
-    filter: var(--invert);
-  }
-  section#list-view-2 [id^="jsid-post"]:is(:hover, :focus) .post-section .uikit-popup-menu svg {
-    opacity: 0.4;
-  }
-  section#list-view-2 .post-section .uikit-popup-menu .button:is(:hover, :focus, .active) svg {
-    opacity: 0.8;
-  }
-  section#individual-post .post-section .button {
-    display: grid;
-    width: 2.65rem;
-    height: 2.22rem;
-    place-items: center;
-    border-radius: 2px;
-  }
-  section#individual-post .post-section .uikit-popup-menu svg {
-    transform: scale(1.5) rotate(90deg);
-    opacity: 0.6;
-    filter: var(--invert);
-  }
-  section#individual-post .post-section .uikit-popup-menu .button:is(:hover, :focus, .active) svg {
-    opacity: 1;
-  }
+    /* -- Post Header -- */
+    section#list-view-2 header {
+      margin: 0;
+      padding: 1em 3.5em 0;
+      background: var(--bg-300);
+    }
     
-  /* -- Post Inner -- */
-  section#list-view-2 .post-container {
-    width: 100%;
-    align-self: center;
-    margin: 0;
+    section:is(#individual-post, #list-view-2) .post-section .icon {
+      min-width: max-content;
+      margin-right: 8px;
+    }
+    section:is(#individual-post, #list-view-2) .post-section .message {
+      width: auto;
+      min-width: max-content;
+    }
+    section:is(#individual-post, #list-view-2) .post-section__action {
+      width: 100%;
+    }
+    section:is(#individual-post, #list-view-2) .post-section__action .action-icon.star {
+      margin-right: -4px;
+    }
+    section:is(#individual-post, #list-view-2) .post-section__action .save {
+      background: transparent;
+    }
+    section:is(#individual-post, #list-view-2) .post-section__action .save path[fill="#FF3B30"] {
+      fill: var(--blue-light);
+    }
+    section:is(#individual-post, #list-view-2) .post-section .message a:hover {
+      color: var(--cl-500);
+    }
+    
+    /* Post Menu Button */
+    section#list-view-2 .post-section .button {
+      background-color: transparent !important;
+      transform: scale(1.5) translate(10px, 8px) rotate(90deg);
+    }
+    section#list-view-2 .post-section .post-section__action + .uikit-popup-menu .button svg {
+      opacity: 0;
+      filter: var(--invert);
+    }
+    section#list-view-2 [id^="jsid-post"]:is(:hover, :focus) .post-section .post-section__action + .uikit-popup-menu svg {
+      opacity: 0.4;
+    }
+    section#list-view-2 .post-section .post-section__action + .uikit-popup-menu .button:is(:hover, :focus, .active) svg {
+      opacity: 0.8;
+    }
+    section#individual-post .post-section .button {
+      display: grid;
+      width: 2.65rem;
+      height: 2.22rem;
+      place-items: center;
+      border-radius: 2px;
+    }
+    section#individual-post .post-section .uikit-popup-menu svg {
+      transform: scale(1.5) rotate(90deg);
+      opacity: 0.6;
+      filter: var(--invert);
+    }
+    section#individual-post .post-section .uikit-popup-menu .button:is(:hover, :focus, .active) svg {
+      opacity: 1;
+    }
+    
+    /* -- Post Inner -- */
+    section#list-view-2 .post-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      align-self: center;
+      margin: 0;
+    }
+    
+    /* Post Title */
+    section#list-view-2 .post-container .post-title {
+      display: block;
+      order: 1;
+      margin: 0;
+      padding: 0.2em 2.5em 0.8em;
+      font-family: var(--ff);
+      font-size: 20px !important;
+      font-weight: 700 !important;
+      background: var(--bg-300);
+      color: var(--cl-400);
+    }
+    section#list-view-2 .post-container .post-title:hover {
+      color: var(--cl-100);
+    }
+    
+    /* Post Images, etc */
+    section#list-view-2 .post-container__view {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      order: 2;
+      margin: 0;
+    }
+    section#list-view-2 .post-container__view .post-view {
+      width: auto;
+      margin: 0 auto;
+      padding: 0 !important;
+      background-color: transparent;
+      border-radius: 0;
+    }
+    section#list-view-2 .post-container .post-view.image-post {
+      padding: 0 2em !important;
+    }
+    section#list-view-2 .post-container__view .post-view img {
+      box-sizing: border-box;
+      width: max-content;
+      min-height: auto !important;
+      margin: 0 auto;
+      padding: 0 !important;
+      border-radius: 0;
+    }
+    
+    /* Read More */
+    .post-read-more {
+      height: 44px;
+      font-size: 16px;
+      line-height: 2;
+      background-color: var(--bg-300);
+      border: 1px solid var(--bg-400);
+      border-top: none;
+      border-radius: 0;
+      color: var(--cl-400);
+    }
+    .post-read-more::after {
+      content: "+";
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      inset: 0 -1px auto auto;
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 0.9;
+      text-align: center;
+      background: var(--bg-500);
+      color: var(--cl-400);
+    }
+    
+    /* Post Inner Text */
+    .post-text-container blockquote {
+      padding: 10px 10px 5px 20px;
+      background: var(--bg-300);
+      border-color: var(--bg-600);
+    } 
+    .post-text-container a {
+      color: var(--cl-500);
+    }
+    .post-text-container a:hover {
+      text-decoration: none;
+      color: var(--cl-200);
+    }
+    
+    /* Post Media Controls */
+    .gif-post span.play, 
+    :is(.video-post, .youtube-post) :is(.sound-toggle, span.play, p.length) {
+      background-color: var(--bg-300);
+      opacity: 0.8;
+    }
+    :is(.video-post, .youtube-post) span.play {
+      transition: transform 180ms ease-out;
+    }
+    :is(.video-post, .youtube-post) span.play::after {
+      background-size: 85px;
+    }
+    :is(.video-post, .youtube-post) span.play:hover {
+      transform: scale(1.1);
+    }
+    :is(.video-post, .youtube-post) p.length {
+      bottom: 22px;
+    }
+    
+    /* -- Post Footer -- */
+    section#list-view-2 .post-container .ui-post-actions {
+      display: flex;
+      flex-direction: row;
+      gap: 1em;
+      padding-inline: 2em;
+    }
+    
+    /* Buttons */
+    .post-container .ui-post-actions__item {
+      box-sizing: border-box;
+      width: min-content;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      margin: 0;
+      padding: 0 1.15em;
+      background-color: var(--bg-450);
+      border: 1px solid var(--bg-450);
+      border-radius: 2px;
+    }
+    .post-container .ui-post-actions__item svg {
+      display: none;
+    }
+    .post-container .ui-post-actions__item .ui-post-actions__text {
+      min-width: 3ch;
+      font-family: var(--ff);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      padding-block: 0;
+      padding-inline-start: 25px;
+      color: var(--cl-500);
+    }
+    .post-container .ui-post-actions__item::before {
+      position: absolute;
+      inset: 6px auto auto 12px;
+      font-family: "Font-Awesome";
+      font-size: 20px;
+      line-height: 1;
+      color: var(--cl-900);
+    }
+    .post-container .ui-post-actions__item:nth-child(1)::before {
+      content: "\f062";
+    }
+    .post-container .ui-post-actions__item:nth-child(2)::before {
+      content: "\f063";
+    }
+    .post-container .ui-post-actions__item:nth-child(3)::before {
+      content: "\f27a";
+      top: 9px;
+      font-family: "Font-Awesome Pro Solid";
+      font-size: 15px;
+    }
+    .post-container .ui-post-actions__item.active:nth-child(1) {
+      background-color: transparent;
+      border: 1px solid var(--green-light);
+    }
+    .post-container .ui-post-actions__item:is(.active, :hover):nth-child(1)::before {
+      color: var(--green-light);
+    }
+    .post-container .ui-post-actions__item.active:nth-child(2) {
+      background-color: transparent;
+      border: 1px solid var(--red-light);
+    }
+    .post-container .ui-post-actions__item:is(.active, :hover):nth-child(2)::before {
+      color: var(--red-light);
+    }
+    .post-container .ui-post-actions__item:is(.active, :hover):nth-child(3)::before {
+      color: var(--cl-400);
+    }
+    
+    /* Post Description */
+    section#list-view-2 .post-text-container {
+      order: 3;
+      margin: 0;
+      padding-inline: 2em;
+      color: var(--cl-500);
+    }
+    section#list-view-2 .post-text-container p {
+      margin: 0;
+    }
+    
+    /* Post Tag */
+    section#list-view-2 .post-tag {
+      display: flex;
+      gap: 1em;
+      margin-block-start: 1em;
+      padding-inline: 2em;
+    }
+    section#list-view-2 .post-tag a {
+      margin: 0;
+    }
+  } else {
+    /* ---- Posts ---- */
+    section#list-view-2 article {
+      max-width: 50em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      padding: 0 0 1em !important;
+      background: var(--bg-200);
+      border-radius: var(--br);
+      overflow: hidden;
+    }
+      
+    /* -- Post Header -- */
+    section#list-view-2 header {
+      margin: 0;
+      padding: 1em 3.5em;
+      background: var(--bg-300);
+    }
+    section#list-view-2 h1 {
+      line-height: 1.4em;
+      color: var(--cl-400);
+    }
+    section#list-view-2 header a h1:hover {
+      color: var(--cl-100);
+    }
+    section:is(#individual-post, #list-view-2) .post-section .icon {
+      min-width: max-content;
+      margin-right: 8px;
+    }
+    section:is(#individual-post, #list-view-2) .post-section .message {
+      width: auto;
+      min-width: max-content;
+    }
+    section:is(#individual-post, #list-view-2) .post-section__action {
+      width: 100%;
+    }
+    section:is(#individual-post, #list-view-2) .post-section__action .action-icon.star {
+      margin-right: -4px;
+    }
+    section:is(#individual-post, #list-view-2) .post-section__action .save path[fill="#FF3B30"] {
+      fill: var(--blue-light);
+    }
+    section:is(#individual-post, #list-view-2) .post-section .message a:hover {
+      color: var(--cl-500);
+    }
+    /* Post Menu Button */
+    section#list-view-2 .post-section .button {
+      background-color: transparent !important;
+      transform: scale(1.5) translate(10px, 8px) rotate(90deg);
+    }
+    section#list-view-2 .post-section .uikit-popup-menu .button svg {
+      opacity: 0;
+      filter: var(--invert);
+    }
+    section#list-view-2 [id^="jsid-post"]:is(:hover, :focus) .post-section .uikit-popup-menu svg {
+      opacity: 0.4;
+    }
+    section#list-view-2 .post-section .uikit-popup-menu .button:is(:hover, :focus, .active) svg {
+      opacity: 0.8;
+    }
+    section#individual-post .post-section .button {
+      display: grid;
+      width: 2.65rem;
+      height: 2.22rem;
+      place-items: center;
+      border-radius: 2px;
+    }
+    section#individual-post .post-section .uikit-popup-menu svg {
+      transform: scale(1.5) rotate(90deg);
+      opacity: 0.6;
+      filter: var(--invert);
+    }
+    section#individual-post .post-section .uikit-popup-menu .button:is(:hover, :focus, .active) svg {
+      opacity: 1;
+    }
+      
+    /* -- Post Inner -- */
+    section#list-view-2 .post-container {
+      width: 100%;
+      align-self: center;
+      margin: 0;
+    }
+    section#list-view-2 .post-container .post-view {
+      margin: 0 auto;
+      padding: 0 !important;
+      background-color: var(--bg-200);
+      border-radius: 0;
+    }
+    section#list-view-2 .post-container .post-view.image-post {
+      padding: 0 70px !important;
+    }
+    section#list-view-2 .post-container .post-view img {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0 !important;
+      border-radius: 0;
+    }
+    section#list-view-2 .post-container .read-more .post-view img {
+      min-height: auto !important;
+    }
+    .gif-post span.play, 
+    :is(.video-post, .youtube-post) :is(.sound-toggle, span.play, p.length) {
+      background-color: var(--bg-300);
+      opacity: 0.8;
+    }
+    :is(.video-post, .youtube-post) span.play {
+      transition: transform 180ms ease-out;
+    }
+    :is(.video-post, .youtube-post) span.play::after {
+      background-size: 85px;
+    }
+    :is(.video-post, .youtube-post) span.play:hover {
+      transform: scale(1.1);
+    }
+    :is(.video-post, .youtube-post) p.length {
+      bottom: 22px;
+    }
+    .post-text-container blockquote {
+      padding: 10px 10px 5px 20px;
+      background: var(--bg-300);
+      border-color: var(--bg-600);
+    } 
+    .post-text-container a {
+      color: var(--cl-500);
+    }
+    .post-text-container a:hover {
+      text-decoration: none;
+      color: var(--cl-200);
+    }
+    section#list-view-2 .post-tag {
+      gap: 1em;
+      padding-inline: 2em;
+    }
+    section#list-view-2 .post-tag a {
+      margin: 0;
+    }
+    
+    /* -- Post Footer -- */
+    section#list-view-2 .post-afterbar-a {
+      box-sizing: border-box;
+      width: 100%;
+      padding-inline: 2em;
+    }
+    .post-afterbar-a .btn-vote:nth-child(2) li {
+      width: min-content;
+      background-color: var(--bg-450);
+      border: none;
+      border-radius: 2px;
+    }
+    .btn-vote a, .btn-vote :is(a, .comment):hover {
+      background-color: var(--bg-450);
+      border-color: var(--bg-450);
+      border-radius: 2px;
+    }
+    .btn-vote li :is(a, .active) span {
+      color: var(--cl-500);
+    }
+    .btn-vote .comment:hover::after, 
+    .btn-vote .more:hover::after {
+      filter: brightness(1.4);
+    }
+    .btn-vote a::after {
+      font-family: 'Font-Awesome';
+      font-size: 20px;
+      font-weight: 100;
+      line-height: 1;
+      text-indent: 0 !important;
+      text-align: center;
+      color: var(--cl-900);
+    }
+    .btn-vote[data-v-5026a6e9] a::after {
+      inset: 2px 0 0 10px;
+      margin: 0;
+      background: red !important;
+    }
+    .btn-vote .up:after,.btn-vote .up.active::after {
+      content: "\f062";
+      background: none !important;
+    }
+    .btn-vote .down:after, .btn-vote .down.active::after {
+      content: "\f063";
+      background: none !important;
+    }
+    .btn-vote li .up.active {
+      background-color: transparent;
+      border: 1px solid var(--green-light);
+    }
+    .btn-vote .up:is(.active, :hover)::after {
+      color: var(--green-light);
+    }
+    .btn-vote li .down.active {
+      background-color: transparent;
+      border: 1px solid var(--red-light);
+    }
+    .btn-vote .down:is(.active, :hover)::after {
+      color: var(--red-light);
+    }
+    .btn-vote .comment::after {
+      transform: scale(1.2);
+    }
+    /* Read More */
+    .post-read-more {
+      height: 44px;
+      font-size: 16px;
+      line-height: 2;
+      background-color: var(--bg-300);
+      border: 1px solid var(--bg-400);
+      border-top: none;
+      border-radius: 0;
+      color: var(--cl-400);
+    }
+    .post-read-more::after {
+      content: "+";
+      position: absolute;
+      display: inline-block;
+      height: 44px;
+      width: 44px;
+      top: 0;
+      right: -1px;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 41px;
+      text-align: center;
+      background-image: none;
+      background-color: var(--bg-500);
+      color: var(--cl-400);
+    }
+    /* Text */
+    section#list-view-2 .post-text-container {
+      box-sizing: border-box;
+      margin-block-start: 1em;
+      padding-inline: 2em;
+    }
+    section#list-view-2 .post-text-container p {
+      margin: 0;
+    }
   }
-  section#list-view-2 .post-container .post-view {
-    margin: 0 auto;
-    padding: 0 !important;
-    background-color: var(--bg-200);
-    border-radius: 0;
-  }
-  section#list-view-2 .post-container .post-view.image-post {
-    padding: 0 70px !important;
-  }
-  section#list-view-2 .post-container .post-view img {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0 !important;
-    border-radius: 0;
-  }
-  .gif-post span.play, 
-  :is(.video-post, .youtube-post) span.play, 
-  :is(.video-post, .youtube-post) .sound-toggle, 
-  :is(.video-post, .youtube-post) p.length {
-    background-color: var(--bg-300);
-    opacity: 0.8;
-  }
-  :is(.video-post, .youtube-post) span.play {
-    transition: transform 180ms ease-out;
-  }
-  :is(.video-post, .youtube-post) span.play::after {
-    background-size: 85px;
-  }
-  :is(.video-post, .youtube-post) span.play:hover {
-    transform: scale(1.1);
-  }
-  :is(.video-post, .youtube-post) p.length {
-    bottom: 22px;
-  }
-  .post-text-container blockquote {
-    padding: 10px 10px 5px 20px;
-    background: var(--bg-300);
-    border-color: var(--bg-600);
-  } 
-  .post-text-container a {
-    color: var(--cl-500);
-  }
-  .post-text-container a:hover {
-    text-decoration: none;
-    color: var(--cl-200);
-  }
-  section#list-view-2 .post-tag {
-    gap: 1em;
-    padding-inline: 2em;
-  }
-  section#list-view-2 .post-tag a {
-    margin: 0;
-  }
-  
-  /* -- Post Footer -- */
-  section#list-view-2 .post-afterbar-a {
-    box-sizing: border-box;
-    width: 100%;
-    padding-inline: 2em;
-  }
-  .post-afterbar-a .btn-vote:nth-child(2) li {
-    width: min-content;
-    background-color: var(--bg-400b);
-    border: none;
-    border-radius: 2px;
-  }
-  .btn-vote a, .btn-vote :is(a, .comment):hover {
-    background-color: var(--bg-400b);
-    border-color: var(--bg-400b);
-    border-radius: 2px;
-  }
-  .btn-vote li :is(a, .active) span {
-    color: var(--cl-500);
-  }
-  .btn-vote .comment:hover::after, 
-  .btn-vote .more:hover::after {
-    filter: brightness(1.4);
-  }
-  .btn-vote a::after {
-    font-family: 'Font-Awesome';
-    font-size: 20px;
-    font-weight: 100;
-    line-height: 1;
-    text-indent: 0 !important;
-    text-align: center;
-    color: var(--cl-900);
-  }
-  .btn-vote[data-v-5026a6e9] a::after {
-    inset: 2px 0 0 10px;
-    margin: 0;
-    background: red !important;
-  }
-  .btn-vote .up:after,.btn-vote .up.active::after {
-    content: "\f062";
-    background: none !important;
-  }
-  .btn-vote .down:after, .btn-vote .down.active::after {
-    content: "\f063";
-    background: none !important;
-  }
-  .btn-vote li .up.active {
-    background-color: transparent;
-    border: 1px solid var(--green-light);
-  }
-  .btn-vote .up:is(.active, :hover)::after {
-    color: var(--green-light);
-  }
-  .btn-vote li .down.active {
-    background-color: transparent;
-    border: 1px solid var(--red-light);
-  }
-  .btn-vote .down:is(.active, :hover)::after {
-    color: var(--red-light);
-  }
-  .btn-vote .comment::after {
-    transform: scale(1.2);
-  }
-  /* Social Media Buttons */
-  .share .btn-share {
-    width: 36px;
-    padding: 0;
-    color: transparent;
-  }
-  .share .btn-share::after {
-    left: 3px;
-    transform: scale(1.3);
-    filter: brightness(0.85);
-  }
-  .share .btn-share.facebook {
-    background-color: #1460c4;
-  }
-  .share .btn-share.pinterest {
-    background-color: #ba001c;
-  }
-  .share .btn-share:hover::after {
-    filter: brightness(1);
-  }
-  .share .button.share {
-    width: 36px;
-    background-color: var(--bg-400b);
-  } 
-  .share .button.share:hover {
-    background-color: var(--bg-400b);
-  }
-  .share .button.share::after {
-    background-image: url(https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/share.svg);
-    background-size: 24px;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: brightness(0.8);
-  }
-  .share .button.share:hover::after {
-    filter: brightness(1);
-  }
-  /* Read More */
-  .post-read-more {
-    height: 44px;
-    font-size: 16px;
-    line-height: 2;
-    background-color: var(--bg-300);
-    border: 1px solid var(--bg-400);
-    border-top: none;
-    border-radius: 0;
-    color: var(--cl-400);
-  }
-  .post-read-more::after {
-    content: "+";
-    position: absolute;
-    display: inline-block;
-    height: 44px;
-    width: 44px;
-    top: 0;
-    right: -1px;
-    font-size: 40px;
-    font-weight: 500;
-    line-height: 41px;
-    text-align: center;
-    background-image: none;
-    background-color: var(--bg-500);
-    color: var(--cl-400);
-  }
-  /* Text */
-  section#list-view-2 .post-text-container {
-    box-sizing: border-box;
-    margin-block-start: 1em;
-    padding-inline: 2em;
-  }
-  section#list-view-2 .post-text-container p {
-    margin: 0;
-  }
+
+  /* Post - Social Media Buttons */
+    .share .btn-share {
+      width: 36px;
+      padding: 0;
+      color: transparent;
+    }
+    .share .btn-share::after {
+      left: 3px;
+      transform: scale(1.3);
+      filter: brightness(0.85);
+    }
+    .share .btn-share.facebook {
+      background-color: #1460c4;
+    }
+    .share .btn-share.pinterest {
+      background-color: #ba001c;
+    }
+    .share .btn-share:hover::after {
+      filter: brightness(1);
+    }
+    .share .button.share {
+      width: 36px;
+      background-color: var(--bg-450);
+    } 
+    .share .button.share:hover {
+      background-color: var(--bg-450);
+    }
+    .share .button.share::after {
+      background-image: url(https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/share.svg);
+      background-size: 24px;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: brightness(0.8);
+    }
+    .share .button.share:hover::after {
+      filter: brightness(1);
+    }
   
   /* ---- Post Page ---- */
   .fixed-wrap-post-bar {
@@ -1844,7 +2134,7 @@
     color: var(--cl-400);
   }
   .post-sensitive-mask .sensitive-mask__content__btn {
-    background-color: var(--bg-400b);
+    background-color: var(--bg-450);
     color: var(--cl-500);
     transition: background-color 250ms linear;
   }
@@ -1968,7 +2258,7 @@
     background-color: transparent;
   }
   .post-comment .comment-list-item:hover .comment-list-item__payload {
-    background-color: var(--bg-400b);
+    background-color: var(--bg-450);
   }
   .post-comment .comment-list-item__text {
     line-height: 1.8em;
@@ -2182,7 +2472,7 @@
     background-color: var(--bg-900);
   }
   .sqs-block-image .design-layout-card .image-card-wrapper {
-    background-color: var(--bg-400b);
+    background-color: var(--bg-450);
   }
   .sqs-block-image .design-layout-card .image-title p {
     color: var(--cl-200);
