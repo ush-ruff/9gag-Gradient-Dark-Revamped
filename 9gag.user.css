@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.1.1
+@version        2.1.2
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -14,20 +14,24 @@
 @-moz-document domain("9gag.com") {
   @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
   @font-face {
-    font-family: 'Font-Awesome';
+    font-family: "Font Awesome";
+    font-weight: 500;
     src: local("FontAwesome Regular"),
-      url(https://cdn.rawgit.com/eXo-Necro/Files/ad4dfb1b/Font/fontawesome-webfont-4.7.0.ttf?raw=true);
+    url(https://cdn.rawgit.com/eXo-Necro/Files/ad4dfb1b/Font/fontawesome-webfont-4.7.0.ttf?raw=true);
   }
   @font-face {
-    font-family: 'Font-Awesome Pro';
+    font-family: "Font Awesome";
+    font-weight: 300;
     src: local("Font Awesome 5 Pro Light"),
-      url(https://dl.dropboxusercontent.com/s/47z0fpgd1sx32t8/Font%20Awesome%205%20Pro-Light-300.otf);
+    url(https://dl.dropboxusercontent.com/s/47z0fpgd1sx32t8/Font%20Awesome%205%20Pro-Light-300.otf);
   }
   @font-face {
-    font-family: 'Font-Awesome Pro Solid';
+    font-family: "Font Awesome";
+    font-weight: 900;
     src: local("Font Awesome 5 Pro Solid"),
-      url(https://dl.dropboxusercontent.com/s/e2y91lv99tje3rj/Font%20Awesome%205%20Pro-Solid-900.otf);
+    url(https://dl.dropboxusercontent.com/s/e2y91lv99tje3rj/Font%20Awesome%205%20Pro-Solid-900.otf);
   }
+
   :root {
     --bg-100: #161616;
     --bg-200: #1c1c1c;
@@ -136,7 +140,7 @@
   }
   .btn-download::before {
     content: "\f063";
-    font-family: "Font-Awesome", var(--ff);
+    font-family: "Font Awesome", var(--ff);
     font-weight: 500;
     margin-inline: -2rem 0.5rem;
   }
@@ -212,9 +216,9 @@
     position: absolute;
     inset: 0;
     text-indent: initial;
-    font-family: "Font-Awesome Pro";
+    font-family: "Font Awesome";
     font-size: 1.25em;
-    font-weight: 500;
+    font-weight: 300;
     padding: 0.5em;
     border-radius: 50%;
     color: var(--cl-900);
@@ -231,7 +235,7 @@
   }
   .nav-wrap .board-system__too-nav-button::before {
     content: "\f27a";
-    font-family: 'Font-Awesome Pro';
+    font-family: "Font Awesome";
     font-size: 19px;
     font-weight: 300;
   }
@@ -260,10 +264,10 @@
   }
   .notification .bell::after {
     content: "\f0a2";
-    font-family: 'Font-Awesome';
+    font-family: "Font Awesome";
     color: var(--cl-900);
     font-size: 19px;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 2.2rem;
   }
   .notification .bell:hover::after {
@@ -430,9 +434,9 @@
   }
   .popup-menu.search-menu .ui-search-item-list__header .ui-btn::before {
     content: "\f05e";
-    font-family: "Font-Awesome Pro";
+    font-family: "Font Awesome";
     font-size: 0.8rem;
-    font-weight: 100;
+    font-weight: 300;
     line-height: 1;
     margin-right: 0.25em;
   }
@@ -473,8 +477,9 @@
     content: "\f002";
     position: absolute;
     left: 0.8em;
-    font-family: "Font-Awesome Pro";
+    font-family: "Font Awesome";
     font-size: 1em;
+    font-weight: 300;
     color: var(--cl-500);
   }
   .popup-menu.search-menu .ui-search-item__content svg {
@@ -504,8 +509,9 @@
   #container #listview-search .field::before {
     content: "\f002";
     position: absolute;
-    font-family: "Font-Awesome Pro";
+    font-family: "Font Awesome";
     font-size: 1.25rem;
+    font-weight: 300;
     padding: 0.5em 0.75em;
   }
   
@@ -702,8 +708,9 @@
   }
   #upload-component .search-wrapper .triangle::before {
     content: "\f0d7";
-    font-family: "Font-Awesome";
+    font-family: "Font Awesome";
     font-size: 1.2rem;
+    font-weight: 500;
   }
   #upload-component .drop-down-container {
     margin-top: .25em;
@@ -748,8 +755,9 @@
   #upload-component .upload-card .remove-btn::before {
     content: "\f00d";
     position: absolute;
-    font-family: "Font-Awesome Pro";
+    font-family: "Font Awesome";
     font-size: 1.3rem;
+    font-weight: 500;
     padding: 0.2em 0.4em;
     background-color: var(--bg-500);
     border-radius: 50%;
@@ -774,8 +782,8 @@
     content: "\f328";
     position: absolute;
     inset: 8px auto auto 1.3em;
-    font-family: "Font-Awesome Pro";
-    font-weight: 100;
+    font-family: "Font Awesome";
+    font-weight: 300;
     color: inherit;
   }
   #upload-component .paste-btn .text {
@@ -812,8 +820,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    font-family: "Font-Awesome Pro", var(--ff);
-    font-weight: 100;
+    font-family: "Font Awesome", var(--ff);
+    font-weight: 300;
     font-size: 0.75rem;
     color: var(--cl-800);
   }
@@ -856,8 +864,9 @@
     content: "\f013";
     position: absolute;
     inset: 0;
-    font-family: "Font-Awesome Pro", var(--ff);
+    font-family: "Font Awesome", var(--ff);
     font-size: 1.4rem;
+    font-weight: 300;
     text-align: center;
     line-height: 1.6;
     color: inherit;
@@ -911,8 +920,8 @@
     box-sizing: border-box;
     position: absolute;
     inset: 0;
-    font-family: "Font-Awesome Pro", var(--ff);
-    font-weight: 800;
+    font-family: "Font Awesome", var(--ff);
+    font-weight: 300;
     text-align: center;
     line-height: 1.2;
     pointer-events: none;
@@ -1036,6 +1045,7 @@
   .comment-signup-banner .comment-signup-banner__action__btn:hover {
     background-color: var(--bg-700);
   }
+
   /* Signup / Login Modal */
   .overlay.overlay-default .modal.modal.with-header {
     background-color: var(--bg-200);
@@ -1138,7 +1148,7 @@
     width: 20px;
     aspect-ratio: 1 / 1;
     inset: auto auto auto 1.1em;
-    font-family: "Font-Awesome";
+    font-family: "Font Awesome";
     font-size: 20px;
     font-weight: 500;
     line-height: 1;
@@ -1221,12 +1231,12 @@
   }
   .drawer .button .icon.star::after {
     content: "\f005";
-    font-family: 'Font-Awesome';
-    color: var(--cl-900);
+    font-family: "Font Awesome";
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 500;
     font-style: normal;
     line-height: 1.5rem;
+    color: var(--cl-900);
   }
   .drawer li:hover .icon.star {
     opacity: 0.2;
@@ -1491,7 +1501,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    font-family: Font-Awesome, var(--ff);
+    font-family: "Font Awesome", var(--ff);
     font-size: 1.105em;
     font-weight: 500;
     padding: 8px 0;
@@ -1662,8 +1672,9 @@
     .post-container .ui-post-actions__item::before {
       position: absolute;
       inset: 6px auto auto 12px;
-      font-family: "Font-Awesome";
+      font-family: "Font Awesome";
       font-size: 20px;
+      font-weight: 500;
       line-height: 1;
       color: var(--cl-900);
     }
@@ -1676,8 +1687,9 @@
     .post-container .ui-post-actions__item:nth-child(3)::before {
       content: "\f27a";
       top: 9px;
-      font-family: "Font-Awesome Pro Solid";
+      font-family: "Font Awesome";
       font-size: 15px;
+      font-weight: 900;
     }
     .post-container .ui-post-actions__item.active:nth-child(1) {
       background-color: transparent;
@@ -1758,13 +1770,16 @@
     margin: 0
   }
   section:is(#individual-post, #list-view-2) .ui-post-creator__author {
-    margin-inline: 0.5rem 0;
+    margin-inline: 0.5rem;
     color: var(--cl-400) !important;
   }
-  section:is(#individual-post, #list-view-2) .ui-post-creator__author::after {
+  section:is(#individual-post, #list-view-2) .ui-post-creator__details span {
+    margin-inline: 0 0.5rem;
+  }
+  section:is(#individual-post, #list-view-2) .ui-post-creator__creation::before {
     content: "·";
-    font-size: 0.8rem;
-    margin-inline: 0.25rem;
+    font-size: 0.9rem;
+    margin-inline: -0.25rem 0.25rem;
     color: var(--cl-800);
   }
   section:is(#individual-post, #list-view-2) .post-header__action .action-icon {
@@ -1894,6 +1909,29 @@
     margin: 0;
   }
 
+  /* Sensitive Content */
+  section#list-view-2 .post-container .post-sensitive-mask {
+    background-color: transparent;
+    background-image: repeating-linear-gradient(45deg, var(--bg-400), var(--bg-400) 1px, transparent 1px, transparent 5px), repeating-linear-gradient(-45deg, var(--bg-400), var(--bg-400) 1px, transparent 1px, transparent 5px);
+  }
+  section#list-view-2 .post-container .sensitive-mask__content {
+    padding: 1.5rem 2rem;
+    background: var(--bg-300);
+    border-radius: var(--br);
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.15), inset 0 0 100vw rgba(0, 0, 0, 0.4);
+  }
+  .post-sensitive-mask .sensitive-mask__content h4 {
+    color: var(--cl-400);
+  }
+  .post-sensitive-mask .sensitive-mask__content__btn {
+    background-color: var(--bg-450);
+    color: var(--cl-500);
+    transition: background-color 250ms linear;
+  }
+  .post-sensitive-mask .sensitive-mask__content__btn:hover {
+    background-color: var(--bg-500);
+  }
+
   /* -- Post Footer -- */
   /* Post Tag */
   section#list-view-2 .post-tag {
@@ -1930,18 +1968,13 @@
     filter: brightness(1.4);
   }
   .btn-vote a::after {
-    font-family: 'Font-Awesome';
+    font-family: "Font Awesome";
     font-size: 20px;
-    font-weight: 100;
+    font-weight: 500;
     line-height: 1;
     text-indent: 0 !important;
     text-align: center;
     color: var(--cl-900);
-  }
-  .btn-vote[data-v-5026a6e9] a::after {
-    inset: 2px 0 0 10px;
-    margin: 0;
-    background: red !important;
   }
   .btn-vote .up:after,.btn-vote .up.active::after {
     content: "\f062";
@@ -2036,17 +2069,6 @@
   }
   section#individual-post .post-container .post-view {
     background-color: var(--bg-200);
-  }
-  .post-sensitive-mask .sensitive-mask__content h4 {
-    color: var(--cl-400);
-  }
-  .post-sensitive-mask .sensitive-mask__content__btn {
-    background-color: var(--bg-450);
-    color: var(--cl-500);
-    transition: background-color 250ms linear;
-  }
-  .post-sensitive-mask .sensitive-mask__content__btn:hover {
-    background-color: var(--bg-500);
   }
   
   /* ---- Post Comment ---- */
@@ -2222,7 +2244,7 @@
     border-top-color: var(--blue-light);
   }
   .post-comment .vote-button {
-    font-family: "Font-Awesome", var(--ff);
+    font-family: "Font Awesome", var(--ff);
     font-weight: 500;
     margin: 0;
     padding-left: 0;
