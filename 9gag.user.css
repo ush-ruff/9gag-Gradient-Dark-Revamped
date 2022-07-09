@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.1.3
+@version        2.1.4
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1730,7 +1730,6 @@
       padding: 0 0 1em !important;
       background: var(--bg-200);
       border-radius: var(--br);
-      overflow: hidden;
     }
       
     /* -- Post Header -- */
@@ -1738,6 +1737,7 @@
       margin: 0;
       padding: 1em 3.5em;
       background: var(--bg-300);
+      border-radius: var(--br) var(--br) 0 0;
     }
     section#list-view-2 h1 {
       line-height: 1.4em;
@@ -2026,7 +2026,7 @@
     width: 36px;
     background-color: var(--bg-450);
   } 
-  .share .button.share:hover {
+  .share .button:is(.share:hover, .share.active) {
     background-color: var(--bg-450);
   }
   .share .button.share::after {
@@ -2036,9 +2036,55 @@
     background-position: center;
     filter: brightness(0.8);
   }
-  .share .button.share:hover::after {
+  .share .button:is(.share:hover, .share.active)::after {
     filter: brightness(1);
   }
+
+  /* Share Menu */
+  :is(section#list-view-2, section#individual-post) .share .menu {
+    top: calc(100% + 15px);
+    right: -18px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+  :is(section#list-view-2, section#individual-post) .share .menu::before {
+    top: -7px;
+    width: 15px;
+    height: 15px;
+    background: var(--bg-500);
+    border: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+  :is(section#list-view-2, section#individual-post) .share .menu::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 5px;
+    top: 0;
+    right: 25px;
+    background: var(--bg-500);
+  }
+  section#individual-post .share .menu::after {
+    width: 21px;
+    right: 20px;
+  }
+  :is(section#list-view-2, section#individual-post) .share :is(.copy, .email)::after {
+    all: unset;
+  }
+  .share .menu :is(.copy, .email)::before {
+    position: absolute;
+    left: -20px;
+    font-family: "Font Awesome", var(--ff);
+  }
+  .share .menu .copy::before {
+    content: "\f0c1";
+    font-weight: 300;
+  }
+  .share .menu .email::before {
+    content: "\f0e0";
+  }
+  
   
   /* ---- Post Page ---- */
   .fixed-wrap-post-bar {
