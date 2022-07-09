@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.1.2
+@version        2.1.3
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1793,18 +1793,18 @@
   }
 
   /* Post Menu Button */
-  section#list-view-2 .uikit-popup-menu .button {
+  section#list-view-2 .post-header .uikit-popup-menu .button {
     background-color: transparent;
     transform: scale(1.5) translate(10px, 4px) rotate(90deg);
   }
-  section#list-view-2 .uikit-popup-menu .button svg {
+  section#list-view-2 .post-header .uikit-popup-menu .button svg {
     opacity: 0;
     filter: var(--invert);
   }
-  section#list-view-2 [id^="jsid-post"]:is(:hover, :focus) .uikit-popup-menu svg {
+  section#list-view-2 [id^="jsid-post"]:is(:hover, :focus) .post-header .uikit-popup-menu svg {
     opacity: 0.4;
   }
-  section#list-view-2 .uikit-popup-menu .button:is(:hover, :focus) svg {
+  section#list-view-2 .post-header .uikit-popup-menu .button:is(:hover, :focus) svg {
     opacity: 0.8;
   }
 
