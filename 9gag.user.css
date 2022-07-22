@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.2.0
+@version        2.2.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -2533,6 +2533,28 @@
 @-moz-document domain(9gag.com) {
   /* Restore tag images on sidebar */
   if (restoreTagImg == 1) {
+    .drawer-container > section:not(:first-child) .label.section {
+      position: relative;
+      padding-inline-start: 3rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        top: 50%;
+        left: 1rem;
+        background-color: var(--bg-400);
+        background-repeat: none;
+        background-size: 24px;
+        background-position: center;
+        transform: translateY(-50%);
+      }
+
+      &:hover::before {
+        background-color: var(--bg-600);
+      }
+    }
     .label.section {
       &[href*="/tag/among-us" i]::before {
         background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1602236386.2377_YVAWUr_100x100.jpg")
