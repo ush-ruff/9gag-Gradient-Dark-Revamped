@@ -3,12 +3,13 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.1.4
+@version        2.2.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
 @preprocessor   stylus
 @var            checkbox newLayout "New 9gag Layout Fix" 0
+@var            checkbox restoreTagImg "Restore section tag images on sidebar" 1
 ==/UserStyle== */
 
 @-moz-document domain("9gag.com") {
@@ -2526,5 +2527,205 @@
   }
   .Footer-nav a:hover {
     color: var(--cl-200);
+  }
+}
+
+@-moz-document domain(9gag.com) {
+  /* Restore tag images on sidebar */
+  if (restoreTagImg == 1) {
+    .label.section {
+      &[href*="/tag/among-us" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1602236386.2377_YVAWUr_100x100.jpg")
+      }
+      &[href*="/tag/animals" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557391851.3248_Za4UdA_100x100.jpg")
+      }
+      &[href*="/tag/anime" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557310356.2625_y8EVa2_100x100.jpg")
+      }
+      &[href*="/tag/anime-waifu" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557216667.6148_TuNebU_100x100.jpg")
+      }
+      &[href*="/tag/anime-wallpaper" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557216671.5403_tunyra_100x100.jpg")
+      }
+      &[href*="/tag/apex-legends" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557130395.0362_Je7YJA_100x100.jpg")
+      }
+      &[href*="/tag/ask-9gag" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557297343.7755_SUPELy_100x100.jpg")
+      }
+      &[href*="/tag/awesome" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557217995.2799_bYQyJU_100x100.jpg")
+      }
+      &[href*="/tag/car" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557311278.4297_UNEHy6_100x100.jpg")
+      }
+      &[href*="/tag/comic" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557399125.5971_HYGaTE_100x100.jpg")
+      }
+      &[href*="/tag/coronavirus" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1584508226.1928_evY7UG_100x100.jpg")
+      }
+      &[href*="/tag/cosplay" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557216678.2404_U2EHEM_100x100.jpg")
+      }
+      &[href*="/tag/countryballs" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557310697.557_Ba4aSa_100x100.jpg")
+      }
+      &[href*="/tag/cozy" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1571738757.4169_vevUNA_100x100.jpg")
+      }
+      &[href*="/tag/crappy-design" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557286985.8981_4eqENa_100x100.jpg")
+      }
+      &[href*="/tag/cryptocurrency" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1612499626.65_ARaqeP_100x100.jpg")
+      }
+      &[href*="/tag/cyberpunk-2077" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1601435242.0864_EhY7Ym_100x100.jpg")
+      }
+      &[href*="/tag/dark-humor" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557453152.4514_U2asE8_100x100.jpg")
+      }
+      &[href*="/tag/drawing" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557286939.2639_Te3EBe_100x100.jpg")
+      }
+      &[href*="/tag/elden-ring" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1647878457.016_vYSU7a_100x100.jpg")
+      }
+      &[href*="/tag/fashion" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557453498.4533_yvyBU6_100x100.jpg")
+      }
+      &[href*="/tag/food" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557295964.6843_uHyTu2_100x100.jpg")
+      }
+      &[href*="/tag/football" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1627027095.3081_TUNU7y_100x100.jpg")
+      }
+      &[href*="/tag/f1" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1647837219.187_3yqe5E_100x100.jpg")
+      }
+      &[href*="/tag/fortnite" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291380.0454_yXALUZ_100x100.jpg")
+      }
+      &[href*="/tag/funny" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557376304.186_U5U7u5_100x100.jpg")
+      }
+      &[href*="/tag/game-of-thrones" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557216648.3213_E9Eba6_100x100.jpg")
+      }
+      &[href*="/tag/gaming" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557286928.6604_uTYgug_100x100.jpg")
+      }
+      &[href*="/gif" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557283958.4323_AXE2aJ_100x100.jpg")
+      }
+      &[href*="/tag/girl" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557286922.3692_aWySaZ_100x100.jpg")
+      }
+      &[href*="/tag/girl-celebrity" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557216688.9396_YduXUP_100x100.jpg")
+      }
+      &[href*="/tag/guy" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557295872.771_uTAnAD_100x100.jpg")
+      }
+      &[href*="/tag/history" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557296197.2188_XEhabA_100x100.jpg")
+      }
+      &[href*="/tag/horror" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557286914.1262_U3EQav_100x100.jpg")
+      }
+      &[href*="/tag/kpop" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557216683.8874_hunY4u_100x100.jpg")
+      }
+      &[href*="/tag/latest-news" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557286757.4584_Du3Eba_100x100.jpg")
+      }
+      &[href*="/tag/league-of-legends" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_100x100.jpg")
+      }
+      &[href*="/tag/lego" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557123612.5851_ENENAQ_100x100.jpg")
+      }
+      &[href*="/tag/meme" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557216707.0007_ESESyM_100x100.jpg")
+      }
+      &[href*="/tag/movie-tv" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557286907.1035_hE2uHE_100x100.jpg")
+      }
+      &[href*="/tag/music" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557286900.9909_E8EGyp_100x100.jpg")
+      }
+      &[href*="/tag/nba" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557286654.1198_yNyna7_100x100.jpg")
+      }
+      &[href*="/tag/nsfw" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557297099.4728_VeSAvU_100x100.jpg")
+      }
+      &[href*="/tag/overwatch" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557123617.4712_DEbYBA_100x100.jpg")
+      }
+      &[href*="/tag/pcmr" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557311439.7179_8UsUhu_100x100.jpg")
+      }
+      &[href*="/tag/pokemon" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557123631.4709_XUSEmY_100x100.jpg")
+      }
+      &[href*="/tag/politics" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557286889.2504_mEVy2A_100x100.jpg")
+      }
+      &[href*="/tag/pubg" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557130506.0765_aXuNa4_100x100.jpg")
+      }
+      &[href*="/tag/random" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1481541784.8502_e8ARAR_100x100.jpg")
+      }
+      &[href*="/tag/relationship" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557281608.0144_yjEDu7_100x100.jpg")
+      }
+      &[href*="/tag/resident-evil" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1620805467.9634_bejeDa_100x100.jpg")
+      }
+      &[href*="/tag/satisfying" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291577.7623_4Y5A3U_100x100.jpg")
+      }
+      &[href*="/tag/savage" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291282.8015_egYQAB_100x100.jpg")
+      }
+      &[href*="/tag/science" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557286779.394_WYru9a_100x100.jpg")
+      }
+      &[href*="/tag/sport" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1629104744.7247_EheJe6_100x100.jpg")
+      }
+      &[href*="/tag/star-wars" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557123636.2678_UPYNuT_100x100.jpg")
+      }
+      &[href*="/tag/superhero" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1641531424.3731_aqy7yD_100x100.jpg")
+      }
+      &[href*="/tag/school" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557290674.9492_ARAda3_100x100.jpg")
+      }
+      &[href*="/tag/travel" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557398058.2002_EmASyv_100x100.jpg")
+      }
+      &[href*="/video" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557283964.0386_avUmy5_100x100.jpg")
+      }
+      &[href*="/tag/wallpaper" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557397422.1946_Evebyr_100x100.jpg")
+      }
+      &[href*="/tag/warhammer" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557123640.8958_YWaGUb_100x100.jpg")
+      }
+      &[href*="/tag/wholesome" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1571808085.3621_gyMeNu_100x100.jpg")
+      }
+      &[href*="/tag/wtf" i]::before {
+        background-image: url("https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557310702.1267_UgysAp_100x100.jpg");
+      }
+    }
   }
 }
