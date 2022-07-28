@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.2.5
+@version        2.2.6
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1788,25 +1788,31 @@
 
   /* -- Post Header -- */
   section:is(#individual-post, #list-view-2) .post-header {
-    gap: 0.5rem;
+    --gap: 0.5rem;
+    gap: calc(var(--gap) / 2);
+  }
+  section:is(#individual-post, #list-view-2) .ui-post-creator > *:not(:empty):not(:last-child) {
+    margin-inline-end: var(--gap);
   }
   section:is(#individual-post, #list-view-2) .ui-post-creator {
     max-width: max-content;
   }
-  section:is(#individual-post, #list-view-2) .ui-post-creator__icon {
-    margin: 0
-  }
   section:is(#individual-post, #list-view-2) .ui-post-creator__author {
-    margin-inline: 0.5rem;
     color: var(--cl-400) !important;
   }
+  section:is(#individual-post, #list-view-2) .ui-post-creator__details {
+    gap: var(--gap);
+  }
   section:is(#individual-post, #list-view-2) .ui-post-creator__details span {
-    margin-inline: 0 0.5rem;
+    margin-inline: 0;
+  }
+  section:is(#individual-post, #list-view-2) .ui-post-creator__details .ui-post-creator__emoji {
+    margin-inline-end: -0.25rem;
   }
   section:is(#individual-post, #list-view-2) .ui-post-creator__creation::before {
     content: "·";
     font-size: 0.9rem;
-    margin-inline: -0.25rem 0.25rem;
+    margin-inline: 0 var(--gap);
     color: var(--cl-800);
   }
   section:is(#individual-post, #list-view-2) .post-header__action .action-icon {
