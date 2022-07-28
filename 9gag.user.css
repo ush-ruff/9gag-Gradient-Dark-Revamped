@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.2.4
+@version        2.2.5
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -255,6 +255,31 @@
     background-color: var(--red-light);
     border: 1px solid var(--bg-500);
   }
+  /* Upload Button */
+  .upload .ui-btn.btn-color-primary {
+    background-color: var(--bg-600) !important;
+    border-radius: 100vw;
+    color: transparent;
+  }
+  .upload .ui-btn.btn-color-primary:hover {
+    background-color: var(--bg-500) !important;
+  }
+  .upload .btn-color-primary .ui-base-icon {
+    display: none;
+  }
+  .upload .btn-color-primary::before {
+    content: "\2b";
+    font-family: "Font Awesome", var(--ff);
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: -4px;
+    color: var(--cl-300);
+  }
+  .upload .btn-color-primary::after {
+    content: "Upload";
+    margin-left: -24px;
+    color: var(--cl-300);
+  }
   
   /* ---- Notifications ---- */
   .notification:hover {
@@ -293,7 +318,7 @@
     width: 1em;
     aspect-ratio: 1 / 1;
     top: calc(-0.5em - 1px);
-    left: 34%;
+    left: 48%;
     background-color: var(--bg-300);
     border-top: 1px solid var(--bg-200);
     border-left: 1px solid var(--bg-200);
@@ -516,7 +541,7 @@
     padding: 0.5em 0.75em;
   }
   
-  /* Popup Menus */
+  /* ---- Popup Menus ---- */
   :is(.popup-menu, .menu, .uikit-popup-menu .menu) ul {
     background-color: var(--bg-500);
     border-radius: var(--br);
@@ -591,7 +616,7 @@
     width: 1em;
     aspect-ratio: 1 / 1;
     top: calc(-0.5em - 1px);
-    right: calc(50% - 0.5em - 2px);
+    right: calc(50% - 1.4rem - 2px);
     background-color: var(--bg-500);
     transform: rotate(45deg);
   }
@@ -1101,7 +1126,8 @@
   .overlay.overlay-default .signup-social-button__list .list-item:hover {
     color: var(--cl-100);
   }
-  .overlay.overlay-default .signup-social-button__list .list-item > svg {
+  .overlay.overlay-default .signup-social-button__list .list-item > svg, 
+  .overlay.overlay-default .signup-social-button__list .list-item .ui-base-icon > svg {
     filter: saturate(0) brightness(2);
   }
   .overlay.overlay-default .signup-social-button__list .list-item[href*="facebook"] {
