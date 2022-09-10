@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.2.6
+@version        2.2.7
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -101,15 +101,44 @@
   }
 
   /* ---- Buttons ---- */
-  .ui-btn.btn-color-primary {
-    background-color: var(--blue-lighter) !important;
-    border-radius: var(--br);
-  }
-  .ui-btn.btn-color-primary:hover {
-    background-color: var(--blue-light) !important;
+  .ui-btn {
+    font-family: var(--ff);
+    border-radius: var(--br) !important;
+    transition: background-color 175ms ease-in-out, color 175ms ease-in-out;
+    
+    &.btn-color-primary {
+      background-color: var(--blue-lighter) !important;
+      
+      &:is(:hover, :focus) {
+        background-color: var(--blue-light) !important;
+      }
+    }
+    &.btn-color-secondary {
+      font-weight: 500;
+      background-color: var(--bg-700) !important;
+      color: var(--cl-200) !important;
+      
+      &:is(:hover, :focus) {
+        background-color: var(--bg-800) !important;
+        color: var(--cl-100) !important;
+      }
+    }
+    &.btn-color-danger {
+      background-color: var(--red-dark) !important;
+      color: var(--cl-300) !important;
+      
+      &:is(:hover, :focus) {
+        background-color: #a51b13 !important;
+      }
+    }
   }
   
   /* ---- Toast Notifications ---- */
+  .ui-toast-view .ui-toast__default {
+    background-color: var(--blue-light);
+    border-color: var(--blue-lighter);
+    color: var(--cl-100);
+  }
   .ui-toast-view .ui-toast__info {
     background-color: var(--blue-light);
     color: var(--cl-100);
@@ -161,6 +190,10 @@
     background-color: var(--bg-200);
     border-radius: var(--br);
     box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
+
+    .modal__content h2 {
+      color: var(--cl-300);
+    }
   }
   .overlay.overlay-default .modal__footer {
     background-color: transparent;
