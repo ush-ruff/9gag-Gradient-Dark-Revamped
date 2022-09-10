@@ -3,13 +3,13 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.2.7
+@version        2.3.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
 @preprocessor   stylus
-@var            checkbox newLayout "New 9gag Layout Fix" 0
 @var            checkbox restoreTagImg "Restore section tag images on sidebar" 1
+@var            checkbox hideSidebarRight "Hide Right Sidebar / Featured Posts" 1
 ==/UserStyle== */
 
 @-moz-document domain("9gag.com") {
@@ -1312,6 +1312,35 @@
     color: var(--yellow);
   }
   
+  /* ---- Page Layout ---- */
+  #container {
+    display: flex;
+    width: 100%;
+    min-width: unset;
+  }
+  #page {
+    width: 100%;
+  }
+  .main-wrap {
+    float: unset;
+    width: 700px;
+    margin: 0 auto;
+    
+    .sticky-navbar.sticky {
+      position: static;
+    }
+  }
+  #container.drawer > #page {
+    margin-left: 0;
+  }
+  
+  /* Hide Sidebar */
+  if (hideSidebarRight == 1) {
+    #page > :is(#sidebar, .clearfix) {
+      display: none;
+    }
+  }
+
   /* ---- Sidebar - Right ---- */
   #sidebar-content {
     position: fixed !important;
@@ -1614,212 +1643,30 @@
   }
   
   /* ---- Posts ---- */
-  if (newLayout == 1) {
-    section#list-view-2 article {
-      max-width: 50em;
-      display: flex;
-      flex-direction: column;
-      margin-top: 24px;
-      padding: 0 0 1.5em !important;
-      background: var(--bg-200);
-      border: none;
-      border-radius: var(--br);
-      overflow: hidden;
-    }  
-    
-    /* -- Post Header -- */
-    section#list-view-2 header {
-      margin: 0;
-      padding: 1em 3.5em 0;
-      background: var(--bg-300);
-    }
-    // section:is(#individual-post, #list-view-2) .post-section .icon {
-    //   min-width: max-content;
-    //   margin-right: 8px;
-    // }
-    // section:is(#individual-post, #list-view-2) .post-section .message {
-    //   width: auto;
-    //   min-width: max-content;
-    // }
-    // section:is(#individual-post, #list-view-2) .post-section__action {
-    //   width: 100%;
-    // }
-    // section:is(#individual-post, #list-view-2) .post-section__action .action-icon.star {
-    //   margin-right: -4px;
-    // }
-    // section:is(#individual-post, #list-view-2) .post-section__action .save {
-    //   background: transparent;
-    // }
-    // section:is(#individual-post, #list-view-2) .post-section__action .save path[fill="#FF3B30"] {
-    //   fill: var(--blue-light);
-    // }
-    // section:is(#individual-post, #list-view-2) .post-section .message a:hover {
-    //   color: var(--cl-500);
-    // }
-    
-    /* -- Post Inner -- */
-    section#list-view-2 .post-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      align-self: center;
-      margin: 0;
-    }
-    
-    /* Post Title */
-    section#list-view-2 .post-container .post-title {
-      display: block;
-      order: 1;
-      margin: 0;
-      padding: 0.2em 2.5em 0.8em;
-      font-family: var(--ff);
-      font-size: 20px !important;
-      font-weight: 700 !important;
-      background: var(--bg-300);
-      color: var(--cl-400);
-    }
-    section#list-view-2 .post-container .post-title:hover {
-      color: var(--cl-100);
-    }
-    
-    /* Post Images, etc */
-    section#list-view-2 .post-container__view {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      order: 2;
-      margin: 0;
-    }
-    section#list-view-2 .post-container .post-view.image-post {
-      padding: 0 2em !important;
-    }
-    
-    /* -- Post Footer -- */
-    section#list-view-2 .post-container .ui-post-actions {
-      display: flex;
-      flex-direction: row;
-      gap: 1em;
-      padding-inline: 2em;
-    }
-    
-    /* Vote & Comment Buttons */
-    .post-container .ui-post-actions__item {
-      box-sizing: border-box;
-      width: min-content;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      margin: 0;
-      padding: 0 1.15em;
-      background-color: var(--bg-450);
-      border: 1px solid var(--bg-450);
-      border-radius: 2px;
-    }
-    .post-container .ui-post-actions__item svg {
-      display: none;
-    }
-    .post-container .ui-post-actions__item .ui-post-actions__text {
-      min-width: 3ch;
-      font-family: var(--ff);
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 20px;
-      padding-block: 0;
-      padding-inline-start: 25px;
-      color: var(--cl-500);
-    }
-    .post-container .ui-post-actions__item::before {
-      position: absolute;
-      inset: 6px auto auto 12px;
-      font-family: "Font Awesome";
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 1;
-      color: var(--cl-900);
-    }
-    .post-container .ui-post-actions__item:nth-child(1)::before {
-      content: "\f062";
-    }
-    .post-container .ui-post-actions__item:nth-child(2)::before {
-      content: "\f063";
-    }
-    .post-container .ui-post-actions__item:nth-child(3)::before {
-      content: "\f27a";
-      top: 9px;
-      font-family: "Font Awesome";
-      font-size: 15px;
-      font-weight: 900;
-    }
-    .post-container .ui-post-actions__item.active:nth-child(1) {
-      background-color: transparent;
-      border: 1px solid var(--green-light);
-    }
-    .post-container .ui-post-actions__item:is(.active, :hover):nth-child(1)::before {
-      color: var(--green-light);
-    }
-    .post-container .ui-post-actions__item.active:nth-child(2) {
-      background-color: transparent;
-      border: 1px solid var(--red-light);
-    }
-    .post-container .ui-post-actions__item:is(.active, :hover):nth-child(2)::before {
-      color: var(--red-light);
-    }
-    .post-container .ui-post-actions__item:is(.active, :hover):nth-child(3)::before {
-      color: var(--cl-400);
-    }
-    
-    /* Post Description */
-    section#list-view-2 .post-text-container {
-      order: 3;
-      margin: 0;
-    }
-    
-    /* Post Tag */
-    section#list-view-2 .post-tag {
-      margin-block-start: 1em;
-    }
-  } 
-  else {
-    /* ---- Posts ---- */
-    section#list-view-2 article {
-      max-width: 50em;
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      padding: 0 0 1em !important;
-      background: var(--bg-200);
-      border-radius: var(--br);
-    }
-      
-    /* -- Post Header -- */
-    section#list-view-2 header {
-      margin: 0;
-      padding: 1em 3.5em;
-      background: var(--bg-300);
-      border-radius: var(--br) var(--br) 0 0;
-    }
-    section#list-view-2 h1 {
-      line-height: 1.4em;
-      color: var(--cl-400);
-    }
-    section#list-view-2 header a h1:hover {
-      color: var(--cl-100);
-    }    
-      
-    /* -- Post Inner -- */
-    section#list-view-2 .post-container .read-more .post-view img {
-      min-height: auto !important;
-    }
-    
-    /* Post Footer Text */
-    section#list-view-2 .post-text-container {
-      box-sizing: border-box;
-      margin-block-start: 1em;
-    }
-  }
-
+  section#list-view-2 article {
+    max-width: 50em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0 0 1em !important;
+    background: var(--bg-200);
+    border-radius: var(--br);
+  }  
+  
   /* -- Post Header -- */
+  section#list-view-2 header {
+    margin: 0;
+    padding: 1em 3.5em;
+    background: var(--bg-300);
+    border-radius: var(--br) var(--br) 0 0;
+  }
+  section#list-view-2 h1 {
+    line-height: 1.4em;
+    color: var(--cl-400);
+  }
+  section#list-view-2 header a h1:hover {
+    color: var(--cl-100);
+  }
   section:is(#individual-post, #list-view-2) .post-header {
     --gap: 0.5rem;
     gap: calc(var(--gap) / 2);
@@ -1892,6 +1739,7 @@
 
   /* -- Post Inner -- */
   section#list-view-2 .post-container {
+    width: 100%;
     margin: 0;
   }
   section#list-view-2 .post-container .post-view {
@@ -1906,6 +1754,9 @@
     margin: 0 auto;
     padding: 0 !important;
     border-radius: 0;
+  }
+  section#list-view-2 .post-container .read-more .post-view img {
+    min-height: auto !important;
   }
   
   /* Post Media Controls */
@@ -2007,6 +1858,12 @@
   }
   section#list-view-2 .post-tag a {
     margin: 0;
+  }
+
+  /* Post Footer Text */
+  section#list-view-2 .post-text-container {
+    box-sizing: border-box;
+    margin-block-start: 1em;
   }
 
   /* Vote & Comment Buttons */
