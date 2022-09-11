@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.3.0
+@version        2.3.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -109,7 +109,7 @@
     &.btn-color-primary {
       background-color: var(--blue-lighter) !important;
       
-      &:is(:hover, :focus) {
+      &:hover, &:focus {
         background-color: var(--blue-light) !important;
       }
     }
@@ -118,7 +118,7 @@
       background-color: var(--bg-700) !important;
       color: var(--cl-200) !important;
       
-      &:is(:hover, :focus) {
+      &:hover, &:focus {
         background-color: var(--bg-800) !important;
         color: var(--cl-100) !important;
       }
@@ -127,7 +127,7 @@
       background-color: var(--red-dark) !important;
       color: var(--cl-300) !important;
       
-      &:is(:hover, :focus) {
+      &:hover, &:focus {
         background-color: #a51b13 !important;
       }
     }
@@ -291,7 +291,7 @@
   /* Upload Button */
   .upload .ui-btn.btn-color-primary {
     background-color: var(--bg-600) !important;
-    border-radius: 100vw;
+    border-radius: 100vw !important;
     color: transparent;
   }
   .upload .ui-btn.btn-color-primary:hover {
@@ -1333,6 +1333,10 @@
   #container.drawer > #page {
     margin-left: 0;
   }
+  #container #settings {
+    width: 700px;
+    margin: 0 auto;
+  }
   
   /* Hide Sidebar */
   if (hideSidebarRight == 1) {
@@ -1429,8 +1433,12 @@
     background-color: var(--bg-600) !important;
     color: var(--cl-300);
   }
-  .blank-state {
+  .main-wrap .blank-state {
     background-color: var(--bg-300);
+    
+    h2 {
+      color: var(--cl-400);
+    }
   }
   
   /* ---- Settings ---- */
@@ -1489,6 +1497,16 @@
   }
   .toast-close {
     color: inherit;
+  }
+
+  /* Block list */
+  .blocklist__list .ui-block-user-item__info {
+    h4 {
+      color: var(--cl-400);
+    }
+    p {
+      color: var(--cl-600);
+    }
   }
   
   /* ---- Boards ---- */
@@ -1698,8 +1716,8 @@
   section:is(#individual-post, #list-view-2) .post-header__action .action-icon {
     margin: 0;
   }
-  section:is(#individual-post, #list-view-2) .post-header .save path[fill="#FF3B30"] {
-    fill: var(--blue-light);
+  section:is(#individual-post, #list-view-2) .post-header .post-save-shortcut.save g[fill="#ff3b30" i] {
+    fill: var(--blue-lighter);
   }
   section:is(#individual-post, #list-view-2) .uikit-popup-menu {
     margin-left: auto;
@@ -2330,42 +2348,27 @@
   }
   
   /* ---- Report ---- */
-  section.modal {
-    background-color: var(--bg-200);
-    color: var(--cl-400);
-  }
-  section.modal a.btn-close {
-    filter: var(--invert);
-  }
-  section.modal header p {
-    color: var(--cl-800);
-  }
-  ul.reason-picker, ul.section-picker {
-    background-color: var(--bg-300);
-    border-color: var(--bg-800);
-  }
-  ul.reason-picker li a, ul.section-picker li a {
-    color: var(--cl-500);
-  }
-  ul.reason-picker li a:hover, ul.section-picker li a:hover {
-    background-color: var(--bg-500);
-    color: var(--cl-300);
-  }
-  ul.reason-picker .selector, ul.section-picker .selector {
-    background-color: var(--bg-600);
-  }
-  ul.reason-picker a:hover .selector, ul.section-picker a:hover .selector {
-    background-color: var(--bg-800);
-  }
-  ul.reason-picker .selector.selected, ul.section-picker .selector.selected {
-    background-color: var(--blue-light);
-  }
-  a.btn.grey {
-    background-color: var(--bg-700);
-    color: var(--cl-300);
-  }
-  a.btn.grey:hover {
-    background-color: var(--bg-900);
+  .report-modal-view {
+    .report-type p {
+      color: var(--cl-500);
+      
+      a {
+        color: var(--blue-light);
+        
+        &:is(:hover, :focus) {
+          color: var(--blue-lighter);
+        }
+      }
+    }
+    .report-type__selector {
+      border-color: var(--bg-400);
+    }
+    .report-type__type:hover {
+      background-color: var(--bg-400);
+    }
+    .report-modal-view__type p {
+      color: var(--cl-500);
+    }
   }
   
   /* ---- About ---- */
