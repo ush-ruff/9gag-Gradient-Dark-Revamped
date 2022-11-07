@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.3.3
+@version        2.3.4
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1992,6 +1992,60 @@
   }
   .share .button:is(.share:hover, .share.active)::after {
     filter: brightness(1);
+  }
+  #main .share .share-bar {
+    > *, .share-menu-button {
+      background-color: var(--bg-400);
+      border-radius: 2px;
+    }
+    > a::after {
+      font-family: "Font Awesome";
+      font-size: 1.4rem;
+      font-weight: 100;
+      line-height: 1;
+      text-indent: 0 !important;
+      text-align: center;
+      color: var(--cl-900);
+    }
+    > a:hover::after {
+      color: var(--cl-400);
+    }
+    .whatsapp::after {
+      content: "\f232";
+    }
+    .messenger::after {
+      content: "\f39f";
+    }
+    .share-menu-button:hover path {
+      fill: var(--cl-400);
+    }
+    a > div {
+      display: none;
+    }
+    .menu {
+      .facebook::after, .pinterest::after, .twitter::after, .telegram::after {
+        font-family: "Font Awesome";
+        font-size: 1.2rem;
+        font-weight: 100;
+        line-height: 1.5;
+        text-indent: 0 !important;
+        text-align: center;
+        background: none;
+        color: var(--cl-400);
+      }
+      .facebook::after {
+        content: "\f09a";
+      }
+      .pinterest::after {
+        content: "\f0d2";
+      }
+      .twitter::after {
+        content: "\f099";
+      }
+      .telegram::after {
+        content: "\f2c6";
+      }
+    }
   }
 
   /* Share Menu */
