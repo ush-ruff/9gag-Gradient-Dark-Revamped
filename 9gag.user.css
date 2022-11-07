@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.3.2
+@version        2.3.3
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1386,23 +1386,23 @@
   }
   
   /* ---- Main Wrap ---- */
-  .main-wrap .sticky-navbar {
-    background-color: var(--bg-100);
-  }
-  .main-wrap .sticky-navbar:after {
-    background: inherit;
-  }
-  .main-wrap .sticky-navbar a {
-    background-color: var(--bg-300);
-    border-color: var(--bg-400);
-    color: var(--cl-300);
-  }
-  .main-wrap .sticky-navbar a:is(:hover, :focus) {
-    background-color: var(--bg-500);
-  }
-  .main-wrap .sticky-navbar a.selected, 
-  .main-wrap .sticky-navbar a.selected:is(:hover, :focus) {
-    background-color: var(--bg-600);
+  #page .sticky-navbar {
+    background-color: transparent;
+    
+    &::after {
+      background: inherit;
+    }
+    a {
+      background-color: var(--bg-300);
+      border-color: var(--bg-400);
+      color: var(--cl-300);
+    }
+    a:is(:hover, :focus) {
+      background-color: var(--bg-500);
+    }
+    a.selected, a.selected:is(:hover, :focus) {
+      background-color: var(--bg-600);
+    }
   }
   .profile-about {
     color: var(--cl-500);
@@ -1433,11 +1433,24 @@
     background-color: var(--bg-600) !important;
     color: var(--cl-300);
   }
-  .main-wrap .blank-state {
+  #page .blank-state {
     background-color: var(--bg-300);
     
     h2 {
       color: var(--cl-400);
+    }
+  }
+
+  /* Blocked profile */
+  #page .ui-block-profile-placeholder {
+    background-color: var(--bg-400);
+    border-radius: var(--br);
+    
+    h4 {
+      color: var(--cl-400);
+    }
+    p {
+      color: var(--cl-600);
     }
   }
   
@@ -2056,6 +2069,39 @@
   }
   section#individual-post .post-container .post-view {
     background-color: var(--bg-200);
+  }
+  #page .post-view-header .post-view-header__author {
+    color: var(--cl-300) !important;
+  }
+  #page .ui-post-tags-section {
+    background-color: transparent;
+
+    .ui-post-tags a {
+      background-color: var(--bg-400);
+      border-radius: var(--br);
+      color: var(--cl-400);
+
+      &:hover, &:focus {
+        background-color: var(--bg-600);
+      }
+    }
+  }
+
+  /* Save Button */  
+  .post-afterbar-a .btn-vote a.save {
+    &::after {
+      content: "\f02e";
+    }
+    &.active {
+      background-color: var(--bg-450);
+      border-color: var(--bg-450);
+    }
+    &:hover::after, &:focus-visible::after, &.active::after {
+      color: var(--blue-light);
+    }
+    .ui-base-icon {
+      opacity: 0;
+    }
   }
   
   /* ---- Post Comment ---- */
