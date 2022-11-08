@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.3.4
+@version        2.3.5
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1993,7 +1993,7 @@
   .share .button:is(.share:hover, .share.active)::after {
     filter: brightness(1);
   }
-  #main .share .share-bar {
+  #main .share .share-bar, #individual-post .share-bar {
     > *, .share-menu-button {
       background-color: var(--bg-400);
       border-radius: 2px;
