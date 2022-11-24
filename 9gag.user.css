@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.3.7
+@version        2.3.8
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -2627,7 +2627,7 @@
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/apex-legends.jpg");
       }
       &[href*="/tag/argentina" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/argentina.jpg");
+        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/argentina.png");
       }
       &[href*="/tag/ask-9gag" i]::before {
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/ask-9gag.jpg");
@@ -2675,7 +2675,7 @@
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/fashion.jpg");
       }
       &[href*="/tag/fifa" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/fifa.jpg");
+        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/fifa.png");
       }
       &[href*="/tag/food" i]::before {
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/food.jpg");
@@ -2717,7 +2717,7 @@
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/horror.jpg");
       }
       &[href*="/tag/japan" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/japan.jpg");
+        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/japan.png");
       }
       &[href*="/tag/kpop" i]::before {
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/kpop.jpg");
@@ -2735,7 +2735,7 @@
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/meme.jpg");
       }
       &[href*="/tag/mexico" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/mexico.jpg");
+        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/mexico.png");
       }
       &[href*="/tag/movie-tv" i]::before {
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/movie-tv.jpg");
@@ -2765,10 +2765,10 @@
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/pubg.jpg");
       }
       &[href*="/tag/qatar" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/qatar.jpg");
+        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/qatar.png");
       }
       &[href*="/tag/qatar-2022" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/qatar-2022.jpg");
+        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/qatar-2022.png");
       }
       &[href*="/tag/random" i]::before {
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/random.jpg");
@@ -2816,7 +2816,7 @@
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/wholesome.jpg");
       }
       &[href*="/tag/world-cup" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/world-cup.jpg");
+        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/world-cup.png");
       }
       &[href*="/tag/wtf" i]::before {
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/wtf.jpg");
