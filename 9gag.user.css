@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.3.5
+@version        2.3.6
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -31,6 +31,12 @@
     font-weight: 900;
     src: local("Font Awesome 5 Pro Solid"),
     url(https://dl.dropboxusercontent.com/s/e2y91lv99tje3rj/Font%20Awesome%205%20Pro-Solid-900.otf);
+  }
+  @font-face {
+    font-family: "Font Awesome";
+    font-weight: 100;
+    src: local("Font Awesome 5 Brands Regular"),
+    url(https://dl.dropboxusercontent.com/s/ytjt4oinha1xbnj/Font%20Awesome%205%20Brands-Regular-400.otf);
   }
 
   :root {
@@ -1263,18 +1269,20 @@
   .drawer li {
     border-radius: var(--br);
   }
-  .drawer .label {
+  .drawer :is(.label, .drawer-menu-item) {
     color: var(--cl-400)
   }
-  .drawer li.selected .label {
+  .drawer li.selected :is(.label, .drawer-menu-item) {
     background-color: var(--bg-400);
   }
-  .drawer li:hover .label {
+  .drawer li:hover :is(.label, .drawer-menu-item) {
     background-color: var(--bg-300);
   }
-  .drawer .label .icon, 
   .drawer .button .icon {
     filter: var(--invert);
+  }
+  .drawer-menu-item.bold .ui-base-icon path {
+    fill: currentColor;
   }
   .drawer .button .icon.more {
     opacity: 0.4;
@@ -1289,7 +1297,8 @@
     background: none;
     opacity: 0;
   }
-  .drawer .button .icon.star::after {
+  .drawer .button .icon.star::after, 
+  .drawer-menu-item .button:not(.remove) .ui-base-icon::after {
     content: "\f005";
     font-family: "Font Awesome";
     font-size: 20px;
@@ -1298,10 +1307,19 @@
     line-height: 1.5rem;
     color: var(--cl-900);
   }
-  .drawer li:hover .icon.star {
+  .drawer-menu-item .button:not(.remove) .ui-base-icon::after {
+    line-height: 1;
+    opacity: 0;
+  }
+  .drawer-menu-item .button:not(.remove) .ui-base-icon svg {
+    display: none;
+  }
+  .drawer li:hover .icon.star, 
+  .drawer-menu-item:hover .button:not(.remove) .ui-base-icon::after {
     opacity: 0.2;
   }
-  .drawer li:hover .icon.star:hover {
+  .drawer li:hover .icon.star:hover, 
+  .drawer-menu-item:hover .button:not(.remove) .ui-base-icon:hover::after {
     opacity: 0.4;
   }
   .drawer li .button.favorite .icon.star {
@@ -1310,6 +1328,10 @@
   }
   .drawer .button.favorite .icon.star::after {
     color: var(--yellow);
+  }
+  .drawer-menu-item .button.favorite .ui-base-icon::after {
+    color: var(--yellow);
+    opacity: 1 !important;
   }
   
   /* ---- Page Layout ---- */
@@ -2562,7 +2584,8 @@
 @-moz-document domain(9gag.com) {
   /* Restore tag images on sidebar */
   if (restoreTagImg == 1) {
-    .drawer-container > section:not(:first-child) .label.section {
+    .drawer-container > section:not(:first-child) .label.section, 
+    .drawer-container > section:not(:first-of-type) .drawer-menu-item  {
       position: relative;
       padding-inline-start: 3rem;
 
@@ -2584,7 +2607,7 @@
         background-color: var(--bg-600);
       }
     }
-    .label.section {
+    .label.section, .drawer-menu-item {
       &[href*="/tag/among-us" i]::before {
         background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/among-us.jpg");
       }
