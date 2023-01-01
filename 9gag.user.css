@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.3.9
+@version        2.3.10
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -2581,258 +2581,41 @@
   }
 }
 
-@-moz-document domain(9gag.com) {
+@-moz-document domain(9gag.com)
   /* Restore tag images on sidebar */
-  if (restoreTagImg == 1) {
+  $tags = (("2023" ) ("among-us") animals anime ("anime-waifu") ("anime-wallpaper") ("apex-legends") argentina ("ask-9gag") brazil car cat comic coronavirus cosplay countryballs cozy ("crappy-design") cryptocurrency ("cyberpunk-2077") ("dark-humor") drawing ("elden-ring") fashion fifa food football f1 fortnite funny ("game-of-thrones") gaming (germany deutschland "9gag-den-deutschen" german) gif girl ("girl-celebrity") guy history horror japan kpop ("latest-news") ("league-of-legends") lego meme messi mexico ("movie-tv") music nba ("new-year" "happy-new-year") nsfw overwatch pcmr pokemon politics pubg qatar ("qatar-2022" "2022-fifa-world-cup") random relationship ("resident-evil") satisfying savage science sport ("star-wars") superhero school travel video wallpaper warhammer wholesome ("world-cup") wtf )
+
+  if (restoreTagImg == 1) 
     .drawer-container > section:not(:first-child) .label.section, 
-    .drawer-container > section:not(:first-of-type) .drawer-menu-item  {
-      position: relative;
-      padding-inline-start: 3rem;
+    .drawer-container > section:not(:first-of-type) .drawer-menu-item  
+      position: relative
+      padding-inline-start: 3rem
 
-      &::before {
-        content: '';
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        top: 50%;
-        left: 1rem;
-        background-color: var(--bg-400);
-        background-repeat: no-repeat;
-        background-size: 24px;
-        background-position: center;
-        transform: translateY(-50%);
-      }
+      &::before 
+        content: ''
+        position: absolute
+        width: 24px
+        height: 24px
+        top: 50%
+        left: 1rem
+        background-color: var(--bg-400)
+        background-repeat: no-repeat
+        background-size: 24px
+        background-position: center
+        transform: translateY(-50%)
 
-      &:hover::before {
-        background-color: var(--bg-600);
-      }
-    }
-    .label.section, .drawer-menu-item {
-      &[href="/tag/2022-fifa-world-cup" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/qatar-2022.png");
-      }
-      &[href="/tag/among-us" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/among-us.jpg");
-      }
-      &[href="/tag/animals" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/animals.jpg");
-      }
-      &[href="/tag/anime" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/anime.jpg");
-      }
-      &[href="/tag/anime-waifu" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/anime-waifu.jpg");
-      }
-      &[href="/tag/anime-wallpaper" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/anime-wallpaper.jpg");
-      }
-      &[href="/tag/apex-legends" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/apex-legends.jpg");
-      }
-      &[href="/tag/argentina" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/argentina.png");
-      }
-      &[href="/tag/ask-9gag" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/ask-9gag.jpg");
-      }
-      &[href="/tag/awesome" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/awesome.jpg");
-      }
-      &[href="/tag/brazil" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/brazil.png");
-      }
-      &[href="/tag/car" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/car.jpg");
-      }
-      &[href="/tag/cat" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/cat.png");
-      }
-      &[href="/tag/comic" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/comic.jpg");
-      }
-      &[href="/tag/coronavirus" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/coronavirus.jpg");
-      }
-      &[href="/tag/cosplay" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/cosplay.jpg");
-      }
-      &[href="/tag/countryballs" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/countryballs.jpg");
-      }
-      &[href="/tag/cozy" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/cozy.jpg");
-      }
-      &[href="/tag/crappy-design" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/crappy-design.jpg");
-      }
-      &[href="/tag/cryptocurrency" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/cryptocurrency.jpg");
-      }
-      &[href="/tag/cyberpunk-2077" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/cyberpunk-2077.jpg");
-      }
-      &[href="/tag/dark-humor" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/dark-humor.jpg");
-      }
-      &[href="/tag/drawing" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/drawing.jpg");
-      }
-      &[href="/tag/elden-ring" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/elden-ring.jpg");
-      }
-      &[href="/tag/fashion" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/fashion.jpg");
-      }
-      &[href="/tag/fifa" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/fifa.png");
-      }
-      &[href="/tag/food" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/food.jpg");
-      }
-      &[href="/tag/football" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/football.jpg");
-      }
-      &[href="/tag/f1" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/f1.jpg");
-      }
-      &[href="/tag/fortnite" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/fortnite.jpg");
-      }
-      &[href="/tag/funny" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/funny.jpg");
-      }
-      &[href="/tag/game-of-thrones" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/game-of-thrones.jpg");
-      }
-      &[href="/tag/gaming" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/gaming.jpg");
-      }
-      &[href="/tag/germany" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/germany.png");
-      }
-      &[href="/gif" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/gif.jpg");
-      }
-      &[href="/tag/girl" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/girl.jpg");
-      }
-      &[href="/tag/girl-celebrity" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/girl-celebrity.jpg");
-      }
-      &[href="/tag/guy" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/guy.jpg");
-      }
-      &[href="/tag/history" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/history.jpg");
-      }
-      &[href="/tag/horror" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/horror.jpg");
-      }
-      &[href="/tag/japan" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/japan.png");
-      }
-      &[href="/tag/kpop" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/kpop.jpg");
-      }
-      &[href="/tag/latest-news" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/latest-news.jpg");
-      }
-      &[href="/tag/league-of-legends" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/league-of-legends.jpg");
-      }
-      &[href="/tag/lego" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/lego.jpg");
-      }
-      &[href="/tag/meme" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/meme.jpg");
-      }
-      &[href="/tag/mexico" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/mexico.png");
-      }
-      &[href="/tag/movie-tv" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/movie-tv.jpg");
-      }
-      &[href="/tag/music" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/music.jpg");
-      }
-      &[href="/tag/nba" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/nba.jpg");
-      }
-      &[href="/tag/nsfw" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/nsfw.jpg");
-      }
-      &[href="/tag/overwatch" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/overwatch.jpg");
-      }
-      &[href="/tag/pcmr" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/pcmr.jpg");
-      }
-      &[href="/tag/pokemon" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/pokemon.jpg");
-      }
-      &[href="/tag/politics" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/politics.jpg");
-      }
-      &[href="/tag/pubg" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/pubg.jpg");
-      }
-      &[href="/tag/qatar" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/qatar.png");
-      }
-      &[href="/tag/qatar-2022" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/qatar-2022.png");
-      }
-      &[href="/tag/random" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/random.jpg");
-      }
-      &[href="/tag/relationship" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/relationship.jpg");
-      }
-      &[href="/tag/resident-evil" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/resident-evil.jpg");
-      }
-      &[href="/tag/satisfying" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/satisfying.jpg");
-      }
-      &[href="/tag/savage" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/savage.jpg");
-      }
-      &[href="/tag/science" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/science.jpg");
-      }
-      &[href="/tag/sport" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/sport.jpg");
-      }
-      &[href="/tag/star-wars" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/star-wars.jpg");
-      }
-      &[href="/tag/superhero" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/superhero.jpg");
-      }
-      &[href="/tag/school" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/school.jpg");
-      }
-      &[href="/tag/travel" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/travel.jpg");
-      }
-      &[href="/video" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/video.jpg");
-      }
-      &[href="/tag/wallpaper" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/wallpaper.jpg");
-      }
-      &[href="/tag/warhammer" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/warhammer.jpg");
-      }
-      &[href="/tag/wholesome" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/wholesome.jpg");
-      }
-      &[href="/tag/world-cup" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/world-cup.png");
-      }
-      &[href="/tag/wtf" i]::before {
-        background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/wtf.jpg");
-      }
-    }
-  }
-}
+      &:hover::before 
+        background-color: var(--bg-600)
+        
+    
+    for tag in $tags
+      if length(tag) == 1
+        .label.section, .drawer-menu-item 
+          &{'[href="/tag/'+tag+'" i]::before'} 
+            background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag+".jpg")
+      else
+        for subtag in tag
+          .label.section, .drawer-menu-item 
+            &{'[href="/tag/'+subtag+'" i]::before'} 
+              background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag[0]+".jpg")
+
