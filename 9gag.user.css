@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.3.10
+@version        2.3.11
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1713,11 +1713,11 @@
     background: var(--bg-300);
     border-radius: var(--br) var(--br) 0 0;
   }
-  section#list-view-2 h1 {
+  section#list-view-2 :is(h1, h2) {
     line-height: 1.4em;
     color: var(--cl-400);
   }
-  section#list-view-2 header a h1:hover {
+  section#list-view-2 header a :is(h1, h2):hover {
     color: var(--cl-100);
   }
   section:is(#individual-post, #list-view-2) .post-header {
