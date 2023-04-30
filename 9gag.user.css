@@ -3,12 +3,13 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.4.8
+@version        2.5.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
 @preprocessor   stylus
 @var            checkbox restoreTagImg "Restore section tag images on sidebar" 1
+@var            checkbox restoreSideBar "Restore home/trending tabs to old style" 1
 @var            checkbox hideSidebarRight "Hide Right Sidebar / Featured Posts" 1
 ==/UserStyle== */
 
@@ -1333,6 +1334,17 @@
     color: var(--yellow);
     opacity: 1 !important;
   }
+  .drawer-menu-item__icon .ui-base-icon:has(path[d="M10.41 0.58L19.41 9.58C19.77 9.94 20 10.45 20 11C20 11.55 19.78 12.05 19.41 12.41L12.41 19.41C12.05 19.78 11.55 20 11 20C10.45 20 9.95 19.78 9.59 19.42L0.59 10.42C0.22 10.05 0 9.55 0 9V2C0 0.9 0.9 0 2 0H9C9.55 0 10.05 0.22 10.41 0.58ZM2 9L11 18.01L18 10.99L9 1.99V2H2V9ZM6 4.5C6 5.32843 5.32843 6 4.5 6C3.67157 6 3 5.32843 3 4.5C3 3.67157 3.67157 3 4.5 3C5.32843 3 6 3.67157 6 4.5Z"]) {
+    display: none;
+  }
+  
+  .drawer-menu-item__icon:has(path[d="M10.41 0.58L19.41 9.58C19.77 9.94 20 10.45 20 11C20 11.55 19.78 12.05 19.41 12.41L12.41 19.41C12.05 19.78 11.55 20 11 20C10.45 20 9.95 19.78 9.59 19.42L0.59 10.42C0.22 10.05 0 9.55 0 9V2C0 0.9 0.9 0 2 0H9C9.55 0 10.05 0.22 10.41 0.58ZM2 9L11 18.01L18 10.99L9 1.99V2H2V9ZM6 4.5C6 5.32843 5.32843 6 4.5 6C3.67157 6 3 5.32843 3 4.5C3 3.67157 3.67157 3 4.5 3C5.32843 3 6 3.67157 6 4.5Z"]) {
+    background-image: url("https://raw.githubusercontent.com/ush-ruff/9gag-Gradient-Dark-Revamped/main/images/tag.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 0 4px;
+    transform: rotateY(180deg);
+  }
   
   /* ---- Page Layout ---- */
   #container {
@@ -1405,6 +1417,38 @@
   }
   .sticky li .info-container h3:hover {
     color: var(--cl-400);
+  }
+
+  /* ---- Home Tab Bar ---- */
+  #page #main {    
+    .home-tab-bar__wrapper {
+      background: transparent;
+    }
+
+    .home-tab-bar__container {
+      background: var(--bg-100);
+      border-bottom-color: var(--bg-500);
+    }
+    
+    .home-tab-bar__tab {
+      border-bottom-color: var(--bg-700);
+    }
+  }
+  
+  if (restoreSideBar == 0) {
+    #page #main {
+      .home-tab-bar__wrapper {
+        width: calc(728px + var(--main-margin) + 60px);
+      }
+      
+      .home-tab-bar__container {
+        width: 100%;
+      }
+      
+      > .post-tag {
+        margin-top: 50px;
+      }
+    }
   }
   
   /* ---- Main Wrap ---- */
@@ -1509,12 +1553,12 @@
   }
   input[type="submit"] {
     color: var(--cl-100);
-    background-color: var(--bg-900);
-    border-radius: 0.25rem;
+    background-color: var(--blue-lighter);
+    border-radius: var(--br);
     transition: background-color 180ms;
   }
-  input[type="submit"]:hover {
-    background-color: var(--bg-700);
+  input[type="submit"]:is(:hover, :focus) {
+    background-color: var(--blue-light);
   }
   input[type="email"], input[type="password"], input[type="text"], 
   input[type="url"], section#settings form select, section#settings form textarea {
@@ -2466,7 +2510,7 @@
     content: "";
     position: absolute;
     top: -16px;
-    left: calc(50% - 4px);
+    left: 8px;
     border: 8px solid transparent;
     border-bottom-color: var(--bg-700);
   }
@@ -2766,6 +2810,9 @@
   $tags = (("2023" ) ("9gag") ("among-us") animals anime ("anime-waifu") ("anime-wallpaper") ("apex-legends") argentina ("ask-9gag") awesome brazil car (cat cats) comic coronavirus cosplay countryballs cozy ("crappy-design") cryptocurrency cute ("cyberpunk-2077") ("dark-humor") dog drawing ("elden-ring") fashion fifa finland food football f1 fortnite funny ("game-of-thrones") gaming (germany deutschland "9gag-den-deutschen" german) gif girl ("girl-celebrity") guy history horror india japan kpop ("latest-news" "9gag-news") ("league-of-legends") lego lol meme messi mexico ("movie" "movies") ("movie-tv") music nba ("new-year" "happy-new-year") ("nsfw" "nsfw-meme") overwatch pcmr pokemon politics pubg qatar ("qatar-2022" "2022-fifa-world-cup") random relationship ("resident-evil") russia satisfying savage science sport ("star-wars") superhero school travel ukraine usa video wallpaper (war "russo-ukrainian-war") warhammer wholesome ("world-cup") wtf )
 
   if (restoreTagImg == 1) 
+    .drawer-container > section:not(:first-child) .drawer-menu-item__icon
+      display: none;
+
     .drawer-container > section:not(:first-child) .label.section, 
     .drawer-container > section:not(:first-of-type) .drawer-menu-item  
       position: relative
@@ -2805,3 +2852,91 @@
             &{'[href="/tag/'+subtag+'" i]::before'} 
               background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag[0]+".jpg")
 
+@-moz-document url("https://9gag.com/"), url("https://9gag.com/home"), url("https://9gag.com/top"), url("https://9gag.com/trending"), url("https://9gag.com/fresh") {
+  /* Restore home/trending sidebar tabs */
+  if (restoreSideBar == 1) {
+    #container .drawer {
+      top: 200px;
+
+      .drawer-container section:nth-child(1) {
+        display: none;
+      }
+    }
+    
+    #page #main {    
+      .home-tab-bar__wrapper {
+        --margin: 242px;
+        --x: calc((var(--margin) - var(--inline-ad-margin)) * -1);
+        top: 53px !important;
+        width: 240px;
+        padding: unset;
+        background: transparent;
+        /* transform: translateX(-400px); */
+        transform: translateX(var(--x));
+      }
+
+      .home-tab-bar__container {
+        width: auto;
+        padding: unset;
+        background: transparent;
+        border: unset;
+      }
+
+      .home-tab-bar__tabs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .home-tab-bar__tab {
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        height: 34px;
+        margin: unset;
+        padding: unset;
+        padding-inline-start: 3rem;
+        border: unset;
+        border-radius: 2px;
+
+        &.selected {
+          background-color: var(--bg-400);
+        }
+
+        &:hover {
+          background-color: var(--bg-300);
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          top: 50%;
+          left: 1rem;
+          background-repeat: no-repeat;
+          background-position: center;
+          transform: translateY(-50%);
+        }
+
+        &:nth-child(1)::before {
+          background-image: url("https://raw.githubusercontent.com/ush-ruff/9gag-Gradient-Dark-Revamped/main/images/home.svg");
+          background-size: 20px;
+        }
+
+        &:nth-child(2)::before {
+          background-image: url("https://raw.githubusercontent.com/ush-ruff/9gag-Gradient-Dark-Revamped/main/images/top.svg")
+        }
+
+        &:nth-child(3)::before {
+          background-image: url("https://raw.githubusercontent.com/ush-ruff/9gag-Gradient-Dark-Revamped/main/images/trending.svg")
+        }
+
+        &:nth-child(4)::before {
+          background-image: url("https://raw.githubusercontent.com/ush-ruff/9gag-Gradient-Dark-Revamped/main/images/fresh.svg")
+          background-size: 20px;
+        }
+      }
+    }
+  }
+}
