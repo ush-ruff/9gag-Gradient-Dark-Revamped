@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.5.1
+@version        2.5.2
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -2807,7 +2807,7 @@
 
 @-moz-document domain(9gag.com)
   /* Restore tag images on sidebar */
-  $tags = (("2023" ) ("9gag") ("among-us") animals anime ("anime-waifu") ("anime-wallpaper") ("apex-legends") argentina ("ask-9gag") awesome brazil car (cat cats) comic coronavirus cosplay countryballs cozy ("crappy-design") cryptocurrency cute ("cyberpunk-2077") ("dark-humor") dog drawing ("elden-ring") fashion fifa finland food football f1 fortnite funny ("game-of-thrones") gaming (germany deutschland "9gag-den-deutschen" german) gif girl ("girl-celebrity") guy history horror india japan kpop ("latest-news" "9gag-news") ("league-of-legends") lego lol meme messi mexico ("movie" "movies") ("movie-tv") music nba ("new-year" "happy-new-year") ("nsfw" "nsfw-meme") overwatch pcmr pokemon politics pubg qatar ("qatar-2022" "2022-fifa-world-cup") random relationship ("resident-evil") russia satisfying savage science sport ("star-wars") superhero school travel ukraine usa video wallpaper (war "russo-ukrainian-war") warhammer wholesome ("world-cup") wtf )
+  $tags = (("2023" ) ("9gag") ("among-us") animals anime ("anime-waifu") ("anime-wallpaper") ("apex-legends") argentina ("ask-9gag") awesome brazil car (cat cats) comic coronavirus cosplay countryballs cozy ("crappy-design") cryptocurrency cute ("cyberpunk-2077") ("dark-humor") dog drawing ("elden-ring") fashion fifa finland food football f1 fortnite (funny humor) ("game-of-thrones") (gaming games) (germany deutschland "9gag-den-deutschen" german) gif (girl girls) ("girl-celebrity") (guy guys) history horror india japan kpop ("latest-news" "9gag-news" news) ("league-of-legends") lego lol (meme memes) messi mexico ("movie" "movies") ("movie-tv") music nba ("new-year" "happy-new-year") ("nsfw" "nsfw-meme") overwatch pcmr pokemon politics pubg qatar ("qatar-2022" "2022-fifa-world-cup") random relationship ("resident-evil") russia satisfying savage science (sport sports) ("star-wars") superhero school travel ukraine usa video wallpaper (war "russo-ukrainian-war") warhammer wholesome ("world-cup") wtf )
 
   if (restoreTagImg == 1) 
     .drawer-container > section:not(:first-child) .drawer-menu-item__icon
@@ -2844,12 +2844,12 @@
     for tag in $tags
       if length(tag) == 1
         .label.section, .drawer-menu-item 
-          &{'[href="/tag/'+tag+'" i]::before'} 
+          &{'[href="/tag/'+tag+'" i]::before'}, &{'[href="https://9gag.com/interest/'+tag+'" i]::before'} 
             background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag+".jpg")
       else
         for subtag in tag
           .label.section, .drawer-menu-item 
-            &{'[href="/tag/'+subtag+'" i]::before'} 
+            &{'[href="/tag/'+subtag+'" i]::before'}, &{'[href="https://9gag.com/interest/'+subtag+'" i]::before'} 
               background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag[0]+".jpg")
 
 @-moz-document url("https://9gag.com/"), url("https://9gag.com/home"), url("https://9gag.com/top"), url("https://9gag.com/trending"), url("https://9gag.com/fresh") {
