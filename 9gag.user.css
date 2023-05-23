@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.5.2
+@version        2.6.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1499,7 +1499,7 @@
   }
 
   /* Tags */
-  :is(.featured-tag, div.post-tag, .ui-post-tags) a {
+  :is(.featured-tag, div.post-tag, .ui-post-tags, .post-list-tag, .post-tags) a {
     background-color: var(--bg-400) !important;
     color: var(--cl-500);
     border-radius: var(--br);
@@ -1926,6 +1926,23 @@
     margin: 0;
   }
 
+  /* Post Text */
+  .post-container .post-content-text {
+    padding: 20px;
+    color: inherit;
+    
+    .post-content-text-body__description {
+      word-break: break-word;
+    }
+    a {
+      color: var(--cl-500);
+    }
+    a:hover {
+      text-decoration: none;
+      color: var(--cl-200);
+    }
+  }
+
   /* Sensitive Content */
   section#list-view-2 .post-container .post-sensitive-mask {
     background-color: transparent;
@@ -1951,7 +1968,7 @@
 
   /* -- Post Footer -- */
   /* Post Tag */
-  section#list-view-2 :is(.post-tag, .ui-post-tags) {
+  section#list-view-2 :is(.post-tag, .ui-post-tags, .post-tags) {
     display: flex;
     gap: 1em;
     padding-inline: 2em;
@@ -2024,6 +2041,112 @@
   }
   .btn-vote .comment::after {
     transform: scale(1.2);
+  }
+  section#list-view-2 .post-afterbar-a {
+    display: flex;
+    gap: 0.5rem;
+
+    .btn-vote.left:first-child li:has(> .upvote) {
+      display: flex;
+      gap: 0.5rem;
+      float: unset;
+      margin: unset;
+      padding: unset;
+    }
+    .upvote, .downvote {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      height: 34px;
+      padding: 0 12px;
+      background-color: var(--bg-450);
+      border: 1px solid var(--bg-450);
+      border-radius: 2px;
+      color: var(--cl-500);
+      
+      &::before {
+        font-family: "Font Awesome";
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--cl-900);
+      }
+    }
+    .upvote::before {
+      content: "\f062";
+      margin-inline-end: 0.5rem;
+    }
+    .downvote::before {
+      content: "\f063";
+    }
+    .downvote > .ui-base-icon {
+      display: none;
+    }
+    .upvote.active {
+      background-color: transparent;
+      border: 1px solid var(--green-light);
+    }
+    .upvote:is(.active, :hover)::before {
+      color: var(--green-light);
+    }
+    .downvote.active {
+      background-color: transparent;
+      border: 1px solid var(--red-light);
+    }
+    .downvote:is(.active, :hover)::before {
+      color: var(--red-light);
+    }
+    .upvote.grouped {
+      display: none;
+    }
+    .share {
+      margin-inline-start: auto;
+    }
+    .btn-vote:not(:first-child) li {
+      width: min-content;
+      margin: 0;
+      background-color: var(--bg-450);
+      border: none;
+      border-radius: 2px;
+    }
+    .comment:has(.ui-base-icon)::before {
+      content: "\f27a";
+      font-family: "Font Awesome";
+      font-weight: 900;
+      font-size: 0.95rem;
+      margin-inline-end: 0.25rem;
+      color: var(--cl-600);
+    }
+    .comment:hover::before {
+      color: var(--cl-400);
+    }
+    .save::after {
+      font-size: 1.2rem;
+      margin-inline-end: 0.25rem;
+    }
+    :is(.comment, .save) .ui-base-icon {
+      display: none;
+    }
+    .share-menu-button > * {
+      display: none;
+    }
+    .share-menu-button {
+      position: relative;
+      width: 34px;
+      padding: unset;
+    }
+    .share-menu-button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url(https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/share.svg);
+      background-size: 1.6rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: brightness(0.8);
+    }
+    .share-menu-button:is(:hover, .active)::after {
+      filter: brightness(1);
+    }
   }
 
   /* Post - Social Media Buttons */
