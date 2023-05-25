@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.6.1
+@version        2.6.2
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1500,6 +1500,7 @@
 
   /* Tags */
   #page :is(.featured-tag, div.post-tag, .ui-post-tags, .post-list-tag, .post-tags) a {
+    font-weight: bold;
     background-color: var(--bg-400) !important;
     color: var(--cl-500);
     border-radius: var(--br);
@@ -2042,18 +2043,18 @@
   .btn-vote .comment::after {
     transform: scale(1.2);
   }
-  section#list-view-2 .post-afterbar-a {
+  section#list-view-2 .post-afterbar-a, section#individual-post .post-afterbar-a {
     display: flex;
     gap: 0.5rem;
 
-    .btn-vote.left:first-child li:has(> .upvote) {
+    .btn-vote.left:first-child li:has(> span.upvote) {
       display: flex;
       gap: 0.5rem;
       float: unset;
       margin: unset;
       padding: unset;
     }
-    .upvote, .downvote {
+    span.upvote, .downvote {
       box-sizing: border-box;
       display: flex;
       align-items: center;
@@ -2071,12 +2072,21 @@
         color: var(--cl-900);
       }
     }
+    span.upvote {
+      min-width: 75px;
+    }
+    .upvote.grouped, a.upvote {
+      display: none;
+    }
     .upvote::before {
       content: "\f062";
       margin-inline-end: 0.5rem;
     }
     .downvote::before {
       content: "\f063";
+    }
+    .downvote:not(.grouped)::before {
+      margin-inline-end: 0.5rem;
     }
     .downvote > .ui-base-icon {
       display: none;
@@ -2094,12 +2104,6 @@
     }
     .downvote:is(.active, :hover)::before {
       color: var(--red-light);
-    }
-    .upvote.grouped {
-      display: none;
-    }
-    .share {
-      margin-inline-start: auto;
     }
     .btn-vote:not(:first-child) li {
       width: min-content;
@@ -2123,29 +2127,8 @@
       font-size: 1.2rem;
       margin-inline-end: 0.25rem;
     }
-    :is(.comment, .save) .ui-base-icon {
+    .btn-vote.left .ui-base-icon {
       display: none;
-    }
-    .share-menu-button > * {
-      display: none;
-    }
-    .share-menu-button {
-      position: relative;
-      width: 34px;
-      padding: unset;
-    }
-    .share-menu-button::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url(https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/share.svg);
-      background-size: 1.6rem;
-      background-repeat: no-repeat;
-      background-position: center;
-      filter: brightness(0.8);
-    }
-    .share-menu-button:is(:hover, .active)::after {
-      filter: brightness(1);
     }
   }
 
@@ -2238,6 +2221,32 @@
       .telegram::after {
         content: "\f2c6";
       }
+    }
+  }
+  .post-afterbar-a {
+    .share {
+      margin-inline-start: auto;
+    }
+    .share-menu-button > * {
+      display: none;
+    }
+    .share-menu-button {
+      position: relative;
+      width: 34px;
+      padding: unset;
+    }
+    .share-menu-button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url(https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/share.svg);
+      background-size: 1.6rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: brightness(0.8);
+    }
+    .share-menu-button:is(:hover, .active)::after {
+      filter: brightness(1);
     }
   }
 
@@ -2333,6 +2342,16 @@
       }
     }
   }
+  section#individual-post .post-afterbar-a {
+    border: unset;
+    
+    .btn-vote.left {
+      display: flex;
+    }
+    .btn-vote.left:has(span.downvote) .downvote.seperated {
+      display: none;
+    }
+  }
 
   /* Hide Ad */
   #main > div:first-child {
@@ -2358,6 +2377,8 @@
 
   /* Tab bar - Comment/Related */
   #main .post-tab-bar {
+    margin-block-start: 1rem;
+    
     .post-tab-bar__wrapper.fixed {
       position: static !important;
     }
