@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.6.3
+@version        2.6.4
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -2095,14 +2095,14 @@
       background-color: transparent;
       border: 1px solid var(--green-light);
     }
-    .upvote:is(.active, :hover)::before {
+    .upvote.active::before, .upvote:hover::before {
       color: var(--green-light);
     }
     .downvote.active {
       background-color: transparent;
       border: 1px solid var(--red-light);
     }
-    .downvote:is(.active, :hover)::before {
+    .downvote.active::before, .downvote:hover::before {
       color: var(--red-light);
     }
     .btn-vote:not(:first-child) li {
