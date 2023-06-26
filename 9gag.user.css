@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.6.4
+@version        2.6.5
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1421,17 +1421,22 @@
 
   /* ---- Home Tab Bar ---- */
   #page #main {    
-    .home-tab-bar__wrapper {
+    .home-tab-bar__wrapper, .general-tabs {
       background: transparent;
     }
 
-    .home-tab-bar__container {
+    .home-tab-bar__container, .general-tabs__container {
       background: var(--bg-100);
       border-bottom-color: var(--bg-500);
     }
     
-    .home-tab-bar__tab {
-      border-bottom-color: var(--bg-700);
+    .home-tab-bar__tab, .general-tabs__tab {
+      border-bottom-color: var(--cl-900);
+      color: var(--cl-500);
+      
+      &.selected, &:hover, &:focus {
+        color: var(--cl-300);
+      }
     }
   }
   
@@ -1499,7 +1504,7 @@
   }
 
   /* Tags */
-  #page :is(.featured-tag, div.post-tag, .ui-post-tags, .post-list-tag, .post-tags) a {
+  #page :is(.featured-tag, div.post-tag, .ui-post-tags, .post-list-tag, .post-tags, .tag-interest-list-header__tags) a {
     font-weight: bold;
     background-color: var(--bg-400) !important;
     color: var(--cl-500);
@@ -1805,6 +1810,9 @@
   section:is(#individual-post, #list-view-2) .uikit-popup-menu {
     margin-left: auto;
   }
+  section:is(#individual-post, #list-view-2) :is(.post-meta__list-view, .post-meta__post-view) .name {
+    color: var(--cl-500);
+  }
 
   /* Post Menu Button */
   section#list-view-2 .post-header .uikit-popup-menu .button {
@@ -1836,6 +1844,23 @@
   section#individual-post :is(.post-header, .post-section) .uikit-popup-menu .button svg {
     transform: scale(1.5) rotate(90deg);
     filter: var(--invert);
+  }
+
+  /* Post Hide Button */
+  section#list-view-2 .post-header .hide-post {
+    background-color: transparent;
+    transform: translate(10px, 5px);
+  }
+  section#list-view-2 .post-header .hide-post svg {
+    fill: var(--cl-100);
+    opacity: 0;
+    transition: opacity 350ms 100ms ease-out;
+  }
+  section#list-view-2 [id^="jsid-post"]:is(:hover, :focus) .post-header .hide-post svg {
+    opacity: 0.4;
+  }
+  section#list-view-2 [id^="jsid-post"] .post-header .hide-post:is(:hover, :focus) svg {
+    opacity: 0.8;
   }
 
   /* -- Post Inner -- */
