@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.8.1
+@version        2.8.2
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -3151,12 +3151,12 @@
 
     for tag in $tags
       if length(tag) == 1
-        .post-meta :is(.post-meta__list-view, .post-meta__post-view) .image
+        .post-meta .post-meta__list-view .image, .post-meta .post-meta__post-view .image
           &{'[href="/tag/'+tag+'" i] img'}, &{'[href="https://9gag.com/interest/'+tag+'" i] img'} 
             background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag+".jpg")
       else
         for subtag in tag
-          .post-meta :is(.post-meta__list-view, .post-meta__post-view) .image
+          .post-meta .post-meta__list-view .image, .post-meta .post-meta__post-view .image
             &{'[href="/tag/'+subtag+'" i] img'}, &{'[href="https://9gag.com/interest/'+subtag+'" i] img'} 
               background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag[0]+".jpg")
 
