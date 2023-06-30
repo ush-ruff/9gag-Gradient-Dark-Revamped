@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.7.0
+@version        2.8.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1258,6 +1258,77 @@
   }
   .overlay.overlay-default  .signup-overlay path[d="M24 0H4C1.8 0 0.0200005 1.8 0.0200005 4L0 36L14 30L28 36V4C28 1.8 26.2 0 24 0Z"] {
     fill: #0077FF;
+  }
+
+  /* ---- Tags Customization ---- */
+  .overlay .ui-customize-tags {
+    .ui-customize-tags-section {
+      padding-inline: 1rem;
+      border-top-color: var(--bg-300);
+    }
+    .ui-customize-tags-section__title {
+      color: var(--cl-400);
+    }
+    .ui-customize-tags-item__title {
+      color: var(--cl-600);
+    }
+    .ui-customize-tags-item {
+      padding-inline: 0.5rem;
+      
+      &:hover, &:focus {
+        background-color: var(--bg-300);
+      }
+    }
+    .ui-customize-tags-section .ui-customize-tags-item__action .ui-base-icon svg {
+      display: none;
+    }
+    /* Favourite Icon */
+    .ui-customize-tags-item__action .ui-base-icon.favorite::before, 
+    .ui-customize-tags-section:not(:first-child, :last-child) .ui-customize-tags-item__action:nth-child(2) .ui-base-icon::before {
+      content: "\f005";
+      font-family: "Font Awesome";
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.25rem;
+      color: var(--cl-900);
+    }
+    /* Hide Icon */
+    .ui-customize-tags-item__action .ui-base-icon.hidden::before, 
+    .ui-customize-tags-section:not(:first-child, :last-child) .ui-customize-tags-item__action:nth-child(1) .ui-base-icon::before {
+        content: "\f05e";
+        font-family: "Font Awesome";
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 1.25rem;
+        color: var(--cl-900);
+    }
+    /* Unselected Icon Color */
+    .ui-customize-tags-section:not(:first-child, :last-child) .ui-customize-tags-item__action .ui-base-icon {
+      fill: var(--cl-900);
+      opacity: 0.5;
+      
+      &:hover, &:focus {
+        opacity: 0.8;
+      }
+    }
+    /* Favourited Icon Color */
+    .ui-customize-tags-item__action .ui-base-icon.favorite::before {
+      color: var(--yellow);
+      opacity: 1;
+    }
+    /* Hidden Icon Color */
+    .ui-customize-tags-item__action .ui-base-icon.hidden::before {
+      color: var(--red-light);
+      opacity: 0.8;
+    }
+    .ui-customize-tags-item__action .ui-base-icon.hidden:is(:hover, :focus)::before {
+      opacity: 0.6;
+    }
+    /* Hidden Tag Description */
+    .ui-customize-tags-section__description {
+      font-style: italic;
+      color: var(--bg-800);
+    }  
   }
   
   /* ---- Sidebar - Left ---- */
