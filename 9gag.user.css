@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.8.0
+@version        2.8.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1934,6 +1934,21 @@
     opacity: 0.8;
   }
 
+  /* Post Cheered Users */
+  section:is(#list-view-2, #individual-post) .post-award-users .award-text {
+    color: var(--cl-900);
+  }
+  section:is(#list-view-2, #individual-post) .post-award-users .award-count {
+    background-color: transparent;
+  }
+  section:is(#list-view-2, #individual-post) .post-award-users a {
+    border: 2px solid var(--blue-lighter);
+  }
+  
+  section#individual-post .post-award-users {
+    padding-inline-start: 52px;
+  }
+
   /* -- Post Inner -- */
   section#list-view-2 .post-container {
     width: 100%;
@@ -1954,6 +1969,13 @@
   }
   section#list-view-2 .post-container .read-more .post-view img {
     min-height: auto !important;
+  }
+  section#individual-post .post-container .post-view {
+    background-color: var(--bg-200);
+    border-radius: 0;
+  }
+  section#individual-post .post-container .post-view img {
+    border-radius: 0;
   }
   
   /* Post Media Controls */
@@ -2430,9 +2452,6 @@
     background-color: var(--bg-500);
     color: var(--cl-400);
     border-color: var(--bg-600);
-  }
-  section#individual-post .post-container .post-view {
-    background-color: var(--bg-200);
   }
   #page .post-view-header .post-view-header__author {
     color: var(--cl-300) !important;
@@ -3114,24 +3133,30 @@
 
 
     /* Post Tag Images */
-    .post-meta .post-meta__list-view .image img
-      width: 24px
-      height: 24px
+    .post-meta :is(.post-meta__list-view, .post-meta__post-view) .image img
       box-sizing: border-box
-      padding-inline-start: 24px
+      width: var(--_icon-size)
+      height: var(--_icon-size)
+      padding-inline-start: var(--_icon-size)
       background-color: var(--bg-600)
-      background-size: 24px
+      background-size: var(--_icon-size)
       background-repeat: no-repeat
       border-radius: 50%
+      
+    .post-meta .post-meta__list-view .image img
+      --_icon-size: 24px
+      
+    .post-meta .post-meta__post-view .image img
+      --_icon-size: 40px
 
     for tag in $tags
       if length(tag) == 1
-        .post-meta .post-meta__list-view .image
+        .post-meta :is(.post-meta__list-view, .post-meta__post-view) .image
           &{'[href="/tag/'+tag+'" i] img'}, &{'[href="https://9gag.com/interest/'+tag+'" i] img'} 
             background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag+".jpg")
       else
         for subtag in tag
-          .post-meta .post-meta__list-view .image
+          .post-meta :is(.post-meta__list-view, .post-meta__post-view) .image
             &{'[href="/tag/'+subtag+'" i] img'}, &{'[href="https://9gag.com/interest/'+subtag+'" i] img'} 
               background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag[0]+".jpg")
 
