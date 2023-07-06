@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.8.2
+@version        2.8.3
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -2250,6 +2250,24 @@
     }
   }
 
+  /* Save Button */
+  section#list-view-2 .post-afterbar-a, section#individual-post .post-afterbar-a {
+    .btn-vote li:has(a.save) {
+      box-sizing: border-box;
+      border: 1px solid var(--bg-450);
+    }
+    
+    .btn-vote li:has(a.save.active) {
+      background-color: transparent;
+      border: 1px solid var(--blue-light);
+      color: var(--cl-500);
+    }
+    
+    .btn-vote li .active {
+      color: inherit;
+    }
+  }
+
   @css {
     @supports not selector(a:has(a)) {
       .btn-vote.left:first-child li {
@@ -2497,10 +2515,10 @@
     &::after {
       content: "\f02e";
     }
-    &.active {
-      background-color: var(--bg-450);
-      border-color: var(--bg-450);
-    }
+    // &.active {
+    //   background-color: var(--bg-450);
+    //   border-color: var(--bg-450);
+    // }
     &:hover::after, &:focus-visible::after, &.active::after {
       color: var(--blue-light);
     }
@@ -2968,6 +2986,16 @@
     }
     .sensitive-mask__content__btn:hover {
       background-color: var(--bg-500);
+    }
+  }
+
+  /* 'Be the first to comment' Button */
+  .post-comment .comment-list .comment-notice-message__button {
+    font-weight: 400;
+    background-color: var(--blue-light);
+    
+    &:hover, &:focus {
+      background-color: var(--blue-lighter);
     }
   }
   
