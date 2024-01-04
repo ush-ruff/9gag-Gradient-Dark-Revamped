@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.8.5
+@version        2.9.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1134,6 +1134,9 @@
   .overlay.overlay-default .modal-header__close:hover {
     background-color: transparent;
     color: var(--cl-100);
+  }
+  .overlay.overlay-default .modal-header__close g {
+    fill: currentcolor;
   }
   .overlay.overlay-default .modal-header__close path {
     fill: inherit;
@@ -2363,31 +2366,8 @@
     a > div {
       display: none;
     }
-    .menu {
-      .facebook::after, .pinterest::after, .twitter::after, .telegram::after {
-        font-family: "Font Awesome";
-        font-size: 1.2rem;
-        font-weight: 100;
-        line-height: 1.5;
-        text-indent: 0 !important;
-        text-align: center;
-        background: none;
-        color: var(--cl-400);
-      }
-      .facebook::after {
-        content: "\f09a";
-      }
-      .pinterest::after {
-        content: "\f0d2";
-      }
-      .twitter::after {
-        content: "\f099";
-      }
-      .telegram::after {
-        content: "\f2c6";
-      }
-    }
   }
+  
   .post-afterbar-a {
     .share {
       margin-inline-start: auto;
@@ -2421,43 +2401,103 @@
     right: -18px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   }
-  :is(section#list-view-2, section#individual-post) .share .menu::before {
-    top: -7px;
-    width: 15px;
-    height: 15px;
-    background: var(--bg-500);
-    border: none;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-    transform: rotate(45deg);
-    z-index: -1;
+
+  #main .share .share-bar,
+  #individual-post .share-bar {
+    .menu {
+      .facebook::after, .pinterest::after, .twitter::after, .telegram::after {
+        font-family: "Font Awesome";
+        font-size: 1.2rem;
+        font-weight: 100;
+        line-height: 1.5;
+        text-indent: 0 !important;
+        text-align: center;
+        background: none;
+        color: var(--cl-400);
+      }
+      .facebook::after {
+        content: "\f09a";
+      }
+      .pinterest::after {
+        content: "\f0d2";
+      }
+      .twitter::after {
+        content: "\f099";
+      }
+      .telegram::after {
+        content: "\f2c6";
+      }
+    }
+    .menu .email::after {
+      content: "\f0e0";
+      font-family: "Font Awesome";
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.5;
+      text-indent: 0 !important;
+      text-align: center;
+      background: none;
+      color: var(--cl-400);
+    }
+    .menu .copy::after {
+      scale: 1.25;
+      filter: var(--invert);
+    }
   }
-  :is(section#list-view-2, section#individual-post) .share .menu::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 5px;
-    top: 0;
-    right: 25px;
-    background: var(--bg-500);
+
+  /* -- Hidden Post Message -- */
+  section#list-view-2 {
+    .post-hidden {
+      padding: 1em 3.5em;
+    }
+    .post-hidden__header {
+      color: var(--cl-600);
+    }
+    .post-hidden__header .ui-base-icon g {
+      fill: var(--bg-800);
+    }
+    .post-hidden__header__right:hover .ui-base-icon g {
+      fill: var(--cl-400);
+    }
+    .post-hidden__content {
+      color: var(--cl-400);
+    }
+    .post-hidden__action {
+      border-radius: var(--br);
+      color: var(--cl-500);
+      
+      &:hover, &:focus {
+        background-color: var(--bg-450);
+      }
+    }
+    .post-hidden__action .ui-base-icon {
+      fill: var(--cl-500);
+    }
+    .post-hidden__action .ui-base-icon g {
+      fill: var(--cl-900);
+    }
   }
-  section#individual-post .share .menu::after {
-    width: 21px;
-    right: 20px;
-  }
-  :is(section#list-view-2, section#individual-post) .share :is(.copy, .email)::after {
-    all: unset;
-  }
-  .share .menu :is(.copy, .email)::before {
-    position: absolute;
-    left: -20px;
-    font-family: "Font Awesome", var(--ff);
-  }
-  .share .menu .copy::before {
-    content: "\f0c1";
-    font-weight: 300;
-  }
-  .share .menu .email::before {
-    content: "\f0e0";
+  
+  /* Block Content Modal */
+  .modal__content {
+    .block-content__description {
+      color: var(--cl-500);
+    }
+    .block-content__empty {
+      color: var(--cl-500);
+    }
+    .block-content__content {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--bg-400);
+    }
+    .block-content__item .remove-button:hover {
+      background-color: transparent;
+      color: var(--cl-400);
+      
+      g {
+        fill: currentcolor;
+      }
+    }
   }
   
   
