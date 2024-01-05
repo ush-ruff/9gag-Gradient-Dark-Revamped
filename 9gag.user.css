@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.9.0
+@version        2.10.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -71,6 +71,8 @@
     --ff: Rubik, Open Sans, sans-serif;
     --br: 0.25rem;
     --invert: brightness(10%) grayscale(1) invert(0.9);
+
+    --cube-texture: url(https://i.imgur.com/3ZFqVkc.png);
 
   }
   * {
@@ -347,7 +349,7 @@
   }
   .notification-menu {
     margin-block-start: 0.2em;
-    background-color: var(--bg-500);
+    background-color: var(--bg-200);
     border-color: var(--bg-200);
     border-radius: var(--br);
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.15);
@@ -365,11 +367,13 @@
     transform: rotate(45deg);
   }
   .notification-menu .tab-bar {
+    padding-inline: 2em; 
     background-color: var(--bg-300);
-    border-bottom: 1px solid var(--bg-600);
+    border-bottom: 1px solid var(--bg-300);
     border-radius: var(--br) var(--br) 0 0;
   }
   .notification-menu .tab-bar a {
+    flex-basis: 100%;
     border-color: var(--bg-600);
     color: var(--cl-500);
   }
@@ -386,44 +390,46 @@
   .notification-menu .bumper a.see-all:is(:hover, :focus) {
     color: var(--cl-300);
   }
-  .noti-item {
-    background-color: transparent;
-    color: var(--cl-500);
-  }
-  .noti-item:hover {
-    background-color: var(--bg-300);
-  }
-  li + li .noti-item {
-    border-top: 1px solid var(--bg-500);
-  }
-  .noti-item.unread {
-    position: relative;
-    background-color: var(--bg-400);
-    color: var(--cl-400);
-  }
-  .noti-item.unread::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 3px;
-    top: 0;
-    left: 0;
-    background-color: var(--blue-light);
-  }
-  .noti-item.unread:hover {
-    background-color: var(--bg-200);
-  }
-  .noti-item a, .noti-item.unread a {
-    color: var(--blue-light);
-  }
-  .noti-text {
-    display: grid;
-  }
-  .noti-text.grey {
-    margin-block: 0.2em 0;
-    margin-inline-start: 0;
-    font-size: 0.85rem;
-    color: var(--cl-800);
+  .notification-list {
+    .overview {
+      width: unset;
+    }
+    .noti-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 0.5rem 0.25rem;
+    }
+    .ui-noti-item {
+      position: relative;
+      background-color: var(--bg-450);
+      border-radius: var(--br);
+      color: var(--cl-500);
+    }
+    .ui-noti-item a, .ui-noti-item.unread a {
+      color: var(--blue-lighter);
+    }
+    .ui-noti-item:hover {
+      background-color: var(--bg-600);
+    }
+    .ui-noti-item.unread {
+      background-color: var(--bg-500);
+      border-left: 5px solid var(--blue-light);
+      color: var(--cl-300);
+    }
+    .ui-noti-item.unread:hover {
+      background-color: var(--bg-600);
+    }
+    .ui-noti-item__text {
+      display: grid;
+      gap: 0.2rem;
+      margin-inline: 0.75rem;
+    }
+    .ui-noti-item__creation-time {
+      font-size: 0.75rem;
+      margin-inline-start: 0;
+      color: var(--cl-800);
+    }
   }
   .notification .badge-new {
     height: 15px;
@@ -2471,11 +2477,19 @@
       }
     }
     .post-hidden__action .ui-base-icon {
+      --_size: 15px;
+      width: var(--_size);
+      height: var(--_size);
       fill: var(--cl-500);
     }
     .post-hidden__action .ui-base-icon g {
       fill: var(--cl-900);
     }
+  }
+  section#list-view-2 article:has(> .post-hidden) {
+    background-image: var(--cube-texture);
+    background-blend-mode: multiply;
+    border: 1px solid var(--red-dark);
   }
   
   /* Block Content Modal */
@@ -2710,12 +2724,24 @@
   }
   .post-comment .load-previous, 
   .post-comment .single-thread__toggle-to-list-button {
-    width: 95%;
+    width: 93%;
     align-self: end;
+  }
+  .post-comment .load-next__replies {
+    display: grid;
+    place-items: center;
+    width: 93%;
+    height: 32px;
+    margin-inline-start: 3rem;
+    
+    > div {
+      display: none;
+    }
   }
   .post-comment .load-previous, 
   .post-comment .single-thread__toggle-to-list-button, 
-  .post-comment .comment-list__load-more {
+  .post-comment .comment-list__load-more, 
+  .post-comment .load-next__replies {
     font-family: Lato, var(--ff);
     text-transform: capitalize;
     margin-inline: 0;
@@ -2726,7 +2752,9 @@
   }
   .post-comment .load-previous:hover,
   .post-comment .single-thread__toggle-to-list-button:hover, 
-  .post-comment .comment-list__load-more:hover {
+  .post-comment .comment-list__load-more:hover, 
+  .post-comment .load-next__replies:hover {
+    text-decoration: none;
     background-color: var(--blue-light);
     color: var(--cl-300);
   }
@@ -2888,7 +2916,8 @@
   .comment-list-item_highlighted .comment-footer::after {
     border-radius: 0;
   }
-  .post-comment .comment-list-item_highlighted {
+  .post-comment .comment-list-item_highlighted,
+  .post-comment .comment-item--highlight {
     animation-name: new-comment-highlight;
   }
   @keyframes new-comment-highlight {
