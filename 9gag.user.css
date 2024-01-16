@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.10.0
+@version        2.10.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -2719,24 +2719,11 @@
   }
   
   /* -- Load Buttons -- */
-  .post-comment .load-next__replies {
-    color: var(--blue-light);
-  }
   .post-comment .load-previous, 
-  .post-comment .single-thread__toggle-to-list-button {
+  .post-comment .single-thread__toggle-to-list-button, 
+  .post-comment .load-next__replies {
     width: 93%;
     align-self: end;
-  }
-  .post-comment .load-next__replies {
-    display: grid;
-    place-items: center;
-    width: 93%;
-    height: 32px;
-    margin-inline-start: 3rem;
-    
-    > div {
-      display: none;
-    }
   }
   .post-comment .load-previous, 
   .post-comment .single-thread__toggle-to-list-button, 
@@ -2749,16 +2736,23 @@
     border: none;
     border-radius: var(--br);
     color: var(--cl-100);
+
+    &:hover {
+      text-decoration: none;
+      background-color: var(--blue-light);
+      color: var(--cl-300);
+    }
   }
-  .post-comment .load-previous:hover,
-  .post-comment .single-thread__toggle-to-list-button:hover, 
-  .post-comment .comment-list__load-more:hover, 
-  .post-comment .load-next__replies:hover {
-    text-decoration: none;
-    background-color: var(--blue-light);
-    color: var(--cl-300);
+  .post-comment .load-next__replies {
+    display: grid;
+    place-items: center;
+    height: 32px;
+    margin-inline-start: 3rem;
+    
+    > div {
+      display: none;
+    }
   }
-  
   .post-comment .comment-notice-message {
     font-size: 14px;
     background-color: var(--bg-300);
