@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.11.0
+@version        2.12.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -2274,6 +2274,9 @@
       font-weight: 900;
       margin-inline-end: 0.25rem;
     }
+    li:hover::before {
+      color: var(--yellow);
+    }
   }
 
   /* Save Button */
@@ -2282,15 +2285,30 @@
       box-sizing: border-box;
       border: 1px solid var(--bg-450);
     }
-    
     .btn-vote li:has(a.save.active) {
       background-color: transparent;
       border: 1px solid var(--blue-light);
       color: var(--cl-500);
     }
-    
     .btn-vote li .active {
       color: inherit;
+    }
+    .btn-vote a.save {
+      &::after {
+        content: "\f02e";
+      }
+      &.active {
+        background-color: transparent;
+        border-color: transparent;
+      }
+      .ui-base-icon {
+        opacity: 0;
+      }
+    }
+    .btn-vote:hover a.save, .btn-vote a.save.active {
+      &::after {
+        color: var(--blue-light);
+      }
     }
   }
 
@@ -2584,26 +2602,23 @@
     }
   }
 
+  /* Post hidden - User blocked */
+  /* https://9gag.com/gag/a7ovBmw */
+  #page .ui-post-hidden-placeholder {
+    background-color: var(--bg-200);
+    background-image: var(--cube-texture);
+    background-blend-mode: multiply;
+    border: 1px solid var(--red-dark);
+    border-radius: var(--br);
+    
+    .ui-post-hidden-placeholder__content span {
+      color: var(--cl-500);
+    }
+  }
+
   /* Hide Ad */
   #main > div:first-child {
     min-height: auto !important;
-  }
-
-  /* Save Button */  
-  .post-afterbar-a .btn-vote a.save {
-    &::after {
-      content: "\f02e";
-    }
-    &.active {
-      background-color: transparent;
-      border-color: transparent;
-    }
-    &:hover::after, &:focus-visible::after, &.active::after {
-      color: var(--blue-light);
-    }
-    .ui-base-icon {
-      opacity: 0;
-    }
   }
 
   /* Tab bar - Comment/Related */
@@ -2633,12 +2648,25 @@
       border-radius: var(--br);
       color: var(--cl-400);
     }
-    .post-tab-bar__tab.selected {
+    .post-tab-bar__tab:hover, .post-tab-bar__tab.selected {
       background-color: var(--bg-500);
       color: var(--cl-200);
     }
   }
-  
+
+  /* Tab bar - "View all comments" button */
+  .post-tab-bar .post-tab-bar__actions .comment-tab-bar__back-to-comments {
+    text-transform: capitalize;
+    padding: 0 1rem;
+    background-color: var(--bg-400);
+    color: var(--cl-400);
+    
+    &:hover {
+      background-color: var(--bg-500);
+      color: var(--cl-300);
+    }
+  }
+
   /* ---- Post Comment ---- */
   .comment_system_module {
     font-family: var(--ff);
