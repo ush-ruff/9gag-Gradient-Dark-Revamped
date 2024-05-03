@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.13.3
+@version        2.13.4
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1428,6 +1428,7 @@
   
   /* ---- Page Layout ---- */
   #container {
+    --_page-size: 700px;
     display: flex;
     width: 100%;
     min-width: unset;
@@ -1435,23 +1436,27 @@
   #page {
     width: 100%;
   }
-  .main-wrap, #main {
+  .main-wrap, #main, #main.home-list-view {
     float: unset;
-    width: 700px;
+    width: var(--_page-size);
     margin: 0 auto;
     
     .sticky-navbar.sticky {
       position: static;
     }
   }
-  // #container.drawer > #page {
-  //   margin-left: 0;
-  // }
+  #container.drawer > #page {
+    margin-left: 150px;
+  }
   #container #settings {
-    width: 700px;
+    width: var(--_page-size);
     margin: 0 auto;
   }
-  
+  #page #main :is(.list-container, .top-container) {
+    width: unset;
+    margin: 0;
+  }
+
   /* Hide Sidebar */
   if (hideSidebarRight == 1) {
     #page > :is(#sidebar, .clearfix) {
@@ -1581,6 +1586,9 @@
     h2 {
       color: var(--cl-400);
     }
+  }
+  section#list-view-2 .stream-container:first-child .sidebar {
+    display: none;
   }
 
   /* Tags */
