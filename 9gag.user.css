@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.13.6
+@version        2.14.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1582,6 +1582,8 @@
   }
   #page .blank-state {
     background-color: var(--bg-300);
+    background-image: var(--cube-texture);
+    background-blend-mode: multiply;
     
     h2 {
       color: var(--cl-400);
@@ -1589,6 +1591,9 @@
   }
   section#list-view-2 .stream-container:first-child .sidebar {
     display: none;
+  }
+  #page .tag-interest-list-header__actions button {
+    color: var(--cl-100) !important;
   }
 
   /* Tags */
@@ -1606,7 +1611,9 @@
 
   /* Blocked profile */
   #page .ui-block-profile-placeholder {
-    background-color: var(--bg-400);
+    background-color: var(--bg-300);
+    background-image: var(--cube-texture);
+    background-blend-mode: multiply;
     border-radius: var(--br);
     
     h4 {
@@ -1615,6 +1622,18 @@
     p {
       color: var(--cl-600);
     }
+  }
+
+  /* Tag view - About tab */
+  #page .tag-interest-view__about {
+    display: grid;
+    place-items: center;
+    min-height: 100px;
+    padding: 1rem 2rem;
+    background-color: var(--bg-300);
+    background-image: var(--cube-texture);
+    background-blend-mode: multiply;
+    border-radius: var(--br);
   }
   
   /* ---- Settings ---- */
