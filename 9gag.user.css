@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.15.0
+@version        2.15.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -3132,10 +3132,10 @@
 
   if (restoreTagImg == 1) 
     /* Sidebar Tag Images */
-    .drawer-container > section:not(:first-child) .drawer-menu-item__icon
+    .drawer-container > section:not(:first-of-type) .drawer-menu-item__icon
       display: none;
 
-    .drawer-container > section:not(:first-child) .label.section, 
+    .drawer-container > section:not(:first-of-type) .label.section, 
     .drawer-container > section:not(:first-of-type) .drawer-menu-item  
       position: relative
       padding-inline-start: 3rem
@@ -3157,7 +3157,7 @@
         background-color: var(--bg-600)
         
     
-    .drawer-container > section:not(:first-child) .selected .label.section, 
+    .drawer-container > section:not(:first-of-type) .selected .label.section, 
     .drawer-container > section:not(:first-of-type) .selected .drawer-menu-item 
       &::before
         background-color: var(--bg-600)
