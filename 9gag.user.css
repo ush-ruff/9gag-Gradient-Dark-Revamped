@@ -3,14 +3,12 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.15.1
+@version        2.16.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
 @preprocessor   stylus
 @var            checkbox restoreTagImg "Restore section tag images on sidebar" 1
-@var            checkbox restoreSideBar "Restore home/trending tabs to old style" 0
-@var            checkbox hideSidebarRight "Hide Right Sidebar / Featured Posts" 1
 ==/UserStyle== */
 
 @-moz-document domain("9gag.com") {
@@ -1323,53 +1321,6 @@
   #page #main :is(.list-container, .top-container) {
     width: unset;
     margin: 0;
-  }
-
-  /* Hide Sidebar */
-  if (hideSidebarRight == 1) {
-    #page > :is(#sidebar, .clearfix) {
-      display: none;
-    }
-  }
-
-  /* ---- Sidebar - Right ---- */
-  #sidebar-content {
-    position: fixed !important;
-    width: 300px;
-    height: calc(100% - 70px);
-    top: 50px !important;
-    overflow-y: scroll;
-    scrollbar-width: none;
-  }
-  #sidebar-content::-webkit-scrollbar {
-    display: none;
-  }
-  #sidebar #sidebar-content [id^="sidebar-stream"] {
-    min-height: 100% !important;
-  }
-  #sidebar #sidebar-content [id^="sidebar-stream"] > h4 {
-    display: none;
-  }
-  #sidebar #sidebar-content .sticky {
-    position: relative;
-    top: 0;
-  }
-  .sticky li .img-container {
-    box-sizing: border-box;
-    margin-bottom: 0;
-    background-color: var(--bg-200);
-    border: 1px solid var(--bg-400);
-  }
-  .sticky li .info-container h3 {
-    padding: 5px;
-    background-color: var(--bg-300);
-    border: 1px solid var(--bg-500);
-    border-top: none;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-    color: var(--cl-500);
-  }
-  .sticky li .info-container h3:hover {
-    color: var(--cl-400);
   }
 
   /* ---- Home Tab Bar ---- */
@@ -3203,91 +3154,3 @@
             &{'[href="/tag/'+subtag+'" i] img'}, &{'[href="https://9gag.com/interest/'+subtag+'" i] img'} 
               background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag[0]+".jpg")
 
-@-moz-document url("https://9gag.com/"), url("https://9gag.com/home"), url("https://9gag.com/top"), url("https://9gag.com/trending"), url("https://9gag.com/fresh") {
-  /* Restore home/trending sidebar tabs */
-  if (restoreSideBar == 1) {
-    #container .drawer {
-      top: 200px;
-
-      .drawer-container section:nth-child(1) {
-        display: none;
-      }
-    }
-    
-    #page #main {    
-      .home-tab-bar__wrapper {
-        --margin: 242px;
-        --x: calc((var(--margin) - var(--inline-ad-margin)) * -1);
-        top: 53px !important;
-        width: 240px;
-        padding: unset;
-        background: transparent;
-        /* transform: translateX(-400px); */
-        transform: translateX(var(--x));
-      }
-
-      .home-tab-bar__container {
-        width: auto;
-        padding: unset;
-        background: transparent;
-        border: unset;
-      }
-
-      .home-tab-bar__tabs {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .home-tab-bar__tab {
-        position: relative;
-        box-sizing: border-box;
-        width: 100%;
-        height: 34px;
-        margin: unset;
-        padding: unset;
-        padding-inline-start: 3rem;
-        border: unset;
-        border-radius: 2px;
-
-        &.selected {
-          background-color: var(--bg-400);
-        }
-
-        &:hover {
-          background-color: var(--bg-300);
-        }
-
-        &::before {
-          content: "";
-          position: absolute;
-          width: 24px;
-          height: 24px;
-          top: 50%;
-          left: 1rem;
-          background-repeat: no-repeat;
-          background-position: center;
-          transform: translateY(-50%);
-        }
-
-        &:nth-child(1)::before {
-          background-image: url("https://raw.githubusercontent.com/ush-ruff/9gag-Gradient-Dark-Revamped/main/images/home.svg");
-          background-size: 20px;
-        }
-
-        &:nth-child(2)::before {
-          background-image: url("https://raw.githubusercontent.com/ush-ruff/9gag-Gradient-Dark-Revamped/main/images/top.svg")
-        }
-
-        &:nth-child(3)::before {
-          background-image: url("https://raw.githubusercontent.com/ush-ruff/9gag-Gradient-Dark-Revamped/main/images/trending.svg")
-        }
-
-        &:nth-child(4)::before {
-          background-image: url("https://raw.githubusercontent.com/ush-ruff/9gag-Gradient-Dark-Revamped/main/images/fresh.svg")
-          background-size: 20px;
-        }
-      }
-    }
-  }
-}
