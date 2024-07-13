@@ -1,7 +1,11 @@
 # 9gag Gradient Dark - Revamped
- This is an improved dark theme created for 9gag. It changes the color theme to dark and redesigns the layout and posts.
+[![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg?longCache=true&style=for-the-badge)](https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css)
 
- It is inspired by [9gag Gradient Black Mode](https://userstyles.org/styles/164082/9gag-gradient-black-mode).
+ This is an improved dark theme created for 9gag. In addition to shifting the theme to dark, the layout of the entire website has been redesigned.  
+ 
+ *To display as intended, disable 9gag's inbuilt dark theme.*
+
+ > Inspired by [9gag Gradient Black Mode](https://userstyles.org/styles/164082/9gag-gradient-black-mode).
 
 
 ## Install and setup
