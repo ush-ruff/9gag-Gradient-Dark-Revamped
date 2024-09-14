@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.18.0
+@version        2.18.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -992,8 +992,10 @@
     box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
   }
   .overlay.overlay-default .modal.with-header.with-header-border .modal-header {
+    position: relative;
     background-color: var(--bg-300);
     border-color: var(--bg-300);
+    z-index: 2;
   }
   .overlay.overlay-default .modal-header {
     box-sizing: border-box;
