@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.17.0
+@version        2.18.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -60,6 +60,7 @@
     --cl-900: #999;
   
     --red-light: #f34235;
+    --red-midtone: #a51b13;
     --red-dark: #702321;
     --green-light: #13b66b;
     --blue-light: #0b8be1;
@@ -120,7 +121,7 @@
         background-color: var(--blue-light) !important;
       }
     }
-    &.btn-color-secondary {
+    &.btn-color-secondary, &.btn-color-default {
       font-weight: 500;
       background-color: var(--bg-700) !important;
       color: var(--cl-200) !important;
@@ -135,7 +136,7 @@
       color: var(--cl-300) !important;
       
       &:hover, &:focus {
-        background-color: #a51b13 !important;
+        background-color: var(--red-midtone) !important;
       }
     }
   }
@@ -1489,8 +1490,28 @@
     border-radius: var(--br);
     transition: background-color 180ms;
   }
-  input[type="submit"]:is(:hover, :focus) {
-    background-color: var(--blue-light);
+  input[type="submit"] {
+    color: var(--cl-100);
+    background-color: var(--blue-lighter);
+    border-radius: var(--br);
+    transition: background-color 180ms;
+    
+    &:hover, &:focus {
+      background-color: var(--blue-light);
+    }
+  }
+  #settings .connection a.btn {
+    font-family: var(--ff);
+    font-weight: 500;
+    background-color: var(--bg-700);
+    border-radius: var(--br);
+    color: var(--cl-200);
+    transition: background-color 180ms;
+
+    &:hover, &:focus {
+      background-color: var(--bg-800);
+      color: var(--cl-100);
+    }
   }
   input[type="email"], input[type="password"], input[type="text"], 
   input[type="url"], section#settings form select, section#settings form textarea {
@@ -1498,13 +1519,21 @@
     border-color: var(--bg-700);
     color: var(--cl-400);
     transition: border-color 180ms ease;
+    
+    &:focus {
+      border-color: var(--blue-light);
+    }
   }
-  input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus, 
-  input[type="url"]:focus, section#settings form select:focus, section#settings form textarea:focus {
-    border-color: var(--blue-light);
-  }
-  section#settings .connection {
+  #settings .connection {
     background-color: var(--bg-400);
+  }
+  #settings .connection a.thick {
+    color: var(--red-light);
+    transition: color 180ms ease-in-out;
+    
+    &:hover, &:focus {
+      color: var(--red-midtone);
+    }
   }
   .toast-message {
     background-color: var(--blue-light) !important;
@@ -1514,7 +1543,7 @@
   }
 
   /* Block list */
-  .blocklist__list .ui-block-user-item__info {
+  .blocklist .ui-block-user-item__info {
     h4 {
       color: var(--cl-400);
     }
