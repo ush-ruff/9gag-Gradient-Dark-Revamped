@@ -9,12 +9,13 @@
 
 
 ## Install and setup
+In order to use this theme or any other userstyles you will need to install a browser extension. I recommend using the Stylus extension.
 
-### Using a browser extension: 
-* Stylus - get the addon for: 
-  * [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
-  * [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) 
-  * [Opera](https://addons.opera.com/en-gb/extensions/details/stylus/).
+### Browser extension:
+Get the Stylus addon for:
+
+[![Firefox](https://raw.githubusercontent.com/ush-ruff/Common/refs/heads/main/Icons/Browsers/firefox.png)](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
+[![Chrome](https://raw.githubusercontent.com/ush-ruff/Common/refs/heads/main/Icons/Browsers/chrome.png)](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
 
 ### Install this theme:
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg?longCache=true&style=for-the-badge)](https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css)
