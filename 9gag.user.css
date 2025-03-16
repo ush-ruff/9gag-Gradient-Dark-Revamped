@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.18.1
+@version        2.19.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -3144,6 +3144,8 @@
 
 @-moz-document domain(9gag.com)
   /* Restore tag images on sidebar */
+  $letters = ('a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'z')
+
   $tags = (("2023" ) ("9gag") ("among-us") animals anime animensfw ("anime-waifu") ("anime-wallpaper") ("apex-legends") argentina ("ask-9gag" ask) awesome brazil car (cat cats) comic coronavirus cosplay countryballs cozy ("crappy-design") (cryptocurrency crypto) cute ("cyberpunk-2077") ("dark-humor") dog drawing ("elden-ring") fashion fifa finland food football f1 fortnite (funny humor) ("game-of-thrones") (gaming games) (germany deutschland "9gag-den-deutschen" german) gif (girl girls girlsfw) girlnsfw ("girl-celebrity") (guy guys) history horror india japan kpop ("latest-news" "9gag-news" news) ("league-of-legends") lego lifestyle lol (meme memes) messi mexico motorvehicles ("movie" "movies") ("movie-tv") music nba ("new-year" "happy-new-year") ("nsfw" "nsfw-meme") overwatch pcmr pokemon politics pubg qatar ("qatar-2022" "2022-fifa-world-cup") random relationship ("resident-evil") russia satisfying savage science (sport sports) ("star-wars") superhero school travel ukraine usa video wallpaper (war "russo-ukrainian-war" ukrainenews) warhammer wholesome woah ("world-cup") wtf )
 
   if (restoreTagImg == 1) 
@@ -3157,16 +3159,23 @@
       padding-inline-start: 3rem
 
       &::before 
-        content: ''
         position: absolute
         width: 24px
         height: 24px
         top: 50%
         left: 1rem
+        font-family: Roboto, Arial, sans-serif
+        font-size: 1rem
+        font-weight: 900
+        line-height: 1.5
+        text-align: center
+        text-transform: uppercase
         background-color: var(--bg-400)
         background-repeat: no-repeat
         background-size: 24px
         background-position: center
+        color: var(--cl-500)
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.5)
         transform: translateY(-50%)
 
       &:hover::before 
@@ -3179,16 +3188,26 @@
         background-color: var(--bg-600)
 
 
+    for letter in $letters
+      .drawer-container > section:not(:first-of-type) 
+        .label.section, .drawer-menu-item 
+          &{'[href^="/tag/'+letter+'" i]::before'}, &{'[href^="https://9gag.com/interest/'+letter+'" i]::before'}
+            content: '' + letter
+
     for tag in $tags
       if length(tag) == 1
-        .label.section, .drawer-menu-item 
-          &{'[href="/tag/'+tag+'" i]::before'}, &{'[href="https://9gag.com/interest/'+tag+'" i]::before'} 
-            background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag+".jpg")
+        .drawer-container > section:not(:first-of-type) 
+          .label.section, .drawer-menu-item 
+            &{'[href="/tag/'+tag+'" i]::before'}, &{'[href="https://9gag.com/interest/'+tag+'" i]::before'} 
+              content: ''
+              background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag+".jpg")
       else
         for subtag in tag
-          .label.section, .drawer-menu-item 
-            &{'[href="/tag/'+subtag+'" i]::before'}, &{'[href="https://9gag.com/interest/'+subtag+'" i]::before'} 
-              background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag[0]+".jpg")
+          .drawer-container > section:not(:first-of-type) 
+            .label.section, .drawer-menu-item 
+              &{'[href="/tag/'+subtag+'" i]::before'}, &{'[href="https://9gag.com/interest/'+subtag+'" i]::before'} 
+                content: ''
+                background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag[0]+".jpg")
 
 
     /* Post Tag Images */
