@@ -5,7 +5,7 @@
  
  *To display as intended, disable 9gag's inbuilt dark theme.*
 
- > Inspired by [9gag Gradient Black Mode](https://userstyles.org/styles/164082/9gag-gradient-black-mode).
+ > Inspired by [9gag Gradient Black Mode](https://uso.kkx.one/style/164082).
 
 
 ## Install and setup
