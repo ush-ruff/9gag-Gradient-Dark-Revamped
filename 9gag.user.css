@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.19.0
+@version        2.20.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -3143,27 +3143,33 @@
 }
 
 @-moz-document domain(9gag.com)
-  /* Restore tag images on sidebar */
+  /* ---- Restore Tag Images on Sidebar ---- */
+  /* Config */
+  $iconSize = 24px
+  $largeIconSize = 40px
+  $imageBaseUrl = "https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"
+  $imageExt = ".jpg"
+
+  /* Letters (for fallback text content) */
   $letters = ('a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'z')
 
-  $tags = (("2023" ) ("9gag") ("among-us") animals anime animensfw ("anime-waifu") ("anime-wallpaper") ("apex-legends") argentina ("ask-9gag" ask) awesome brazil car (cat cats) comic coronavirus cosplay countryballs cozy ("crappy-design") (cryptocurrency crypto) cute ("cyberpunk-2077") ("dark-humor") dog drawing ("elden-ring") fashion fifa finland food football f1 fortnite (funny humor) ("game-of-thrones") (gaming games) (germany deutschland "9gag-den-deutschen" german) gif (girl girls girlsfw) girlnsfw ("girl-celebrity") (guy guys) history horror india japan kpop ("latest-news" "9gag-news" news) ("league-of-legends") lego lifestyle lol (meme memes) messi mexico motorvehicles ("movie" "movies") ("movie-tv") music nba ("new-year" "happy-new-year") ("nsfw" "nsfw-meme") overwatch pcmr pokemon politics pubg qatar ("qatar-2022" "2022-fifa-world-cup") random relationship ("resident-evil") russia satisfying savage science (sport sports) ("star-wars") superhero school travel ukraine usa video wallpaper (war "russo-ukrainian-war" ukrainenews) warhammer wholesome woah ("world-cup") wtf )
+  /* Tag groups */
+  $tags = (('2023') ('9gag' 'oldmeme') ('among-us') ('animals') ('anime') ('animensfw') ('anime-waifu') ('anime-wallpaper') ('apex-legends') ('argentina') ('ask-9gag' 'ask') ('awesome') ('brazil') ('car') ('cat' 'cats') ('comic') ('coronavirus') ('cosplay') ('countryballs') ('cozy') ('crappy-design') ('cryptocurrency' 'crypto') ('cute') ('cyberpunk-2077') ('dark-humor') ('dog') ('drawing') ('elden-ring') ('fashion') ('fifa') ('finland') ('food') ('football') ('f1') ('fortnite') ('funny' 'humor') ('game-of-thrones') ('gaming' 'games') ('germany' 'deutschland' '9gag-den-deutschen' 'german') ('gif') ('girl' 'girls' 'girlsfw') ('girlnsfw') ('girl-celebrity') ('guy' 'guys') ('history') ('horror') ('india') ('japan') ('kpop') ('latest-news' '9gag-news' 'news') ('league-of-legends') ('lego') ('lifestyle') ('lol') ('meme' 'memes') ('messi') ('mexico') ('motorvehicles') ('movie' 'movies') ('movie-tv') ('music') ('nba') ('new-year' 'happy-new-year') ('nsfw' 'nsfw-meme') ('overwatch') ('pcmr') ('pokemon') ('politics') ('pubg') ('qatar') ('qatar-2022' '2022-fifa-world-cup') ('random') ('relationship') ('resident-evil') ('russia') ('satisfying') ('savage') ('science') ('sport' 'sports') ('star-wars') ('superhero') ('school') ('travel') ('ukraine') ('usa') ('video') ('wallpaper') ('war' 'russo-ukrainian-war' 'ukrainenews') ('warhammer') ('wholesome') ('woah') ('world-cup') ('wtf'))
 
-  if (restoreTagImg == 1) 
-    /* Sidebar Tag Images */
-    .drawer-container > section:not(:first-of-type) .drawer-menu-item__icon
-      display: none;
+  /* Shared selectors */
+  $sidebarItems = '.drawer-container > section:not(:first-of-type) .label.section, .drawer-container > section:not(:first-of-type) .drawer-menu-item'
+  $postMetaImages = '.post-meta .post-meta__list-view .image, .post-meta .post-meta__post-view .image'
+  $selectors = $sidebarItems + ', ' + $postMetaImages
 
-    .drawer-container > section:not(:first-of-type) .label.section, 
-    .drawer-container > section:not(:first-of-type) .drawer-menu-item  
+  /* --- Main Styling Block --- */
+  if restoreTagImg == 1
+    {$selectors}
       position: relative
-      padding-inline-start: 3rem
 
-      &::before 
+      &::before
         position: absolute
-        width: 24px
-        height: 24px
-        top: 50%
-        left: 1rem
+        width: var(--_icon-size, $iconSize)
+        height: var(--_icon-size, $iconSize)
         font-family: Roboto, Arial, sans-serif
         font-size: 1rem
         font-weight: 900
@@ -3172,69 +3178,65 @@
         text-transform: uppercase
         background-color: var(--bg-400)
         background-repeat: no-repeat
-        background-size: 24px
+        background-size: var(--_icon-size, $iconSize)
         background-position: center
         color: var(--cl-500)
         text-shadow: 0 0 2px rgba(0, 0, 0, 0.5)
+        content: attr(data-tagletter)
+
+    /* Sidebar tweaks */
+    {$sidebarItems}
+      padding-inline-start: 3rem
+
+      &::before
+        top: 50%
+        left: 1rem
         transform: translateY(-50%)
 
-      &:hover::before 
+      &:hover::before
         background-color: var(--bg-600)
-        
-    
-    .drawer-container > section:not(:first-of-type) .selected .label.section, 
-    .drawer-container > section:not(:first-of-type) .selected .drawer-menu-item 
+
+    /* Selected sidebar item */
+    .drawer-container > section:not(:first-of-type) .selected .label.section,
+    .drawer-container > section:not(:first-of-type) .selected .drawer-menu-item
       &::before
         background-color: var(--bg-600)
 
-
-    for letter in $letters
-      .drawer-container > section:not(:first-of-type) 
-        .label.section, .drawer-menu-item 
-          &{'[href^="/tag/'+letter+'" i]::before'}, &{'[href^="https://9gag.com/interest/'+letter+'" i]::before'}
-            content: '' + letter
-
-    for tag in $tags
-      if length(tag) == 1
-        .drawer-container > section:not(:first-of-type) 
-          .label.section, .drawer-menu-item 
-            &{'[href="/tag/'+tag+'" i]::before'}, &{'[href="https://9gag.com/interest/'+tag+'" i]::before'} 
-              content: ''
-              background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag+".jpg")
-      else
-        for subtag in tag
-          .drawer-container > section:not(:first-of-type) 
-            .label.section, .drawer-menu-item 
-              &{'[href="/tag/'+subtag+'" i]::before'}, &{'[href="https://9gag.com/interest/'+subtag+'" i]::before'} 
-                content: ''
-                background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag[0]+".jpg")
-
-
-    /* Post Tag Images */
-    .post-meta :is(.post-meta__list-view, .post-meta__post-view) .image img
-      box-sizing: border-box
-      width: var(--_icon-size)
-      height: var(--_icon-size)
-      padding-inline-start: var(--_icon-size)
+    /* Post meta tweaks */
+    .post-meta .post-meta__list-view .image::before
       background-color: var(--bg-600)
-      background-size: var(--_icon-size)
-      background-repeat: no-repeat
       border-radius: 50%
-      
-    .post-meta .post-meta__list-view .image img
-      --_icon-size: 24px
-      
-    .post-meta .post-meta__post-view .image img
-      --_icon-size: 40px
 
+    .post-meta .post-meta__post-view .image::before
+      --_icon-size: $largeIconSize
+      font-size: 1.6rem
+      border-radius: 50%
+
+    /* Hide original icons */
+    .drawer-container > section:not(:first-of-type) .drawer-menu-item__icon,
+    .post-meta :is(.post-meta__list-view, .post-meta__post-view) .image > img
+      display: none
+
+    /* Fallback letter-based icons */
+    for letter in $letters
+      {$selectors}
+        &{'[href^="/tag/'+letter+'" i]::before'}, 
+        &{'[href^="https://9gag.com/interest/'+letter+'" i]::before'}
+          content: letter
+
+    /* Tag-based background images */
     for tag in $tags
       if length(tag) == 1
-        .post-meta .post-meta__list-view .image, .post-meta .post-meta__post-view .image
-          &{'[href="/tag/'+tag+'" i] img'}, &{'[href="https://9gag.com/interest/'+tag+'" i] img'} 
-            background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag+".jpg")
+        {$selectors}
+          &{'[href="/tag/'+tag+'" i]::before'}, 
+          &{'[href="https://9gag.com/interest/'+tag+'" i]::before'} 
+            content: ''
+            background-image: url($imageBaseUrl + tag + $imageExt)
       else
         for subtag in tag
-          .post-meta .post-meta__list-view .image, .post-meta .post-meta__post-view .image
-            &{'[href="/tag/'+subtag+'" i] img'}, &{'[href="https://9gag.com/interest/'+subtag+'" i] img'} 
-              background-image: url("https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/images/tags/"+tag[0]+".jpg")
+          {$selectors}
+            &{'[href="/tag/'+subtag+'" i]::before'}, 
+            &{'[href="https://9gag.com/interest/'+subtag+'" i]::before'} 
+              content: ''
+              background-image: url($imageBaseUrl + tag[0] + $imageExt)
 
