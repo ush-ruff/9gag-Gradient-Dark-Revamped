@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.21.0
+@version        2.22.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -131,7 +131,7 @@
         color: var(--cl-100) !important;
       }
     }
-    &.btn-color-danger {
+    &.btn-color-danger, &.btn-delete {
       background-color: var(--red-dark) !important;
       color: var(--cl-300) !important;
       
@@ -1317,6 +1317,9 @@
   #container.drawer > #page {
     margin-left: 150px;
   }
+  #container.drawer > #page:has(#settings) {
+    margin-left: 0;
+  }
   #container #settings {
     width: var(--_page-size);
     margin: 0 auto;
@@ -1494,12 +1497,6 @@
     background-color: var(--blue-lighter);
     border-radius: var(--br);
     transition: background-color 180ms;
-  }
-  input[type="submit"] {
-    color: var(--cl-100);
-    background-color: var(--blue-lighter);
-    border-radius: var(--br);
-    transition: background-color 180ms;
     
     &:hover, &:focus {
       background-color: var(--blue-light);
@@ -1546,6 +1543,66 @@
   .toast-close {
     color: inherit;
   }
+  #settings {
+    > form {
+      box-sizing: border-box;
+      width: 640px;
+      background: var(--bg-200);
+      padding: 2rem;
+    }
+    
+    .field, .btn-container, section:has(.connection) {
+      width: 100%;
+    }
+    
+    input, select, textarea {
+      width: 100%;
+    }
+    
+    input, textarea {
+      box-sizing: border-box;
+      height: unset;
+      padding: 0.5rem;
+    }
+    
+    input[type="submit"] {
+      width: auto;
+      padding: 0.5rem 1rem;
+    }
+    
+    .btn-container input[type="submit"] + a {
+      line-height: 1.5;
+      padding: 0.5rem 1rem;
+      background-color: var(--red-dark);
+      color: var(--cl-300);
+      border-radius: var(--br);
+      
+      &:hover, &:focus {
+        background-color: var(--red-midtone);
+      }
+    }
+    
+    .date-picker {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 0.5rem;
+      
+      > input {
+        margin: unset;
+      }
+    }
+    
+    .connection .field {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      
+      .clearfix {
+        display: none;
+      }
+    }
+  }
 
   /* Block list */
   .blocklist .ui-block-user-item__info {
@@ -1555,157 +1612,6 @@
     p {
       color: var(--cl-600);
     }
-  }
-  
-  /* ---- Boards ---- */
-  .board-system .board-system__wrapper {
-    background-color: var(--bg-400);
-    color: var(--cl-400);
-  }
-  .board-system .board-system__wrapper .board-system__left_part {
-    background-color: var(--bg-500);
-    border-right-color: var(--bg-600);
-  }
-  .board-system .boards-headers-base, .board-system .boards-list__header, 
-  .board-system .board-view__top-bar {
-    background-color: var(--bg-200);
-    border-bottom-color: var(--bg-500);
-  }
-  .board-system .boards-headings, .board-system .boards-list__header_title, 
-  .board-system .board-system__featured-list .board-system__featured-title, 
-  .board-system .board-system__list_item .list_item__board_info .title, 
-  .board-system .top-bar__board-heading_label {
-    color: var(--cl-400);
-  }
-  .board-system .board-system__user-list {
-    border-bottom-color: var(--bg-600);
-  }
-  .board-system .board-system__list_item.display-list-item:hover, 
-  .board-system .board-system__list_item.display-list-item.active {
-    background-color: var(--bg-700);
-  }
-  .board-system .board-system__list_item .list_item__new-messages {
-    background-color: var(--red-light);
-    border: 1px solid var(--bg-100);
-  }
-  .board-system .pinned-message {
-    background-color: var(--bg-500);
-    border-bottom-color: var(--bg-600);
-  }
-  .board-system .board-message_wrapper.with-bg .bg-container {
-    background-color: var(--bg-600);
-  }
-  .board-system .board-message-header_username a, 
-  .board-system .board-message_replies-button {
-    color: var(--cl-400);
-  }
-  .board-message-text__mention-user {
-    color: var(--blue-lighter);
-  }
-  .board-system .user-avatar__online {
-    background-color: var(--green-light);
-    border: 1px solid var(--bg-100);
-  }
-  .board-system .board-message-header__deleted {
-    color: var(--red-light);
-  }
-  .board-system .user-avatar__container_deleted {
-    background-color: var(--bg-600);
-    border-color: var(--bg-100);
-  }
-  .board-system .user-avatar__container_deleted path {
-    fill: var(--cl-500);
-  }
-  .board-system .boards-footer {
-    background-color: var(--bg-200);
-    border-top-color: var(--bg-600);
-  }
-  .board-system .boards-footer__join-board input[type="text"] {
-    background-color: var(--bg-600);
-    border-color: var(--bg-800);
-  }
-  .board-system .boards-footer__reply-board__text-input {
-    background-color: var(--bg-700);
-    border-color: var(--bg-800);
-    color: var(--cl-300);
-  }
-  .board-system .context-menu, .board-system .message-context-menu {
-    background-color: var(--bg-700);
-    border-color: var(--bg-200);
-  }
-  .board-system .context-menu_item.has-divider, .board-system .message-context-menu_item.has-divider {
-    border-top-color: var(--bg-900);
-  }
-  .board-system .context-menu_item:hover, .board-system .message-context-menu_item:hover {
-    background-color: var(--bg-800);
-    font-weight: normal;
-  }
-  .board-system .board-message-footer_upvote-button-wrapper, 
-  .board-system .board-message-footer_downvote-button-wrapper {
-    position: relative;
-  }
-  .board-system .board-message-footer_upvote-button svg, 
-  .board-system .board-message-footer_downvote-button svg {
-    display: none;
-  }
-  .board-system .board-message-footer_upvote-button::after, 
-  .board-system .board-message-footer_downvote-button::after {
-    content: "\f062";
-    position: absolute;
-    width: 1.105em;
-    height: 100%;
-    top: 0;
-    left: 0;
-    font-family: "Font Awesome", var(--ff);
-    font-size: 1.105em;
-    font-weight: 500;
-    padding: 8px 0;
-    color: var(--cl-600);
-  }
-  .board-system .board-message-footer_downvote-button::after {
-    content: "\f063";
-  }
-  .board-system .board-message-footer_upvote-button:hover::after, 
-  .board-system .board-message-footer_upvote-button--active::after {
-    color: var(--green-light);
-  } 
-  .board-system .board-message-footer_downvote-button:hover::after, 
-  .board-system .board-message-footer_downvote-button--active::after {
-    color: var(--red-light);
-  }
-  .board-system .board-message-footer_upvote-button-count, 
-  .board-system .board-message-footer_downvote-button-count {
-    font-family: var(--ff);
-    margin-left: 1.1em;
-    color: var(--cl-800)
-  }
-  .board-system__minimized-panel_title {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-  }
-  .board-system .minimized-panel__new-messages {
-    width: 0.9em;
-    height: 0.9em;
-    margin: -0.1em 0.5em 0 0;
-    background-color: var(--red-light);
-  }
-  .uni-modal_wrapper {
-    background-color: var(--bg-400);
-  }
-  .uni-modal__header {
-    border-bottom-color: var(--bg-900);
-  }
-  .uni-modal__body {
-    color: var(--cl-500);
-  }
-  .uni-modal__footer .button-secondary {
-    background-color: var(--bg-700);
-    color: var(--cl-300);
-  }
-  .uni-modal__footer .button-secondary:hover {
-    background: var(--bg-900);
   }
   
   /* ---- Posts ---- */
