@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.23.0
+@version        2.24.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -906,6 +906,63 @@
     }
     .tag-input__icon path[d="M9.66659 0L11.1933 1.52667L7.93992 4.78L5.27325 2.11333L0.333252 7.06L1.27325 8L5.27325 4L7.93992 6.66667L12.1399 2.47333L13.6666 4V0H9.66659Z"] {
       fill: var(--cl-300);
+    }
+
+    /* -- Add a Poll -- */
+    .add-poll-button {
+      background-color: var(--bg-400);
+      border-color: var(--bg-400);
+      border-radius: var(--br);
+      color: var(--cl-600);
+      
+      &:hover {
+        background-color: var(--bg-500);
+        border-color: var(--bg-500);
+        color: var(--cl-400);
+      }
+    }
+    
+    .poll-settings {
+      background-color: var(--bg-300);
+      border-color: var(--bg-300);
+      border-radius: var(--br);
+      color: var(--cl-300);
+    }
+    
+    .poll-title {
+      color: var(--cl-600);
+    }
+    
+    .poll-option-input {
+      background-color: var(--bg-500);
+      border-color: var(--bg-600);
+      border-radius: var(--br);
+      color: var(--cl-500);
+      caret-color: var(--cl-300);
+    }
+    
+    .add-option {
+      border-color: var(--bg-900);
+      color: var(--cl-500);
+      
+      &:hover {
+        background-color: var(--bg-450);
+        border-color: var(--cl-600);
+        color: var(--cl-400);
+      }
+    }
+    
+    .remove-poll {
+      background-color: transparent;
+      color: var(--red-light);
+      
+      &:hover, &:focus {
+        color: var(--red-midtone);
+      }
+    }
+    
+    .poll-error {
+      color: var(--red-light);
     }
 
     /* -- Upload Text Post -- */
@@ -1922,6 +1979,50 @@
   }
   .post-sensitive-mask .sensitive-mask__content__btn:hover {
     background-color: var(--bg-500);
+  }
+
+  /* -- Polls -- */
+  .post-poll {
+    margin: unset;
+    margin-block-end: -1rem;
+    padding: unset;
+    
+    .poll-container {
+      padding: 1rem 2em 0;
+      background: unset;
+    }
+    
+    .poll-options-vote {
+      display: grid;
+      gap: 0.5rem
+    }
+    
+    .poll-option-vote {
+      --_poll-option-bg: rgba(255, 255, 255, 0.03);
+      margin: unset;
+      background-color: var(--_poll-option-bg);
+      border-color: var(--bg-500);
+      border-radius: var(--br);
+      color: var(--cl-300);
+      
+      &:hover:not(.has-voted) {
+        background-color: var(--bg-450);
+        border-color: var(--blue-light)
+      }
+      
+      &.has-voted.user-voted-option {
+        background: linear-gradient(to right, var(--blue-light) var(--option-percentage), var(--_poll-option-bg) var(--option-percentage));
+        border-color: var(--blue-light)
+      }
+      
+      &.has-voted.other-voted-option {
+        background: linear-gradient(to right, var(--bg-600) var(--option-percentage), var(--_poll-option-bg) var(--option-percentage));
+      }
+    }
+    
+    .poll-footer {
+      color: var(--cl-800)
+    }
   }
 
   /* -- Post Footer -- */
