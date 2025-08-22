@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.24.2
+@version        2.24.3
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -112,30 +112,40 @@
   .ui-btn {
     font-family: var(--ff);
     border-radius: var(--br) !important;
-    transition: background-color 175ms ease-in-out, color 175ms ease-in-out;
+    transition: background-color 175ms ease-in-out, border-color 175ms ease-in-out, color 175ms ease-in-out;
     
     &.btn-color-primary {
       background-color: var(--blue-lighter) !important;
+      border-color: var(--blue-lighter) !important;
       
-      &:hover, &:focus {
+      &:hover, &:focus-visible {
         background-color: var(--blue-light) !important;
+        border-color: var(--blue-light) !important;
+        outline: 2px solid var(--blue-light);
+        outline-offset: 2px;
       }
     }
+    
     &.btn-color-secondary, &.btn-color-default {
       font-weight: 500;
       background-color: var(--bg-700) !important;
       color: var(--cl-200) !important;
       
-      &:hover, &:focus {
+      &:hover, &:focus-visible {
         background-color: var(--bg-800) !important;
         color: var(--cl-100) !important;
       }
     }
+
+    &.btn-color-flat {
+      color: var(--cl-900);
+    }
+    
     &.btn-color-danger, &.btn-delete {
       background-color: var(--red-dark) !important;
       color: var(--cl-300) !important;
       
-      &:hover, &:focus {
+      &:hover, &:focus-visible {
         background-color: var(--red-midtone) !important;
       }
     }
@@ -2670,43 +2680,46 @@
   .post-comment .comment-composer {
     margin-bottom: 20px;
   }
+  
   .post-action-comment .comment-composer {
     box-sizing: border-box;
     margin: 0;
     padding-inline: 1em;
   }
-  .comment-composer .comment-input-area-content {
-    background: transparent;
-    border-radius: 0;
-  }
-  .comment-composer .comment-input-area-content, 
-  .comment-composer .comment-composer__input-area__footer {
-    border-color: var(--bg-200);
-  }
-  .comment-composer .comment-input-area-content__input-area_textarea {
-    background-color: var(--bg-500);
-    border-color: var(--bg-600);
-    border-radius: var(--br) var(--br) 0 0;
-    color: var(--cl-400);
-  }
-
-  .comment-composer .comment-input-area-content.focused .comment-input-area-content__input-area_textarea {
-    border-color: var(--blue-light);
-  }
-
-  .comment-composer .comment-composer__input-area__footer {
-    padding-inline: 0.5rem 1rem;
-    padding-block-end: 0.5rem;
-    background-color: var(--bg-300);
-  }
-  .comment-composer .comment-composer__input-area button.post {
-    background-color: var(--blue-lighter);
-  }
-  .comment-composer .comment-composer__input-area button.post:hover {
-    background-color: var(--blue-light);
-  }
+  
   .post-comment .comment-community__guideline a {
     color: var(--blue-light);
+  }
+  
+  .comment-composer {
+    .comment-input-area-content {
+      background: transparent;
+      border-radius: 0;
+    }
+    
+    .comment-input-area-content, 
+    .comment-composer__input-area__footer {
+      border-color: var(--bg-200);
+    }
+    
+    .comment-input-area-content__input-area_textarea {
+      background-color: var(--bg-500);
+      border-color: var(--bg-600);
+      border-radius: var(--br) var(--br) 0 0;
+      color: var(--cl-400);
+    }
+
+    .comment-input-area-content.focused .comment-input-area-content__input-area_textarea {
+      background-color: var(--bg-500);
+      border-color: var(--blue-light);
+      box-shadow: unset;
+    }
+
+    .comment-composer__input-area__footer {
+      padding-inline: 0.5rem 1rem;
+      padding-block: 0.75rem 0.5rem;
+      background-color: var(--bg-300);
+    }
   }
 
   /* Bottom composer */
