@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.24.4
+@version        2.24.5
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -13,24 +13,28 @@
 
 @-moz-document domain("9gag.com") {
   @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
   @font-face {
     font-family: "Font Awesome";
     font-weight: 500;
     src: local("FontAwesome Regular"),
     url(https://cdn.rawgit.com/eXo-Necro/Files/ad4dfb1b/Font/fontawesome-webfont-4.7.0.ttf?raw=true);
   }
+
   @font-face {
     font-family: "Font Awesome";
     font-weight: 300;
     src: local("Font Awesome 5 Pro Light"),
     url(https://dl.dropboxusercontent.com/s/47z0fpgd1sx32t8/Font%20Awesome%205%20Pro-Light-300.otf);
   }
+
   @font-face {
     font-family: "Font Awesome";
     font-weight: 900;
     src: local("Font Awesome 5 Pro Solid"),
     url(https://dl.dropboxusercontent.com/s/e2y91lv99tje3rj/Font%20Awesome%205%20Pro-Solid-900.otf);
   }
+
   @font-face {
     font-family: "Font Awesome";
     font-weight: 100;
@@ -74,36 +78,45 @@
     --cube-texture: url(https://i.imgur.com/3ZFqVkc.png);
 
   }
+
   * {
     scrollbar-width: thin;
     scrollbar-color: var(--bg-700) var(--bg-300);
   }
+
   ::-webkit-scrollbar {
     width: 1em;
     background: var(--bg-300);
   }
+
   ::-webkit-scrollbar-thumb {
     background: var(--bg-700);
     border: 3px solid var(--bg-300);
     border-radius: 100vh;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background-color: var(--bg-800);
   }
+
   html, body {
     font-family: var(--ff);
     background-color: var(--bg-100);
     color: var(--cl-500);
   }
+
   h1, h2, h3 {
     color: var(--cl-200);
   }
+
   a {
     color: var(--blue-light);
   }
+
   .field label {
     color: var(--cl-800);
   }
+
   .img-container, .sidebar {
     background-color: var(--bg-100);
   }
@@ -157,14 +170,17 @@
     border-color: var(--blue-lighter);
     color: var(--cl-100);
   }
+
   .ui-toast-view .ui-toast__info {
     background-color: var(--blue-light);
     color: var(--cl-100);
   }
+
   .ui-toast-view .ui-toast__notice {
     background-color: var(--yellow);
     color: var(--bg-100);
   }
+
   .ui-toast-view .ui-toast__error {
     background-color: var(--red-dark);
     color: var(--cl-100);
@@ -175,9 +191,11 @@
     background-color: var(--bg-300);
     border-color: var(--bg-300);
   }
+
   .loading a.btn.spin {
     border-color: var(--bg-300);
   }
+
   .simple-spinner:not(:required)::before {
     border-top-color: var(--cl-500);
   }
@@ -186,6 +204,7 @@
   .btn-download {
     background-image: none;
   }
+
   .btn-download::before {
     content: "\f063";
     font-family: "Font Awesome", var(--ff);
@@ -198,6 +217,7 @@
     background-color: var(--bg-500);
     border-color: var(--bg-700);
   }
+
   a.back-to-top:hover {
     background-color: var(--bg-600);
     border-color: var(--bg-800);
@@ -213,6 +233,7 @@
       color: var(--cl-300);
     }
   }
+  
   .overlay.overlay-default .modal__footer {
     background-color: transparent;
   }
@@ -2479,19 +2500,30 @@
     .block-content__description {
       color: var(--cl-500);
     }
+
     .block-content__empty {
       color: var(--cl-500);
     }
+
     .block-content__content {
       padding: 1rem 1.5rem;
       border-top: 1px solid var(--bg-400);
     }
+
     .block-content__item .remove-button:hover {
       background-color: transparent;
       color: var(--cl-400);
       
       g {
         fill: currentcolor;
+      }
+    }
+
+    .loading-container .spinner-container {
+    background: rgba(255, 255, 255, 0.05);
+    
+      circle {
+        color: var(--cl-500);
       }
     }
   }
