@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.24.3
+@version        2.24.4
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -314,6 +314,8 @@
   }
   .upload .ui-btn.btn-color-primary:hover {
     background-color: var(--bg-500) !important;
+    border: unset;
+    outline: unset;
   }
   .upload .btn-color-primary .ui-base-icon {
     display: none;
@@ -655,7 +657,7 @@
   }
 
   /* ---- User Menu ---- */
-  #top-nav .topbar-menu {
+  :is(#top-nav, #top-navb) .topbar-menu {
     position: relative;
     margin-block-start: 0.2em;
     background-color: var(--bg-500);
@@ -664,50 +666,63 @@
     border-radius: var(--br);
     color: var(--cl-300);
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.15);
+    
+    &::before {
+      content: "";
+      position: absolute;
+      width: 1em;
+      aspect-ratio: 1 / 1;
+      top: calc(-0.5em - 1px);
+      right: calc(50% - 1.4rem - 2px);
+      background-color: var(--bg-500);
+      transform: rotate(45deg);
+    }
   }
-  #top-nav .topbar-menu::before {
-    content: "";
-    position: absolute;
-    width: 1em;
-    aspect-ratio: 1 / 1;
-    top: calc(-0.5em - 1px);
-    right: calc(50% - 1.4rem - 2px);
-    background-color: var(--bg-500);
-    transform: rotate(45deg);
-  }
+  
   #top-nav .user-function .btn-icon.active + .topbar-menu-container .topbar-menu::before {
     right: 1.5rem;
   }
-  .topbar-menu :is(.single-item, .toggle-item) .text{
-    font-family: inherit;
-    color: var(--cl-400);
-  }
-  .topbar-menu :is(.single-item, .toggle-item):hover {
-    background-color: var(--bg-400);
-  }
-  .topbar-menu .toggle-off {
-    background-color: var(--bg-800);
-    border-color: var(--bg-800);
-  }
-  .topbar-menu :is(.nested-item, .plain-text-item) .text {
-    color: var(--cl-500);
-  }
-  .topbar-menu .nested-item :is(.chevron-collapsed, .chevron-expanded) {
-    filter: brightness(1.3);
-  }
-  .topbar-menu .nested-item-container:hover > .nested-item {
-    background-color: var(--bg-400);
-  }
-  .topbar-menu .expand-container {
-    padding-block: 4px;
-    background-color: var(--bg-700);
-    border-top: 1px solid var(--bg-400);
-  }
-  .topbar-menu .separator {
-    border-top-color: var(--bg-400);
-  }
-  .topbar-menu .expand-container .single-item:hover {
-    background-color: var(--bg-500);
+  
+  .topbar-menu {
+    :is(.single-item, .toggle-item) .text {
+      font-family: inherit;
+      color: var(--cl-400);
+    }
+    
+    :is(.single-item, .toggle-item):hover {
+      background-color: var(--bg-400);
+    }
+    
+    .toggle-off {
+      background-color: var(--bg-800);
+      border-color: var(--bg-800);
+    }
+    
+    :is(.nested-item, .plain-text-item) .text {
+      color: var(--cl-500);
+    }
+    
+    .nested-item :is(.chevron-collapsed, .chevron-expanded) {
+      filter: brightness(1.3);
+    }
+    
+    .nested-item-container:hover > .nested-item {
+      background-color: var(--bg-400);
+    }
+    
+    .expand-container {
+      padding-block: 4px;
+      background-color: var(--bg-700);
+      border-top: 1px solid var(--bg-400);
+    }
+    
+    .expand-container .single-item:hover {
+      background-color: var(--bg-500);
+    }
+    
+    .separator {
+      border-top-color: var(--bg-400);
+    }
   }
   
   /* ---- Upload ---- */
