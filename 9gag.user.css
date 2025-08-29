@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.24.5
+@version        2.24.6
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -2248,12 +2248,12 @@
   }
 
   /* Cheers Button */
-  section#list-view-2 .post-afterbar-a .btn-vote:nth-child(3), 
-  section#individual-post .post-afterbar-a .btn-vote:nth-child(2) {
+  section#list-view-2 .post-afterbar-a .btn-vote.post-award, 
+  section#individual-post .post-afterbar-a .btn-vote.post-award {
     box-sizing: border-box;
     border: 1px solid var(--bg-450);
 
-    li[data-v-361701b8]::before {
+    li::before {
       content: '\f79f';
       font-family: "Font Awesome";
       font-weight: 900;
