@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.25.0
+@version        2.25.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1895,6 +1895,7 @@
   /* Editor's Choice Badge */
   section#individual-post .post-header .post-badge, 
   section#list-view-2 .post-header .post-badge {
+    margin-inline-start: 0.5rem;
     padding: unset;
     background-color: transparent;
     border: unset;
@@ -1907,6 +1908,7 @@
     
     svg {
       transform: translateY(-1px);
+      transition-delay: 50ms;
     }
 
     svg path[d="M7 10v12"] {
@@ -1922,7 +1924,7 @@
   }
   
   section#list-view-2 .post-header .post-badge {
-    margin: unset;
+    margin-inline-end: unset;
     z-index: 2;
   }
   
@@ -1943,12 +1945,15 @@
   /* Create meme button */
   .post-header .ui-btn.create-meme-btn {
     position: relative;
+    margin: unset;
     padding: unset;
     background-color: transparent;
     border: unset !important;
     border-radius: 50% !important;
     color: var(--bg-900) !important;
     transform: translateX(var(--menu-translate-x));
+    transition-delay: 100ms;
+    z-index: 2;
 
     &::before {
       content: "\f1fc";
@@ -1970,7 +1975,6 @@
         border-radius: var(--br);
         color: var(--cl-400);
         box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
-        z-index: 99999;
       }
     }
 
@@ -1980,9 +1984,18 @@
     }
   }
   
-  section#individual-post .post-header .ui-btn.create-meme-btn::after {
+  section#individual-post .post-header .create-meme-btn::after {
     top: unset;
     bottom: -2.5rem;
+  }
+  
+  section#list-view-2 .post-header :is(.create-meme-btn, .post-badge svg) {
+    opacity: 0;
+    transition: opacity 350ms ease-out;
+  }
+  
+  section#list-view-2 [id^="jsid-post"]:is(:hover, :focus) .post-header :is(.create-meme-btn, .post-badge svg) {
+    opacity: 1;
   }
 
   /* -- Post Inner -- */
