@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.25.1
+@version        2.25.2
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -644,7 +644,7 @@
   :is(section#list-view-2, section#individual-post, .drawer-container, .profile-more) .menu::before {
     content: "";
     position: absolute;
-    top: -19px;
+    top: -18px;
     border: 10px solid transparent;
     border-bottom-color: var(--bg-500);
   }
@@ -1846,7 +1846,8 @@
     opacity: 0.6;
   }
 
-  section#individual-post :is(.post-header, .post-section) .uikit-popup-menu .button:is(:hover, :focus, :active) {
+  section#individual-post :is(.post-header, .post-section) .uikit-popup-menu .button:is(:hover, :focus, :active, .active) {
+    background: unset;
     opacity: 1;
   }
 
