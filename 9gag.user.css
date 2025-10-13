@@ -3,12 +3,13 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.25.3
+@version        2.26.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
 @preprocessor   stylus
 @var            checkbox restoreTagImg "Restore section tag images on sidebar" 1
+@var            checkbox hideVideos    "Hide posts with videos from the feed"  0
 ==/UserStyle== */
 
 @-moz-document domain("9gag.com") {
@@ -119,6 +120,13 @@
 
   .img-container, .sidebar {
     background-color: var(--bg-100);
+  }
+
+  /* --- Hide posts with videos from the feed --- */
+  if (hideVideos == 1) {
+    section#list-view-2 article:has( > .post-container > div > a > .video-post) {
+      display: none;
+    }
   }
 
   /* ---- Buttons ---- */
