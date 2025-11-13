@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.26.1
+@version        2.26.2
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -120,6 +120,11 @@
 
   .img-container, .sidebar {
     background-color: var(--bg-100);
+  }
+
+  /* Hide sidebar on individual post pages to fix scroll issue */
+  #main:has(> #individual-post) .sidebar {
+    display: none;
   }
 
   /* --- Hide posts with videos from the feed --- */
@@ -2926,7 +2931,7 @@
       color: var(--cl-300);
     }
   }
-  
+
   .post-comment .load-next__replies {
     display: grid;
     place-items: center;
