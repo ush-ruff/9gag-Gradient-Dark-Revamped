@@ -3,13 +3,14 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.26.2
+@version        2.27.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
 @preprocessor   stylus
-@var            checkbox restoreTagImg "Restore section tag images on sidebar" 1
-@var            checkbox hideVideos    "Hide posts with videos from the feed"  0
+@var            checkbox restoreTagImg    "Restore section tag images on sidebar"    1
+@var            checkbox hideVideos       "Hide posts with videos from the feed"     0
+@var            checkbox hidePostComment  "Hide top comment on posts in the feed"    1
 ==/UserStyle== */
 
 @-moz-document domain("9gag.com") {
@@ -1781,7 +1782,6 @@
     color: var(--cl-100);
   }
 
-
   section#individual-post .post-header, 
   section#list-view-2 .post-header {
     --menu-translate-x: 10px;
@@ -1954,7 +1954,6 @@
       border-top-color: var(--bg-500);
     }
   }
-  
   
   /* Create meme button */
   .post-header .ui-btn.create-meme-btn {
@@ -2422,18 +2421,6 @@
     }
   }
 
-  @css {
-    @supports not selector(a:has(a)) {
-      .btn-vote.left:first-child li {
-        display: flex;
-        gap: 0.5rem;
-        float: unset;
-        margin: unset;
-        padding: unset;
-      }
-    }
-  }
-
   /* Post - Social Media Buttons */
   .share .btn-share {
     width: 36px;
@@ -2576,6 +2563,75 @@
     .menu .copy::after {
       scale: 1.25;
       filter: var(--invert);
+    }
+  }
+
+  /* Post - Top Comment */
+  .list-container .post-top-comment {
+    padding: 10px 20px;
+    background-color: var(--bg-400);
+    border-color: var(--bg-400);
+    
+    &:hover {
+      background-color: var(--bg-400);
+    }
+    
+    .post-top-comment__username {
+      color: var(--cl-400);
+    }
+    
+    .post-top-comment__time {
+      color: var(--cl-900);
+    }
+    
+    .post-top-comment__right {
+      margin-inline-start: 8px;
+    }
+    
+    .comment-item-text {
+      color: var(--cl-500);
+    }
+    
+    .comment-item-action__reply-btn {
+      color: var(--cl-900);
+    }
+    
+    &:hover .comment-item-action__reply-btn {
+      color: var(--cl-400);
+    }
+    
+    .vote-button__votes-count {
+      margin-inline-start: 10px;
+    }
+    
+    .vote-button > .ui-base-icon {
+      display: none;
+    }
+    
+    .vote-button::before {
+      content: "\f062";
+      font-family: "Font Awesome";
+      font-weight: 500;
+      color: var(--cl-900);
+    }
+    
+    .vote-button:nth-child(2 of .vote-button)::before {
+      content: "\f063";
+    }
+  }
+
+  .list-container .post-top-comment-footer {
+    text-align: start;
+    padding-block: unset;
+    padding-inline-start: 73px;
+    color: var(--blue-light);
+  }
+
+  /* Option to hide */
+  if (hidePostComment == 1) {
+    .list-container .post-top-comment, 
+    .list-container .post-top-comment-footer {
+      display: none !important;
     }
   }
 
