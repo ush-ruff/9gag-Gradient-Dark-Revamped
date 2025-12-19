@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.28.0
+@version        2.29.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -11,6 +11,7 @@
 @var            checkbox restoreTagImg    "Restore section tag images on sidebar"    1
 @var            checkbox hideVideos       "Hide posts with videos from the feed"     0
 @var            checkbox hidePostComment  "Hide top comment on posts in the feed"    1
+@var            checkbox hideBadges       "Hide user achievement badges"             0
 ==/UserStyle== */
 
 @-moz-document domain("9gag.com") {
@@ -2054,6 +2055,13 @@
           color: oklch(from var(--tooltip-level-color) 75% 40% h);
         }
       }
+    }
+  }
+
+  /* Optionally hide user achievement badges */
+  if (hideBadges == 1) {
+    .potz-badge {
+      display: none !important;
     }
   }
 
