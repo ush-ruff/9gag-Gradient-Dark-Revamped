@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.27.4
+@version        2.28.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -2010,6 +2010,51 @@
   
   section#list-view-2 [id^="jsid-post"]:is(:hover, :focus) .post-header :is(.create-meme-btn, .post-badge svg) {
     opacity: 1;
+  }
+
+  /* User Achievement Badges */
+  @css {
+    .potz-badge-tooltip.potz-badge-tooltip {
+      --palette-text-secondary: var(--cl-500);
+      border-width: 2px;
+      border-radius: var(--br);
+
+      .potz-badge-tooltip__name {
+        color: var(--cl-400);
+      }
+      
+      .potz-badge-tooltip__progress-track {
+        background-color: hsl(from var(--bg-900) h s l / 0.3);
+      }
+
+      .potz-badge-tooltip__checkpoint:not(.potz-badge-tooltip__checkpoint--completed) {
+        background-color: var(--bg-900);
+      }
+
+      &.potz-badge-tooltip--bronze {
+        --tooltip-bg: color-mix(in oklab, var(--bg-400) 95%, #a1472a);
+        
+        .potz-badge-tooltip__level {
+          color: oklch(from var(--tooltip-level-color) 65% 35% h);
+        }
+      }
+
+      &.potz-badge-tooltip--silver {
+        --tooltip-bg: color-mix(in oklab, var(--bg-400) 92%, #778d98);
+        
+        .potz-badge-tooltip__level {
+          color: oklch(from var(--tooltip-level-color) 75% c h);
+        }
+      }
+      
+      &.potz-badge-tooltip--gold {
+        --tooltip-bg: color-mix(in oklab, var(--bg-400) 95%, #e39401);
+        
+        .potz-badge-tooltip__level {
+          color: oklch(from var(--tooltip-level-color) 75% 40% h);
+        }
+      }
+    }
   }
 
   /* -- Post Inner -- */
