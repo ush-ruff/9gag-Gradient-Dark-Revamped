@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.30.1
+@version        2.30.2
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -258,116 +258,133 @@
     background: linear-gradient(90deg, var(--bg-100), var(--bg-800));
     border-color: transparent;
   }
+
   .nav-wrap a.logo, .nav-wrap a.menu {
     filter: invert(0);
   }
+
   .nav-wrap a.menu:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
+
   .nav-menu .secondary a {
     color: var(--cl-200)
   }
+
   .nav-menu .secondary a:hover {
     background-color: var(--bg-100);
     color: var(--cl-100);
   }
+
   .nav-menu a.new:after {
     background-color: var(--green-light);
     transition: all .25s ease;
   }
+
   .nav-menu a.new:hover:after {
     background-color: var(--red-light);
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.24)
   }
-  .upload .btn-primary, .visitor-function .btn-primary {
+
+  .upload .btn-primary, 
+  .visitor-function .btn-primary {
     background-color: var(--bg-600);
     border: 0.0625rem solid var(--bg-700);
     color: var(--cl-300);
+
+    &:hover {
+      background-color: var(--bg-500);
+      border-color: var(--bg-600);
+      color: var(--cl-200);
+    }
   }
-  .upload .btn-primary:hover, .visitor-function .btn-primary:hover {
-    background-color: var(--bg-500);
-    border-color: var(--bg-600);
-    color: var(--cl-200);
+
+  .user-function .btn-mute, 
+  .visitor-function .btn-mute {
+    color: var(--cl-500);
+
+    &:hover {
+      color: var(--cl-200);
+    }
   }
-  .visitor-function .btn-mute:hover {
-    color: var(--cl-200);
-  }
+
   .general-function {
     padding-right: 8px;
   }
+
   .general-function .search {
     position: relative;
     background: none;
+
+    &::before {
+      content: "\f002";
+      position: absolute;
+      inset: 0;
+      text-indent: initial;
+      font-family: "Font Awesome";
+      font-size: 1.25em;
+      font-weight: 300;
+      padding: 0.5em;
+      border-radius: 50%;
+      color: var(--cl-900);
+    }
+
+    &:is(:hover, :focus, .selected)::before {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: var(--cl-100);
+    }
   }
-  .general-function .search::before {
-    content: "\f002";
-    position: absolute;
-    inset: 0;
-    text-indent: initial;
-    font-family: "Font Awesome";
-    font-size: 1.25em;
-    font-weight: 300;
-    padding: 0.5em;
-    border-radius: 50%;
-    color: var(--cl-900);
-  }
-  .general-function .search:is(:hover, :focus, .selected)::before {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: var(--cl-100);
-  }
+
   .user-function .btn-icon:is(.active, :hover, :focus) {
     filter: brightness(0) invert(1);
   }
-  .nav-wrap .board-system__too-nav-button {
-    padding-top: 0;
+  
+  .user-function .avatar .avatar-container {
+    background-color: var(--bg-300);
+    
+    &::before {
+      border: unset;
+    }
+    
+    g {
+      fill: var(--bg-800);
+    }
+    
+    rect {
+      fill: var(--bg-500);
+    }
   }
-  .nav-wrap .board-system__too-nav-button::before {
-    content: "\f27a";
-    font-family: "Font Awesome";
-    font-size: 19px;
-    font-weight: 300;
-  }
-  .nav-wrap .board-system__too-nav-button svg {
-    display: none;
-  }
-  .nav-wrap .board-system__too-nav-button:is(:hover, :focus) {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.1);
-    color: var(--cl-300);
-  }
-  .nav-wrap .board-system__too-nav-button.active {
-    color: var(--cl-300);
-  }
-  .nav-wrap .board-system__new-messages {
-    background-color: var(--red-light);
-    border: 1px solid var(--bg-500);
-  }
+
   /* Upload Button */
   .upload .ui-btn.btn-color-primary {
     background-color: var(--bg-600) !important;
     border-radius: 100vw !important;
     color: transparent;
-  }
-  .upload .ui-btn.btn-color-primary:hover {
-    background-color: var(--bg-500) !important;
-    border: unset;
-    outline: unset;
-  }
-  .upload .btn-color-primary .ui-base-icon {
-    display: none;
-  }
-  .upload .btn-color-primary::before {
-    content: "\2b";
-    font-family: "Font Awesome", var(--ff);
-    font-size: 24px;
-    font-weight: 500;
-    margin-top: -4px;
-    color: var(--cl-300);
-  }
-  .upload .btn-color-primary::after {
-    content: "Upload";
-    margin-left: -24px;
-    color: var(--cl-300);
+
+    &:hover {
+      background-color: var(--bg-500) !important;
+      border: unset;
+      outline: unset;
+    }
+
+    .ui-base-icon {
+      display: none;
+    }
+
+    &::before {
+      content: "\2b";
+      font-family: "Font Awesome", var(--ff);
+      font-size: 24px;
+      font-weight: 500;
+      margin-top: -4px;
+      color: var(--cl-300);
+    }
+
+    &::after {
+      content: "Upload";
+      margin-left: -24px;
+      color: var(--cl-300);
+    }
   }
   
   /* ---- Notifications ---- */
