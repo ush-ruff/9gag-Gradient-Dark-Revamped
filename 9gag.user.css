@@ -3,13 +3,14 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.30.2
+@version        2.31.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
 @preprocessor   stylus
 @var            checkbox restoreTagImg    "Restore section tag images on sidebar"    1
 @var            checkbox hideVideos       "Hide posts with videos from the feed"     0
+@var            checkbox hidePolls        "Hide posts with polls from the feed"      0
 @var            checkbox hidePostComment  "Hide top comment on posts in the feed"    1
 @var            checkbox hideBadges       "Hide user achievement badges"             0
 ==/UserStyle== */
@@ -135,6 +136,13 @@
       display: none;
     }
   }
+
+  /* --- Hide posts with polls from the feed --- */
+  if (hidePolls == 1) {
+  section#list-view-2 article:has( > .post-poll) {
+    display: none;
+  }
+}
 
   /* ---- Buttons ---- */
   .ui-btn {
