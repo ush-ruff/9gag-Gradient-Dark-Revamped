@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.32.0
+@version        2.32.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -791,6 +791,7 @@
     .header .page-title {
       color: var(--cl-300);
     }
+    
     .white-card {
       background-color: var(--bg-200);
       border-color: transparent;
@@ -798,14 +799,34 @@
       color: var(--cl-300);
       overflow: hidden;
     }
+    
     .input-container, .upload-card, .tag-bar {
       background-color: var(--bg-300);
       border-color: var(--bg-300);
       border-radius: var(--br);
       color: var(--cl-300);
     }
+    
     .upload-content-wrapper .icon {
       filter: var(--invert);
+    }
+    
+    .loading-container .spinner-container {
+      display: grid;
+      place-items: center;
+      background-color: rgba(255, 255, 255, 0.15);
+      
+      svg {
+        position: static;
+        width: 48px;
+        height: auto;
+        aspect-ratio: 1;
+        transform: unset;
+      }
+      
+      circle {
+        color: var(--cl-500);
+      }
     }
     
     /* -- Sidebar - Rules -- */
@@ -2423,8 +2444,8 @@
     }
 
     .loading-container .spinner-container {
-    background: rgba(255, 255, 255, 0.05);
-    
+      background: rgba(255, 255, 255, 0.05);
+
       circle {
         color: var(--cl-500);
       }
