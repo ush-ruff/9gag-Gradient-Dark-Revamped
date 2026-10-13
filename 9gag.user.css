@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.31.3
+@version        2.32.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -1837,6 +1837,7 @@
     --menu-translate-x: 10px;
     --gap: 0.5rem;
     gap: calc(var(--gap) / 2);
+    margin: unset;
     
     ui-post-creator {
       max-width: max-content;
@@ -1877,6 +1878,98 @@
     .post-meta__post-view .name {
       color: var(--cl-500);
     }
+    
+    /* Fixes for new style */
+    @css {
+      .compact-post-meta {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: "avatar top" "below below";
+        align-items: center;
+        gap: 0.5rem;
+
+        &.is-post {
+          grid-template-columns: auto auto 1fr;
+          grid-template-areas: "avatar top" "avatar below";
+          gap: 0 0.5rem;
+        }
+
+        .avatar {
+          grid-area: avatar;
+          width: 24px;
+          height: auto;
+          aspect-ratio: 1;
+          border-radius: 50%;
+
+          .is-post & {
+            width: 40px;
+          }
+        }
+
+        > .col {
+          display: contents;
+
+          .top {
+            grid-area: top;
+          }
+
+          .below {
+            grid-area: below;
+            margin: unset;
+          }
+        }
+
+        > .text {
+          display: contents;
+
+          .title-name {
+            grid-area: top;
+          }
+
+          .sub {
+            grid-area: below;
+          }
+        }
+
+        .byline .name {
+          font-size: 12px;
+          font-weight: 400;
+          color: var(--cl-600);
+        }
+
+        .byline .time::before {
+          content: "•";
+          margin-inline: -0.2rem 0.2rem;
+        }
+
+        .post-title-link h2 {
+          font-size: 20px !important;
+          font-weight: 600 !important;
+          line-height: 1.5 !important;
+          color: var(--cl-400) !important;
+        }
+
+        .post-award-users {
+          padding: unset;
+        }
+
+        .title-name {
+          color: var(--cl-500);
+        }
+        
+      }
+      
+      .post-back {
+        background: unset;
+        fill: var(--cl-900);
+        
+        &:is(:hover, :focus-visible) {
+          fill: var(--cl-100);
+        }
+      }
+      
+    }
+    
   }
 
   /* Post Menu Button */
@@ -2115,33 +2208,51 @@
 
   /* -- Post Inner -- */
   section#list-view-2 .post-container {
-    width: 100%;
+    width: 100% !important;
+    max-width: unset;
     margin: 0;
+    
+    .badge-track {
+      display: flex;
+    }
+    
+    .post-view {
+      width: auto !important;
+      height: auto !important;
+      max-width: unset;
+      margin: 0 auto;
+      padding: 0 !important;
+      background-color: transparent;
+      border-radius: 0;
+      
+      img, video {
+        box-sizing: border-box;
+        width: auto !important;
+        height: auto !important;
+        max-width: max-content !important;
+        min-height: auto !important;
+        margin: 0 auto;
+        padding: 0 !important;
+        border-radius: 0;
+      }
+    }
+    
+    .read-more .post-view img {
+      min-height: auto !important;
+    }
   }
-  section#list-view-2 .post-container .post-view {
-    margin: 0 auto;
-    padding: 0 !important;
-    background-color: transparent;
-    border-radius: 0;
+  
+  section#individual-post {
+    .post-container .post-view {
+      background-color: var(--bg-200);
+      border-radius: 0;
+    }
+    
+    .post-view img {
+      border-radius: 0;
+    }
   }
-  section#list-view-2 .post-container .post-view img {
-    box-sizing: border-box;
-    max-width: max-content;
-    min-height: auto !important;
-    margin: 0 auto;
-    padding: 0 !important;
-    border-radius: 0;
-  }
-  section#list-view-2 .post-container .read-more .post-view img {
-    min-height: auto !important;
-  }
-  section#individual-post .post-container .post-view {
-    background-color: var(--bg-200);
-    border-radius: 0;
-  }
-  section#individual-post .post-container .post-view img {
-    border-radius: 0;
-  }
+  
   section#individual-post .youtube-post {
     display: grid;
     place-items: center;
@@ -2153,15 +2264,19 @@
     background-color: var(--bg-300);
     opacity: 0.8;
   }
+  
   :is(.video-post, .youtube-post) span.play {
     transition: transform 180ms ease-out;
   }
+  
   :is(.video-post, .youtube-post) span.play::after {
     background-size: 85px;
   }
+  
   :is(.video-post, .youtube-post) span.play:hover {
     transform: scale(1.1);
   }
+  
   :is(.video-post, .youtube-post) p.length {
     bottom: 22px;
   }
@@ -2172,12 +2287,14 @@
     background: var(--bg-300);
     border-color: var(--bg-600);
   } 
+  
   .post-text-container a {
     color: var(--cl-500);
-  }
-  .post-text-container a:hover {
-    text-decoration: none;
-    color: var(--cl-200);
+    
+    &:hover {
+      text-decoration: none;
+      color: var(--cl-200);
+    }
   }
 
   /* Read More */
@@ -2190,28 +2307,30 @@
     border-top: none;
     border-radius: 0;
     color: var(--cl-400);
-  }
-  .post-read-more::after {
-    content: "+";
-    position: absolute;
-    width: 44px;
-    height: 44px;
-    inset: 0 -1px auto auto;
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 1;
-    text-align: center;
-    background: var(--bg-500);
-    color: var(--cl-400);
+    
+    &::after {
+      content: "+";
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      inset: 0 -1px auto auto;
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 1;
+      text-align: center;
+      background: var(--bg-500);
+      color: var(--cl-400);
+    }
   }
 
   /* Post Description */
   section#list-view-2 .post-text-container {
     padding-inline: 2em;
     color: var(--cl-500);
-  }
-  section#list-view-2 .post-text-container p {
-    margin: 0;
+    
+    p {
+      margin: 0;
+    }
   }
 
   /* Post Text */
@@ -2222,12 +2341,14 @@
     .post-content-text-body__description {
       word-break: break-word;
     }
+    
     a {
       color: var(--cl-500);
-    }
-    a:hover {
-      text-decoration: none;
-      color: var(--cl-200);
+      
+      &:hover {
+        text-decoration: none;
+        color: var(--cl-200);
+      }
     }
   }
 
@@ -2236,20 +2357,24 @@
     background-color: transparent;
     background-image: repeating-linear-gradient(45deg, var(--bg-400), var(--bg-400) 1px, transparent 1px, transparent 5px), repeating-linear-gradient(-45deg, var(--bg-400), var(--bg-400) 1px, transparent 1px, transparent 5px);
   }
+  
   section#list-view-2 .post-container .sensitive-mask__content {
     padding: 1.5rem 2rem;
     background: var(--bg-300);
     border-radius: var(--br);
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.15), inset 0 0 100vw rgba(0, 0, 0, 0.4);
   }
+  
   .post-sensitive-mask .sensitive-mask__content h4 {
     color: var(--cl-400);
   }
+  
   .post-sensitive-mask .sensitive-mask__content__btn {
     background-color: var(--bg-450);
     color: var(--cl-500);
     transition: background-color 250ms linear;
   }
+  
   .post-sensitive-mask .sensitive-mask__content__btn:hover {
     background-color: var(--bg-500);
   }
@@ -2311,7 +2436,7 @@
   section#list-view-2 :is(.post-tag, .ui-post-tags, .post-tags) {
     display: flex;
     gap: 1em;
-    padding-inline: 2em;
+    padding-inline: 3.5em;
 
     a {
       margin: 0;
@@ -2328,26 +2453,32 @@
   section#list-view-2 .post-afterbar-a {
     box-sizing: border-box;
     width: 100%;
-    padding-inline: 2em;
+    margin: unset;
+    padding-inline: 3.5em;
   }
+  
   .post-afterbar-a .btn-vote:nth-child(2) li {
     width: min-content;
     background-color: var(--bg-450);
     border: none;
     border-radius: 2px;
   }
+  
   .btn-vote a, .btn-vote :is(a, .comment):hover {
     background-color: var(--bg-450);
     border-color: var(--bg-450);
     border-radius: 2px;
   }
+  
   .btn-vote li :is(a, .active) span {
     color: var(--cl-500);
   }
+  
   .btn-vote .comment:hover::after, 
   .btn-vote .more:hover::after {
     filter: brightness(1.4);
   }
+  
   .btn-vote a::after {
     font-family: "Font Awesome";
     font-size: 20px;
@@ -2357,32 +2488,42 @@
     text-align: center;
     color: var(--cl-900);
   }
+  
   .btn-vote .up:after,.btn-vote .up.active::after {
     content: "\f062";
     background: none !important;
   }
+  
   .btn-vote .down:after, .btn-vote .down.active::after {
     content: "\f063";
     background: none !important;
   }
+  
   .btn-vote li .up.active {
     background-color: transparent;
     border: 1px solid var(--green-light);
   }
+  
   .btn-vote .up:is(.active, :hover)::after {
     color: var(--green-light);
   }
+  
   .btn-vote li .down.active {
     background-color: transparent;
     border: 1px solid var(--red-light);
   }
+  
   .btn-vote .down:is(.active, :hover)::after {
     color: var(--red-light);
   }
+  
   .btn-vote .comment::after {
     transform: scale(1.2);
   }
-  section#list-view-2 .post-afterbar-a, section#individual-post .post-afterbar-a {
+  
+  section#list-view-2 .post-afterbar-a, 
+  section#individual-post .post-afterbar-a {
+    max-width: unset;
     display: flex;
     gap: 0.5rem;
 
@@ -2393,6 +2534,7 @@
       margin: unset;
       padding: unset;
     }
+    
     span.upvote, .downvote {
       box-sizing: border-box;
       display: flex;
@@ -2411,39 +2553,50 @@
         color: var(--cl-900);
       }
     }
+    
     span.upvote {
       min-width: 75px;
     }
+    
     .upvote.grouped, a.upvote {
       display: none;
     }
+    
     .upvote::before {
       content: "\f062";
       margin-inline-end: 0.5rem;
     }
+    
     .downvote::before {
       content: "\f063";
     }
+    
     .downvote:not(.grouped)::before {
       margin-inline-end: 0.5rem;
     }
+    
     .downvote > .ui-base-icon {
       display: none;
     }
+    
     .upvote.active {
       background-color: transparent;
       border: 1px solid var(--green-light);
     }
+    
     .upvote.active::before, .upvote:hover::before {
       color: var(--green-light);
     }
+    
     .downvote.active {
       background-color: transparent;
       border: 1px solid var(--red-light);
     }
+    
     .downvote.active::before, .downvote:hover::before {
       color: var(--red-light);
     }
+    
     .btn-vote:not(:first-child) li {
       width: min-content;
       margin: 0;
@@ -2451,6 +2604,7 @@
       border: none;
       border-radius: 2px;
     }
+    
     .comment:has(.ui-base-icon)::before {
       content: "\f27a";
       font-family: "Font Awesome";
@@ -2459,16 +2613,20 @@
       margin-inline-end: 0.25rem;
       color: var(--cl-600);
     }
+    
     .comment:hover::before {
       color: var(--cl-400);
     }
+    
     .comment span.comment-text {
       display: none;
     }
+    
     .save::after {
       font-size: 1.2rem;
       margin-inline-end: 0.25rem;
     }
+    
     .btn-vote.left .ui-base-icon {
       display: none;
     }
