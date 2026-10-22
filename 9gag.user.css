@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.32.4
+@version        2.32.5
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -210,13 +210,15 @@
   }
   
   /* ---- Loading ---- */
-  .loading a.btn {
+  #jsid-app .loading a.btn {
     background-color: var(--bg-300);
     border-color: var(--bg-300);
   }
 
-  .loading a.btn.spin {
-    border-color: var(--bg-300);
+  #jsid-app .loading a.btn.end {
+    background-color: var(--bg-500);
+    border-color: var(--bg-600);
+    color: var(--cl-400);
   }
 
   .simple-spinner:not(:required)::before {
@@ -3013,11 +3015,7 @@
   .post-afterbar-meta a:hover {
     color: var(--cl-100)
   }
-  .loading a.btn.end {
-    background-color: var(--bg-500);
-    color: var(--cl-400);
-    border-color: var(--bg-600);
-  }
+
   #page .post-view-header .post-view-header__author {
     color: var(--cl-300) !important;
   }
@@ -3050,13 +3048,6 @@
     .btn-vote.left li + li {
       margin-inline: 0.5rem 0;
       padding: unset;
-    }
-  }
-  @css {
-    @supports not selector(a:has(a)) {
-      section#individual-post .post-afterbar-a .btn-vote.left .downvote.seperated {
-        display: none;
-      }
     }
   }
 
