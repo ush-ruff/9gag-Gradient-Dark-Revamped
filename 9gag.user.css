@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.32.5
+@version        2.33.0
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -2279,6 +2279,12 @@
     display: grid;
     place-items: center;
   }
+
+  .list-container .post-list-item__media {
+    width: auto;
+    max-width: unset;
+    margin: 0 auto;
+  }
   
   /* Post Media Controls */
   .gif-post span.play, 
@@ -2704,6 +2710,10 @@
     }
   }
 
+  .list-container .post-list-item__save.post-save--compact {
+    margin-inline: 0 auto;
+  }
+
   /* Post - Social Media Buttons */
   .share .btn-share {
     width: 36px;
@@ -2799,6 +2809,17 @@
     }
   }
 
+  .list-container .post-afterbar-a .share-menu-button {
+    margin: unset;
+    background-color: var(--bg-450);
+    border: none;
+    border-radius: 2px;
+    
+    &.active {
+      anchor-name: --share-button;
+    }
+  }
+
   /* Share Menu */
   :is(section#list-view-2, section#individual-post) .share .menu {
     top: calc(100% + 15px);
@@ -2806,8 +2827,17 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   }
 
+  section#list-view-2  .list-container .post-afterbar-a .share-bar .menu {
+    position: absolute;
+    position-anchor: --share-button;
+    inset: unset;
+    top: calc(anchor(bottom) + 5px);
+    right: calc(anchor(right) - 20px);
+  }
+
   #main .share .share-bar,
-  #individual-post .share-bar {
+  #individual-post .share-bar, 
+  .post-list-item .share-bar {
     .menu {
       .facebook::after, .pinterest::after, .twitter::after, .telegram::after {
         font-family: "Font Awesome";
@@ -2819,19 +2849,24 @@
         background: none;
         color: var(--cl-400);
       }
+      
       .facebook::after {
         content: "\f09a";
       }
+      
       .pinterest::after {
         content: "\f0d2";
       }
+      
       .twitter::after {
         content: "\f099";
       }
+      
       .telegram::after {
         content: "\f2c6";
       }
     }
+    
     .menu .email::after {
       content: "\f0e0";
       font-family: "Font Awesome";
@@ -2843,9 +2878,14 @@
       background: none;
       color: var(--cl-400);
     }
+    
     .menu .copy::after {
       scale: 1.25;
       filter: var(--invert);
+    }
+    
+    .share-icon svg {
+      fill: var(--cl-100);
     }
   }
 
