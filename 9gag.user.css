@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.33.0
+@version        2.33.1
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -3719,7 +3719,7 @@
 
   /* Shared selectors */
   $sidebarItems = '.drawer-container > section:not(:first-of-type) .label.section, .drawer-container > section:not(:first-of-type) .drawer-menu-item'
-  $postMetaImages = '.post-meta .post-meta__list-view .image, .post-meta .post-meta__post-view .image'
+  $postMetaImages = '.post-meta .post-meta__list-view .image, .post-meta .post-meta__post-view .image, .post-header .compact-post-meta .avatar'
   $selectors = $sidebarItems + ', ' + $postMetaImages
 
   /* --- Main Styling Block --- */
@@ -3763,11 +3763,13 @@
         background-color: var(--bg-600)
 
     /* Post meta tweaks */
-    .post-meta .post-meta__list-view .image::before
+    .post-meta .post-meta__list-view .image::before, 
+    .post-header .compact-post-meta.is-list .avatar::before
       background-color: var(--bg-600)
       border-radius: 50%
 
-    .post-meta .post-meta__post-view .image::before
+    .post-meta .post-meta__post-view .image::before,
+    .post-header .compact-post-meta.is-post .avatar::before
       --_icon-size: $largeIconSize
       font-size: 1.6rem
       border-radius: 50%
