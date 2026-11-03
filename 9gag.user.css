@@ -3,7 +3,7 @@
 @namespace      github.com/ush-ruff
 @homepageURL    https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped
 @updateURL      https://github.com/ush-ruff/9gag-Gradient-Dark-Revamped/raw/main/9gag.user.css
-@version        2.33.2
+@version        2.33.3
 @description    A better looking dark theme for 9gag.
 @author         ushruff
 @license        GNU GPLv3
@@ -133,16 +133,24 @@
   /* --- Hide posts with videos from the feed --- */
   if (hideVideos == 1) {
     section#list-view-2 article:has( > .post-container > div > a > .video-post) {
-      display: none;
+      display: none !important;
+    }
+    
+    .post-list-item:has( > .post-list-item__media > div > a > .video-post) {
+      display: none !important;
     }
   }
 
   /* --- Hide posts with polls from the feed --- */
   if (hidePolls == 1) {
-  section#list-view-2 article:has( > .post-poll) {
-    display: none;
+    section#list-view-2 article:has( > .post-poll) {
+      display: none !important;
+    }
+
+    .post-list-item:has(> .post-poll) {
+      display none !important;
+    }
   }
-}
 
   /* ---- Buttons ---- */
   .ui-btn {
